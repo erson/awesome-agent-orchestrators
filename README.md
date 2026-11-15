@@ -1,4 +1,4 @@
-# Awesome Agent Orchestrators: a metrics index
+# Stop building new AI agent orchestrators — there are 636
 
 An index of open-source and source-available tools for orchestrating AI agents. Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, and how recently it was updated.
 

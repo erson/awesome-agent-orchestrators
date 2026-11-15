@@ -49,7 +49,7 @@ CSV_FIELDS = [
     "latest_release_tag", "latest_release_at", "releases_12m", "open_issues", "open_prs",
     "license", "language", "archived", "topics", "url", "description",
 ]
-TITLE = "Awesome Agent Orchestrators: a metrics index"
+TITLE = "Stop building new AI agent orchestrators"
 INTRO = (
     "An index of open-source and source-available tools for orchestrating AI agents. "
     "Every project has live GitHub metrics: stars, contributors, commit activity, releases, "
@@ -431,7 +431,7 @@ def render_readme(doc, rows):
     dates = sorted({as_of(r).isoformat() for r in rows if r.get("fetched_at")})
     snapshot = dates[0] if len(dates) == 1 else f"{dates[0]} to {dates[-1]}" if dates else TODAY.isoformat()
     parts = [
-        f"# {TITLE}", "", INTRO, "",
+        f"# {TITLE} — there are {len(rows)}", "", INTRO, "",
         f"**Metrics collected {snapshot} (UTC)** · {origins['awesome-list']} from the source list · "
         f"{origins['discovered']} new · {origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
         "",
