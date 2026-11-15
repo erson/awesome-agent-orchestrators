@@ -11,6 +11,7 @@ Needs the GitHub CLI (gh), signed in with read access to public repositories.
 import argparse
 import concurrent.futures as cf
 import csv
+import html
 import json
 import re
 import statistics
@@ -62,16 +63,14 @@ METHOD = """## Methodology
 
 **Data.** GitHub REST API through the GitHub CLI, collected on the date shown above (UTC). Repository figures refer to the default branch. Statuses and day counts are judged as of each project's collection date.
 
-| Column | Definition |
-|---|---|
-| Stars, Forks, Language | Repository metadata. |
-| License | The SPDX id GitHub detects. Check the license file before reuse; detection can be wrong. "None" means no license was detected, so default copyright applies. |
-| Contributors | GitHub accounts (type `User`) with at least one commit on the default branch. Bots are excluded and counted separately in `data/metrics.json`. |
-| Commits (90d) | Commits on the default branch in the 90 days before the snapshot. |
-| Last commit | Committer date of the newest default-branch commit. `pushed_at` is not used, because it also changes when other branches are pushed. |
-| Status | **Active**: last commit within 30 days. **Recent**: 31 to 90 days. **Slow**: 91 to 365 days. **Stale**: older than a year, or no commits. **Archived**: archived on GitHub. **Unavailable**: the API call failed. |
-| Latest release | Newest non-draft GitHub Release, pre-releases included. Projects that only push tags show "—". |
-| Open issues / PRs | Open issues (excluding pull requests) and open pull requests. |
+- **Stars, Forks, Language:** Repository metadata.
+- **License:** The SPDX id GitHub detects. Check the license file before reuse; detection can be wrong. "None" means no license was detected, so default copyright applies.
+- **Contributors:** GitHub accounts (type `User`) with at least one commit on the default branch. Bots are excluded and counted separately in `data/metrics.json`.
+- **Commits (90d):** Commits on the default branch in the 90 days before the snapshot.
+- **Last commit:** Committer date of the newest default-branch commit. `pushed_at` is not used, because it also changes when other branches are pushed.
+- **Status:** **Active**: last commit within 30 days. **Recent**: 31 to 90 days. **Slow**: 91 to 365 days. **Stale**: older than a year, or no commits. **Archived**: archived on GitHub. **Unavailable**: the API call failed.
+- **Latest release:** Newest non-draft GitHub Release, pre-releases included. Projects that only push tags show "—".
+- **Open issues / PRs:** Open issues (excluding pull requests) and open pull requests.
 
 **Also in `data/projects.csv`.** Top-author share (the top human contributor's share of human contributions; values near 100% mean one person does almost all of the work), commits across all time (approximate: the sum of contributor counts), releases in the last 12 months, stars per month since creation, and age in months.
 
@@ -334,11 +333,14 @@ def anchor(title):
     return re.sub(r"[^\w\- ]", "", title.strip().lower()).replace(" ", "-")
 
 
-def project_table(rows):
-    lines = [
-        "| Project | What it does | Stars | Contributors | Forks | Commits (90d) | Last commit | Status | Latest release | Open issues / PRs | License |",
-        "|---|---|--:|--:|--:|--:|---|---|---|--:|---|",
-    ]
+def name_html(row):
+    url = html.escape(row.get("url") or f"https://github.com/{row['repo']}", quote=True)
+    tag = " <em>(new)</em>" if row["origin"] == "discovered" else ""
+    return f'<a href="{url}">{html.escape(row["name"])}</a>{tag}'
+
+
+def project_cards(rows):
+    lines = []
     for r in sorted(rows, key=lambda r: (-(r.get("stars") or 0), r["name"].lower())):
         desc = cell(r.get("description") or r.get("list_description") or r.get("github_description"))
         if r.get("notes"):
@@ -346,37 +348,44 @@ def project_table(rows):
         tag = r.get("latest_release_tag")
         release = f"{cell(tag)} ({day(r.get('latest_release_at'))})" if tag else "—"
         open_work = "—" if r.get("open_prs") is None else f"{fmt_int(r.get('open_issues'))} / {fmt_int(r['open_prs'])}"
-        lines.append("| " + " | ".join([
-            name_link(r), desc or "—", fmt_int(r.get("stars")), fmt_int(r.get("contributors")),
-            fmt_int(r.get("forks")), fmt_int(r.get("commits_90d")), day(r.get("last_commit_at")),
-            r["status"], release, open_work, license_label(r),
-        ]) + " |")
-    return "\n".join(lines)
+        lines += [
+            "<details>",
+            f"<summary>{name_html(r)} — <strong>{fmt_int(r.get('stars'))} stars</strong> · {r['status']}</summary>",
+            "",
+            desc or "—",
+            "",
+            f"- **Contributors:** {fmt_int(r.get('contributors'))}",
+            f"- **Forks:** {fmt_int(r.get('forks'))}",
+            f"- **Commits (90d):** {fmt_int(r.get('commits_90d'))}",
+            f"- **Last commit:** {day(r.get('last_commit_at'))}",
+            f"- **Latest release:** {release}",
+            f"- **Open issues / PRs:** {open_work}",
+            f"- **License:** {license_label(r)}",
+            "",
+            "</details>",
+            "",
+        ]
+    return "\n".join(lines).rstrip()
 
 
-def glance_table(rows):
+def glance_list(rows):
     contributors = [r["contributors"] for r in rows if r.get("contributors") is not None]
     days = [r["days_since_commit"] for r in rows if r.get("days_since_commit") is not None]
     lines = [
-        "| Metric | Value |",
-        "|---|--:|",
-        f"| Projects tracked | {len(rows):,} |",
-        f"| Total stars | {sum(r.get('stars') or 0 for r in rows):,} |",
+        f"- **Projects tracked:** {len(rows):,}",
+        f"- **Total stars:** {sum(r.get('stars') or 0 for r in rows):,}",
     ]
     if contributors:
-        lines.append(f"| Median contributors per project | {statistics.median(contributors):g} |")
+        lines.append(f"- **Median contributors per project:** {statistics.median(contributors):g}")
     if days:
-        lines.append(f"| Median days since last commit | {statistics.median(days):g} |")
+        lines.append(f"- **Median days since last commit:** {statistics.median(days):g}")
     for s in STATUSES:
-        lines.append(f"| Status: {s} | {sum(r['status'] == s for r in rows):,} |")
+        lines.append(f"- **Status: {s}:** {sum(r['status'] == s for r in rows):,}")
     return "\n".join(lines)
 
 
 def category_overview(categories, rows):
-    lines = [
-        "| Category | Projects | Total stars | Active or recent | Stale or archived |",
-        "|---|--:|--:|--:|--:|",
-    ]
+    lines = []
     for cat in categories:
         members = [r for r in rows if r["category"] == cat["id"]]
         if not members:
@@ -384,33 +393,47 @@ def category_overview(categories, rows):
         active = sum(r["status"] in ("Active", "Recent") for r in members)
         stale = sum(r["status"] in ("Stale", "Archived") for r in members)
         stars = sum(r.get("stars") or 0 for r in members)
-        lines.append(f"| [{SHORT.get(cat['id'], cat['id'])}](#{anchor(cat['title'])}) | {len(members)} | {stars:,} | {active} | {stale} |")
+        label = SHORT.get(cat["id"], cat["id"])
+        lines.append(
+            f"- **[{label}](#{anchor(cat['title'])}):** {len(members)} projects · "
+            f"{stars:,} stars · {active} active or recent · {stale} stale or archived"
+        )
     return "\n".join(lines)
 
 
 def top_by_stars(rows):
     top = sorted(rows, key=lambda r: -(r.get("stars") or 0))[:15]
-    lines = ["| # | Project | Category | Stars | Contributors | Status |", "|--:|---|---|--:|--:|---|"]
-    for i, r in enumerate(top, 1):
-        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {fmt_int(r.get('stars'))} | {fmt_int(r.get('contributors'))} | {r['status']} |")
+    lines = []
+    for r in top:
+        lines.append(
+            f"1. {name_link(r)} — {SHORT.get(r['category'], r['category'])} · "
+            f"**{fmt_int(r.get('stars'))} stars** · {fmt_int(r.get('contributors'))} contributors · {r['status']}"
+        )
     return "\n".join(lines)
 
 
 def recent_commits(rows):
     dated = sorted((r for r in rows if r.get("last_commit_at")), key=lambda r: r["last_commit_at"], reverse=True)[:15]
-    lines = ["| # | Project | Category | Last commit | Commits (90d) | Status |", "|--:|---|---|---|--:|---|"]
-    for i, r in enumerate(dated, 1):
-        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {day(r['last_commit_at'])} | {fmt_int(r.get('commits_90d'))} | {r['status']} |")
+    lines = []
+    for r in dated:
+        lines.append(
+            f"1. {name_link(r)} — {SHORT.get(r['category'], r['category'])} · "
+            f"last commit {day(r['last_commit_at'])} · {fmt_int(r.get('commits_90d'))} commits (90d) · {r['status']}"
+        )
     return "\n".join(lines)
 
 
-def risk_table(rows):
+def risk_list(rows):
     pool = [r for r in rows if r.get("top_author_share") is not None
             and (r.get("commits_all_time") or 0) >= 100 and not r.get("archived")]
     top = sorted(pool, key=lambda r: -r["top_author_share"])[:10]
-    lines = ["| Project | Top author share | Contributors | Commits (all time, approx.) | Status |", "|---|--:|--:|--:|---|"]
+    lines = []
     for r in top:
-        lines.append(f"| {name_link(r)} | {r['top_author_share']:.0%} | {fmt_int(r.get('contributors'))} | {fmt_int(r.get('commits_all_time'))} | {r['status']} |")
+        lines.append(
+            f"- {name_link(r)} — **{r['top_author_share']:.0%}** top-author share · "
+            f"{fmt_int(r.get('contributors'))} contributors · "
+            f"{fmt_int(r.get('commits_all_time'))} commits (all time, approx.) · {r['status']}"
+        )
     return "\n".join(lines)
 
 
@@ -424,19 +447,19 @@ def render_readme(doc, rows):
         f"**Metrics collected {snapshot} (UTC)** · {origins['awesome-list']} from the source list · "
         f"{origins['discovered']} new · {origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
         "",
-        "## At a glance", "", glance_table(rows), "",
+        "## At a glance", "", glance_list(rows), "",
         "### Categories", "", category_overview(cats, rows), "",
         "### Top 15 by stars", "", top_by_stars(rows), "",
         "### Most recent commits", "", recent_commits(rows), "",
         "### Single-maintainer risk", "",
         "Projects where one person wrote nearly all human commits. Ten highest top-author shares among projects with at least 100 commits that are not archived.", "",
-        risk_table(rows), "",
+        risk_list(rows), "",
     ]
     for cat in cats:
         members = [r for r in rows if r["category"] == cat["id"]]
         if not members:
             continue
-        parts += [f"## {cat['title']}", "", cat.get("description", ""), "", project_table(members), ""]
+        parts += [f"## {cat['title']}", "", cat.get("description", ""), "", project_cards(members), ""]
     parts += [METHOD, MAINTAIN, CREDITS]
     return "\n".join(parts).rstrip() + "\n"
 
