@@ -10,10 +10,15 @@ name: Update index
 # Worst case: about 34 runs a month (30 daily + 4 weekly) x 40 min timeout = 1,360 runner minutes, under the
 # 2,000 free minutes of a private repo. In practice the budgets stop work at 25 min (metrics) and 8 min (discovery).
 # Minutes are free and unmetered for public repositories on GitHub-hosted runners.
+#
+# Security:
+# - Actions are pinned to a commit SHA, so a moved tag cannot change what runs here.
+# - The checkout leaves no token in .git/config; each step gets only the token it needs.
+# - The script uses the Python that ships with the runner (standard library only), so no setup action is needed.
 
 on:
   schedule:
-    - cron: "23 4 * * *"   # metrics, every day
+    - cron: "23 4 * * *"   # metrics, every day (--spread: about a seventh of the projects per run)
     - cron: "47 5 * * 1"   # discovery of new projects, every Monday
   workflow_dispatch:
     inputs:
@@ -23,9 +28,7 @@ on:
         options: [metrics, discover, both]
         default: metrics
 
-permissions:
-  contents: write
-  issues: write
+permissions: {}
 
 concurrency:
   group: update-index
@@ -37,16 +40,13 @@ jobs:
     runs-on: ubuntu-latest
     # Backstop only: the script's own budget (--max-minutes) ends the work well before this.
     timeout-minutes: 40
-    env:
-      # Optional: a personal access token in the INDEX_TOKEN secret raises the API limits
-      # from 1,000 to 5,000 per hour. Without it the workflow's own token is used.
-      GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
+    permissions:
+      contents: write   # commit the refreshed data
+      issues: write     # rewrite the candidates issue
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          python-version: "3.12"
+          persist-credentials: false
 
       - name: Choose tasks
         id: plan
@@ -62,12 +62,19 @@ jobs:
           [ "$TASK" != "metrics" ] && echo "discover=true" >> "$GITHUB_OUTPUT"
           echo "running: $TASK"
 
+      # Optional: a fine-grained personal access token with no permissions (public read only) in the
+      # INDEX_TOKEN secret raises the API limits from 1,000 to 5,000 per hour. Without it the workflow's
+      # own token is used. Only the two fetch steps see it.
       - name: Refresh metrics and README
         if: steps.plan.outputs.metrics == 'true'
-        run: python3 scripts/update.py --max-minutes 25
+        env:
+          GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
+        run: python3 scripts/update.py --spread --max-minutes 25
 
       - name: Search for new projects
         if: steps.plan.outputs.discover == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
         run: python3 scripts/update.py --discover --max-minutes 8 --report "$RUNNER_TEMP/candidates.md"
 
       - name: Update the review issue
@@ -83,13 +90,19 @@ jobs:
             gh issue create --title "Candidates for the index" --label candidates --body-file "$RUNNER_TEMP/candidates.md"
           fi
 
+      # Runs after a failed fetch step too: the script saves what it fetched before it stops, and the
+      # files are written atomically, so partial progress is safe to commit.
       - name: Commit changes
+        if: ${{ !cancelled() && steps.plan.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git add README.md data/
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0
           fi
+          gh auth setup-git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Refresh index data ($(date -u +%F)) [skip ci]"

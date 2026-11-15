@@ -5,6 +5,7 @@ Needs the GitHub CLI (gh), signed in with read access to public repositories. Re
 GraphQL API in batches; contributors come from the REST API, because GraphQL does not expose them.
 
     python3 scripts/update.py                 fetch metrics older than 7 days, then render
+    python3 scripts/update.py --spread        also fetch the oldest records, about a seventh of the index per run
     python3 scripts/update.py --refresh       fetch every project again, then render
     python3 scripts/update.py --render-only   render from data/metrics.json, no network calls
     python3 scripts/update.py --only a/b c/d  fetch only these projects (always fresh), then render
@@ -39,6 +40,9 @@ NOW = datetime.now(timezone.utc)
 TODAY = NOW.date()
 MAX_AGE = timedelta(days=7)               # repository metrics
 CONTRIBUTORS_MAX_AGE = timedelta(days=30)  # REST contributor lists change slowly and cost the most calls
+SPREAD_DAYS = 7                            # --spread: each run fetches at least 1/SPREAD_DAYS of the projects
+SPREAD_MIN_AGE = timedelta(hours=12)       # --spread never picks a record fetched more recently than this
+GH_TIMEOUT = 120                           # seconds before a hanging `gh api` call is abandoned
 BATCH = 20                                 # repositories per GraphQL query; halved when GitHub times out
 README_BATCH = 10
 README_CHARS = 60_000
@@ -56,6 +60,8 @@ GAP_FIELDS = {
     "readme": ["features", "readme_found"],
 }
 STATUSES = ["Active", "Recent", "Slow", "Stale", "Archived", "Unavailable", "Not fetched"]
+STATUS_ICON = {"Active": "🟢", "Recent": "🟡", "Slow": "🟠", "Stale": "🔴", "Archived": "📦", "Unavailable": "⚫",
+               "Not fetched": "⚪"}
 SHORT = {
     "terminal": "Terminal",
     "desktop": "Desktop & web",
@@ -96,7 +102,7 @@ METHOD = """## Methodology
 
 **Source.** Projects start from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0). Projects marked _(new)_ were found by GitHub search, the source's own references, and web search, and were not in that list. Each new project had to meet the same scope: it orchestrates, supervises, or coordinates several AI agents or agent sessions; it is open source or source-available; and it is active. Adjacent frameworks are general-purpose agent SDKs. They are listed separately because many teams use them for multi-agent orchestration. New candidates are found with saved GitHub searches (`data/discovery.json`) and reviewed by hand before they are added.
 
-**Data.** GitHub GraphQL API for repository metadata, commits, releases, issues, pull requests, languages, and READMEs; GitHub REST API for contributors, which GraphQL does not expose. Both go through the GitHub CLI, collected on the date shown above (UTC). Repository figures refer to the default branch. Statuses and day counts are judged as of each project's collection date. Contributor lists are refreshed every 30 days, other figures every 7.
+**Data.** GitHub GraphQL API for repository metadata, commits, releases, issues, pull requests, languages, and READMEs; GitHub REST API for contributors, which GraphQL does not expose. Both go through the GitHub CLI, collected on the date shown above (UTC). Repository figures refer to the default branch. Statuses and day counts are judged as of each project's collection date. Contributor lists are refreshed every 30 days, other figures every 7. The daily run fetches about a seventh of the projects, oldest first, so collection dates within one snapshot differ by up to a week.
 
 | Column | Definition |
 |---|---|
@@ -107,11 +113,11 @@ METHOD = """## Methodology
 | Contributors | GitHub accounts (type `User`) with at least one commit on the default branch. Bots are excluded and counted separately in `data/metrics.json`. |
 | Commits (90d) | Commits on the default branch in the 90 days before the snapshot. |
 | Last commit | Committer date of the newest default-branch commit. `pushed_at` is not used, because it also changes when other branches are pushed. |
-| Status | **Active**: last commit within 30 days. **Recent**: 31 to 90 days. **Slow**: 91 to 365 days. **Stale**: older than a year, or no commits. **Archived**: archived on GitHub. **Unavailable**: the repository no longer exists, or the API call failed and there is no earlier snapshot. Unavailable projects are not included in the count in the title. When a fetch fails temporarily, the previous snapshot is kept. |
+| Status | 🟢 **Active**: last commit within 30 days. 🟡 **Recent**: 31 to 90 days. 🟠 **Slow**: 91 to 365 days. 🔴 **Stale**: older than a year, or no commits. 📦 **Archived**: archived on GitHub. ⚫ **Unavailable**: the repository no longer exists, or the API call failed and there is no earlier snapshot. Unavailable projects are not included in the count in the title. When a fetch fails temporarily, the previous snapshot is kept. |
 | Latest release | Newest non-draft GitHub Release, pre-releases included. Projects that only push tags show "—". |
 | Open issues / PRs | Open issues (excluding pull requests) and open pull requests. |
 
-**Also in `data/projects.csv`.** Top-author share (the top human contributor's share of human contributions; values near 100% mean one person does almost all of the work), commits across all time on the default branch, releases in the last 12 months, stars per month since creation, age in months, every detected language with its share, and the detected features.
+**Also in `data/projects.csv`.** Top-author share (the top human contributor's share of human contributions; values near 100% mean one person does almost all of the work), commits across all time on the default branch, releases in the last 12 months, stars per month since creation, age in months, every detected language with its share, and the detected features. A value that starts with `=`, `+`, `-`, or `@` (some release tags do) carries a leading apostrophe, so a spreadsheet does not run it as a formula.
 
 **Limitations.** Stars are a popularity signal, not a quality measure, and can be inflated. Contributor counts cover GitHub accounts only, so commits made under unlinked emails are not counted. Feature detection reads text, not code. Stale does not mean unusable; many small tools are finished. All figures are a point-in-time snapshot.
 """
@@ -119,15 +125,16 @@ MAINTAIN = """## Keeping it current
 
 ```sh
 python3 scripts/update.py                # fetch metrics older than 7 days, then re-render
+python3 scripts/update.py --spread       # also fetch the oldest seventh, to even out daily runs
 python3 scripts/update.py --refresh      # fetch everything again
-python3 scripts/update.py --only a/b     # fetch these projects now, then re-render
+python3 scripts/update.py --only a/b    # fetch these projects now, then re-render
 python3 scripts/update.py --render-only  # rebuild this README from data/metrics.json
 python3 scripts/update.py --discover     # search GitHub for new projects; results go to data/candidates.json
 ```
 
 The script needs the GitHub CLI (`gh`) signed in. It runs GraphQL queries one at a time, and waits when GitHub's rate limits run low. To add a project, append an entry to `data/projects.json` with `repo`, `name`, `category`, `origin`, and `description`, then run the script. To stop a reviewed candidate from coming back, add it to `rejected` in `data/discovery.json`. Feature keywords live in `data/features.json`.
 
-A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes the metrics every day and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review.
+A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes about a seventh of the projects every day (`--spread`) and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review.
 """
 CREDITS = """## Credits
 
@@ -189,6 +196,10 @@ class BudgetExceeded(Exception):
     """The run reached its time budget (--max-minutes). Work stops; what was fetched is kept."""
 
 
+class Stopped(Exception):
+    """Fetching gave up (circuit breaker). What was fetched is kept and rendered; the run then exits non-zero."""
+
+
 DEADLINE = None          # time.monotonic() value after which no new work starts; set by --max-minutes
 MAX_REST_PAGES = 50      # contributor lists are capped by GitHub anyway; this guards against a pagination loop
 MAX_FAILED_BATCHES = 3   # consecutive batches where every repository failed: stop instead of retrying forever
@@ -201,7 +212,11 @@ def check_budget(extra=0):
 
 def gh_once(args, stdin=None):
     """Run `gh api --include` once and return (status, lower-cased headers, body). Status is None without a response."""
-    proc = subprocess.run(["gh", "api", "--include", *args], input=stdin, capture_output=True, text=True)
+    try:
+        proc = subprocess.run(["gh", "api", "--include", *args], input=stdin, capture_output=True, text=True,
+                              timeout=GH_TIMEOUT)
+    except subprocess.TimeoutExpired:   # a hung call must not outlive the time budget
+        return None, {}, f"gh api did not answer within {GH_TIMEOUT} seconds"
     if not proc.stdout.startswith("HTTP/"):
         return None, {}, proc.stderr.strip()
     head, *rest = re.split(r"\r?\n\r?\n", proc.stdout, maxsplit=1)
@@ -490,11 +505,29 @@ def contributors_due(old, refresh):
 
 
 def needs_fetch(cached, refresh):
-    if refresh or cached is None or cached.get("error") or cached.get("last_error"):
+    if refresh or cached is None or cached.get("last_error"):
         return True
+    if cached.get("error"):
+        # A repository that is gone is checked again on the normal schedule; other failures are retried every run.
+        return cached["error"] not in GONE or parse_ts(cached["fetched_at"]) < NOW - MAX_AGE
     if "languages" not in cached:   # written before languages and features were collected
         return True
     return parse_ts(cached["fetched_at"]) < NOW - MAX_AGE
+
+
+def select_targets(projects, cache, refresh, spread):
+    """Repos to fetch now: everything that is due, plus (with spread) the oldest other records up to the quota.
+
+    Without spread, records fetched on the same day all fall due on the same day, so one run in seven does all
+    the work. With spread every run takes the oldest seventh, which keeps each run small and inside the API limits."""
+    todo = [p["repo"] for p in projects if needs_fetch(cache.get(p["repo"].lower()), refresh)]
+    if not spread:
+        return todo
+    quota = -(-len(projects) // SPREAD_DAYS)
+    due = set(todo)
+    rest = sorted((cache[p["repo"].lower()]["fetched_at"], p["repo"]) for p in projects if p["repo"] not in due)
+    extra = [repo for stamp, repo in rest if parse_ts(stamp) <= NOW - SPREAD_MIN_AGE]
+    return todo + extra[:max(quota - len(todo), 0)]
 
 
 def merge_record(old, new):
@@ -515,6 +548,8 @@ def merge_record(old, new):
             for key in GAP_FIELDS.get(gap.split(":")[0], []):
                 if key not in new and key in usable:
                     new[key] = usable[key]
+        if new.get("contributors") is not None and not new.get("contributors_fetched_at"):
+            new["contributors_fetched_at"] = usable.get("fetched_at")   # see enrich(): keep the list ageing
     return new
 
 
@@ -568,6 +603,11 @@ def enrich(records, cache, refresh, features):
             for key in GAP_FIELDS["contributors"]:
                 if key in old:
                     record[key] = old[key]
+            # Records written before the stamp existed: date the list by the snapshot it came with. Without
+            # this the age check falls back to the record's own fetch date, which is always recent, so the
+            # list would never be refreshed.
+            if not record.get("contributors_fetched_at"):
+                record["contributors_fetched_at"] = old.get("fetched_at")
             return
         try:
             record.update(fetch_contributors(record["full_name"]))
@@ -578,11 +618,12 @@ def enrich(records, cache, refresh, features):
         list(pool.map(contributors, ok))
 
 
-def collect(projects, cache, refresh, features):
-    todo = [p["repo"] for p in projects if needs_fetch(cache.get(p["repo"].lower()), refresh)]
+def collect(projects, cache, refresh, features, spread=False):
+    """Fetch the projects that are due and store them in the cache. Returns how many were processed."""
+    todo = select_targets(projects, cache, refresh, spread)
     print(f"fetching {len(todo)} of {len(projects)} projects", flush=True)
     if not todo:
-        return
+        return 0
     preflight()
     done, failed_batches = 0, 0
     for start in range(0, len(todo), BATCH):
@@ -590,14 +631,14 @@ def collect(projects, cache, refresh, features):
             check_budget()
         except BudgetExceeded:
             print(f"  time budget reached; {len(todo) - done} projects left for the next run", flush=True)
-            return
+            return done
         chunk = todo[start:start + BATCH]
         try:
             fetched = fetch_batch(chunk)
             enrich(list(fetched.values()), cache, refresh, features)
         except BudgetExceeded:
             print(f"  time budget reached; {len(todo) - done} projects left for the next run", flush=True)
-            return
+            return done
         except Exception as exc:  # keep going; the previous snapshot of these repos is kept
             fetched = {repo: error_record(repo, "exception", str(exc)) for repo in chunk}
         for repo, record in fetched.items():
@@ -609,10 +650,11 @@ def collect(projects, cache, refresh, features):
         if all(r.get("error") and r["error"] not in GONE for r in fetched.values()):
             failed_batches += 1
             if failed_batches >= MAX_FAILED_BATCHES:
-                sys.exit(f"stopping: {failed_batches} batches in a row failed completely "
-                         f"(last error: {next(iter(fetched.values())).get('error_message', '')[:200]})")
+                raise Stopped(f"stopping: {failed_batches} batches in a row failed completely "
+                              f"(last error: {next(iter(fetched.values())).get('error_message', '')[:200]})")
         else:
             failed_batches = 0
+    return done
 
 
 def report(projects, cache):
@@ -722,7 +764,7 @@ def candidates_markdown(candidates, start, limit=150):
     ]
     for c in candidates[:limit]:
         new = "🆕" if c["first_seen"] == today else ""
-        desc = cell(c["description"])[:140]
+        desc = untrusted((c["description"] or "")[:140])
         feats = ", ".join(c["features"]) if isinstance(c.get("features"), list) else ""
         lines.append(f"| {new} | [{cell(c['repo'])}]({c['url']}) | {c['stars']:,} | {cell(c['language']) or '—'} | "
                      f"{day(c['created_at'])} | {desc or '—'} | {feats or '—'} |")
@@ -784,6 +826,9 @@ def write_csv(rows):
                 value = ";".join(f"{l['name']} {l['share']:.1%}" for l in value or [])
             elif isinstance(value, list):
                 value = ";".join(value)
+            # A spreadsheet runs a cell that starts with one of these as a formula; a leading quote keeps it text.
+            if isinstance(value, str) and value.lstrip()[:1] in ("=", "+", "-", "@"):
+                value = "'" + value
             flat[key] = "" if value is None else value
         writer.writerow(flat)
     write_atomic(CSV_FILE, buf.getvalue())
@@ -793,8 +838,36 @@ def cell(text):
     return (text or "").replace("|", "\\|").replace("\n", " ").strip()
 
 
+def untrusted(text):
+    """Text written by a repository owner (GitHub description), made inert for Markdown.
+
+    Escapes the characters that start links, images, HTML, emphasis, and issue references, and breaks
+    @mentions with a zero-width space, so a description cannot notify people or plant a disguised link."""
+    text = re.sub(r"([\\`*_{}\[\]<>()#!~])", r"\\\1", text or "")   # before cell(), which adds its own backslashes
+    return cell(text).replace("@", "@​")
+
+
 def fmt_int(value):
     return "—" if value is None else f"{value:,}"
+
+
+def short_num(value):
+    if value >= 1_000_000:
+        return f"{value / 1_000_000:.1f}M"
+    return f"{value / 1000:.0f}k" if value >= 10_000 else f"{value:,}"
+
+
+def pct(share):
+    return "<1%" if 0 < share < 0.005 else f"{share:.0%}"
+
+
+def bar(share, width=20):
+    filled = round(share * width)
+    return "`" + "█" * filled + "░" * (width - filled) + "`"
+
+
+def status_label(status):
+    return f"{STATUS_ICON.get(status, '')} {status}".strip()
 
 
 def day(ts):
@@ -832,7 +905,8 @@ def anchor(title):
 
 
 def project_description(row):
-    desc = cell(row.get("description") or row.get("list_description") or row.get("github_description"))
+    # The first two are written by hand in data/projects.json; GitHub's description is the owner's text.
+    desc = cell(row.get("description") or row.get("list_description")) or untrusted(row.get("github_description"))
     if row.get("notes"):
         desc = f"{desc} ({cell(row['notes'])})".strip()
     if len(desc) <= 120:
@@ -849,13 +923,13 @@ def project_table(rows):
     for r in sorted(rows, key=lambda r: (-(r.get("stars") or 0), r["name"].lower())):
         tag = r.get("latest_release_tag")
         if tag:
-            tag = re.sub(r"([._/@-])", r"\1<wbr>", cell(tag))
+            tag = re.sub(r"([._/@-])", r"\1<wbr>", html.escape(cell(tag), quote=False))
         release = f"{tag} ({day(r.get('latest_release_at'))})" if tag else "—"
         open_work = "—" if r.get("open_prs") is None else f"{fmt_int(r.get('open_issues'))} / {fmt_int(r['open_prs'])}"
         lines.append("| " + " | ".join([
             f"{name_link(r)}<br>{project_description(r)}<br>_Features:_ {features_label(r)}",
             f"**{fmt_int(r.get('stars'))} stars**<br>{fmt_int(r.get('contributors'))} contributors<br>{fmt_int(r.get('forks'))} forks",
-            f"**{r['status']}**<br>{fmt_int(r.get('commits_90d'))} commits (90d)<br>Last commit: {day(r.get('last_commit_at'))}",
+            f"**{status_label(r['status'])}**<br>{fmt_int(r.get('commits_90d'))} commits (90d)<br>Last commit: {day(r.get('last_commit_at'))}",
             f"Language: {language_label(r)}<br>Release: {release}<br>Issues / PRs: {open_work}<br>License: {license_label(r)}",
         ]) + " |")
     return "\n".join(lines)
@@ -864,19 +938,22 @@ def project_table(rows):
 def glance_table(rows):
     contributors = [r["contributors"] for r in rows if r.get("contributors") is not None]
     days = [r["days_since_commit"] for r in rows if r.get("days_since_commit") is not None]
-    lines = [
-        "| Metric | Value |",
-        "|---|--:|",
-        f"| Projects tracked | {len(rows):,} |",
-        f"| Total stars | {sum(r.get('stars') or 0 for r in rows):,} |",
-    ]
-    if contributors:
-        lines.append(f"| Median contributors per project | {statistics.median(contributors):g} |")
-    if days:
-        lines.append(f"| Median days since last commit | {statistics.median(days):g} |")
-    for s in STATUSES:
-        lines.append(f"| Status: {s} | {sum(r['status'] == s for r in rows):,} |")
-    return "\n".join(lines)
+    median = lambda values: f"{statistics.median(values):g}" if values else "—"
+    counts = {s: sum(r["status"] == s for r in rows) for s in STATUSES}
+    shown = [s for s in STATUSES if counts[s] or s != "Not fetched"]
+    return "\n".join([
+        "| Projects tracked | Total stars | Median contributors | Median days since last commit |",
+        "|:-:|:-:|:-:|:-:|",
+        f"| **{len(rows):,}** | **{sum(r.get('stars') or 0 for r in rows):,}** | **{median(contributors)}** "
+        f"| **{median(days)}** |",
+        "",
+        "| " + " | ".join(status_label(s) for s in shown) + " |",
+        "|" + ":-:|" * len(shown),
+        "| " + " | ".join(f"**{counts[s]:,}**" for s in shown) + " |",
+        "",
+        "Status is the age of the last commit on the default branch: Active up to 30 days, Recent up to 90, "
+        "Slow up to a year, Stale beyond that. See [Methodology](#methodology).",
+    ])
 
 
 def category_overview(categories, rows):
@@ -891,7 +968,8 @@ def category_overview(categories, rows):
         active = sum(r["status"] in ("Active", "Recent") for r in members)
         stale = sum(r["status"] in ("Stale", "Archived") for r in members)
         stars = sum(r.get("stars") or 0 for r in members)
-        lines.append(f"| [{SHORT.get(cat['id'], cat['id'])}](#{anchor(cat['title'])}) | {len(members)} | {stars:,} | {active} | {stale} |")
+        lines.append(f"| [{SHORT.get(cat['id'], cat['id'])}](#{anchor(cat['title'])}) | {len(members)} | {stars:,} "
+                     f"| {active} ({active / len(members):.0%}) | {stale} |")
     return "\n".join(lines)
 
 
@@ -900,9 +978,11 @@ def language_overview(rows):
     counts = {}
     for r in live:
         counts[r["language"]] = counts.get(r["language"], 0) + 1
-    lines = ["| Main language | Projects | Share |", "|---|--:|--:|"]
-    for lang, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:12]:
-        lines.append(f"| {cell(lang)} | {n} | {n / len(live):.0%} |")
+    lines = ["| Main language | Projects | Share | |", "|---|--:|--:|---|"]
+    top = max(counts.values(), default=1)
+    for lang, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:10]:
+        # Bars are relative to the most common language, with at least one block, so small shares stay visible.
+        lines.append(f"| {cell(lang)} | {n} | {pct(n / len(live))} | {bar(max(n / top, 0.05))} |")
     return "\n".join(lines)
 
 
@@ -912,12 +992,16 @@ def feature_overview(rows, features):
         return "_Not collected yet._"
     lines = [
         f"Share of the {len(checked)} projects whose README, description, or topics mention each feature. "
-        "Keyword matching, so treat it as a rough guide; see [Methodology](#methodology).", "",
-        "| Group | Feature | Projects | Share |", "|---|---|--:|--:|",
+        "Keyword matching, so treat it as a rough guide; see [Methodology](#methodology). "
+        "Per-project features are in each table below and in `data/projects.csv`.", "",
+        "| Group | Mentioned by |", "|---|---|",
     ]
+    groups = {}
     for group, label, _ in features:
-        n = sum(label in r["features"] for r in checked)
-        lines.append(f"| {group} | {label} | {n} | {n / len(checked):.0%} |")
+        groups.setdefault(group, []).append((sum(label in r["features"] for r in checked), label))
+    for group, items in groups.items():
+        ranked = sorted(items, key=lambda item: -item[0])   # stable: ties keep the order of data/features.json
+        lines.append(f"| **{group}** | " + " · ".join(f"{label} **{pct(n / len(checked))}**" for n, label in ranked) + " |")
     return "\n".join(lines)
 
 
@@ -925,7 +1009,7 @@ def top_by_stars(rows):
     top = sorted(rows, key=lambda r: -(r.get("stars") or 0))[:15]
     lines = ["| # | Project | Category | Stars | Contributors | Status |", "|--:|---|---|--:|--:|---|"]
     for i, r in enumerate(top, 1):
-        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {fmt_int(r.get('stars'))} | {fmt_int(r.get('contributors'))} | {r['status']} |")
+        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {fmt_int(r.get('stars'))} | {fmt_int(r.get('contributors'))} | {status_label(r['status'])} |")
     return "\n".join(lines)
 
 
@@ -933,7 +1017,7 @@ def recent_commits(rows):
     dated = sorted((r for r in rows if r.get("last_commit_at")), key=lambda r: r["last_commit_at"], reverse=True)[:15]
     lines = ["| # | Project | Category | Last commit | Commits (90d) | Status |", "|--:|---|---|---|--:|---|"]
     for i, r in enumerate(dated, 1):
-        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {day(r['last_commit_at'])} | {fmt_int(r.get('commits_90d'))} | {r['status']} |")
+        lines.append(f"| {i} | {name_link(r)} | {SHORT.get(r['category'], r['category'])} | {day(r['last_commit_at'])} | {fmt_int(r.get('commits_90d'))} | {status_label(r['status'])} |")
     return "\n".join(lines)
 
 
@@ -943,7 +1027,7 @@ def risk_table(rows):
     top = sorted(pool, key=lambda r: -r["top_author_share"])[:10]
     lines = ["| Project | Top author share | Contributors | Commits (all time) | Status |", "|---|--:|--:|--:|---|"]
     for r in top:
-        lines.append(f"| {name_link(r)} | {r['top_author_share']:.0%} | {fmt_int(r.get('contributors'))} | {fmt_int(r.get('commits_all_time'))} | {r['status']} |")
+        lines.append(f"| {name_link(r)} | {r['top_author_share']:.0%} | {fmt_int(r.get('contributors'))} | {fmt_int(r.get('commits_all_time'))} | {status_label(r['status'])} |")
     return "\n".join(lines)
 
 
@@ -953,11 +1037,21 @@ def render_readme(doc, rows, features):
     dates = sorted({as_of(r).isoformat() for r in rows if r.get("fetched_at")})
     snapshot = dates[0] if len(dates) == 1 else f"{dates[0]} to {dates[-1]}" if dates else TODAY.isoformat()
     live = [r for r in rows if r["status"] != "Unavailable"]
+    active = sum(r["status"] == "Active" for r in live)
+    browse = " · ".join(f"[{SHORT.get(c['id'], c['id'])}](#{anchor(c['title'])}) ({sum(r['category'] == c['id'] for r in rows)})"
+                        for c in cats if any(r["category"] == c["id"] for r in rows))
+    compare = " · ".join(f"[{t}](#{anchor(t)})" for t in (
+        "At a glance", "Categories", "Features", "Languages", "Top 15 by stars", "Most recent commits",
+        "Single-maintainer risk", "Methodology"))
     parts = [
         f"# {TITLE} — there are {len(live)}", "",
-        INTRO.format(total=len(live), active=sum(r["status"] == "Active" for r in live)), "",
-        f"**Metrics collected {snapshot} (UTC)** · {origins['awesome-list']} from the source list · "
-        f"{origins['discovered']} new · {origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
+        f"> **{len(live):,}** projects · **{active:,}** active in the last 30 days · "
+        f"**{short_num(sum(r.get('stars') or 0 for r in live))}** stars · metrics collected **{snapshot}** (UTC)", "",
+        INTRO.format(total=len(live), active=active), "",
+        f"**Browse by category:** {browse}", "",
+        f"**Compare:** {compare}", "",
+        f"{origins['awesome-list']} projects from the source list · {origins['discovered']} new · "
+        f"{origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
         "",
         "## At a glance", "", glance_table(rows), "",
         "### Categories", "", category_overview(cats, rows), "",
@@ -973,7 +1067,10 @@ def render_readme(doc, rows, features):
         members = [r for r in rows if r["category"] == cat["id"]]
         if not members:
             continue
-        parts += [f"## {cat['title']}", "", cat.get("description", ""), "", project_table(members), ""]
+        lively = sum(r["status"] in ("Active", "Recent") for r in members)
+        parts += [f"## {cat['title']}", "", cat.get("description", ""), "",
+                  f"**{len(members)} projects** · {lively} active or recent · sorted by stars · [↑ Back to top](#top)", "",
+                  project_table(members), ""]
     parts += [METHOD, MAINTAIN, CREDITS]
     return re.sub(r"\n{3,}", "\n\n", "\n".join(parts)).rstrip() + "\n"
 
@@ -981,6 +1078,8 @@ def render_readme(doc, rows, features):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--refresh", action="store_true", help="fetch every project, not only stale ones")
+    parser.add_argument("--spread", action="store_true",
+                        help=f"also fetch the oldest records, so each run covers at least 1/{SPREAD_DAYS} of the projects")
     parser.add_argument("--render-only", action="store_true", help="skip GitHub calls and render from the cache")
     parser.add_argument("--only", nargs="+", metavar="OWNER/REPO", help="fetch only these repos, even if fresh")
     parser.add_argument("--discover", action="store_true", help="search GitHub for new projects and write data/candidates.json")
@@ -995,7 +1094,7 @@ def main():
         if args.max_minutes <= 0:
             parser.error("--max-minutes must be positive")
         DEADLINE = time.monotonic() + args.max_minutes * 60
-    if args.render_only and (args.refresh or args.only or args.discover):
+    if args.render_only and (args.refresh or args.only or args.discover or args.spread):
         parser.error("--render-only makes no network calls, so it cannot be combined with other options")
     if (args.days or args.report) and not args.discover:
         parser.error("--days and --report only apply to --discover")
@@ -1010,6 +1109,7 @@ def main():
         discover(doc, cache, features, args.days, args.report)
         return
 
+    stopped = None
     if not args.render_only:
         targets = doc["projects"]
         if args.only:
@@ -1018,14 +1118,20 @@ def main():
             unknown = wanted - {p["repo"].lower() for p in targets}
             if unknown:
                 parser.error(f"not in data/projects.json: {', '.join(sorted(unknown))}")
-        collect(targets, cache, args.refresh or bool(args.only), features)
-        save_metrics(cache)
+        try:
+            # collect() saves after every batch. A run that fetched nothing leaves the file alone, so it
+            # produces no timestamp-only commit.
+            collect(targets, cache, args.refresh or bool(args.only), features, args.spread and not args.only)
+        except Stopped as err:   # render what was fetched, then fail the run below
+            stopped = str(err)
 
     report(doc["projects"], cache)
     rows = build_rows(doc["projects"], cache)
     write_csv(rows)
     write_atomic(README_FILE, render_readme(doc, rows, features))
     print(f"rendered {README_FILE.name} and {CSV_FILE.name} for {len(rows)} projects")
+    if stopped:
+        sys.exit(stopped)
 
 
 if __name__ == "__main__":
