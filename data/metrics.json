@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T13:56:56+00:00",
+  "generated_at": "2026-11-15T14:03:35+00:00",
   "repos": {
     "0-ai-ug/cate": {
       "archived": false,
@@ -3046,7 +3046,7 @@
     "agentsmesh/agentsmesh": {
       "error": 404,
       "error_message": "Could not resolve to a Repository with the name 'AgentsMesh/AgentsMesh'.",
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-15T14:03:35+00:00",
       "repo": "AgentsMesh/AgentsMesh"
     },
     "agenttier/agenttier": {
@@ -15724,7 +15724,7 @@
     "francescoalemanno/dex": {
       "error": 404,
       "error_message": "Could not resolve to a Repository with the name 'francescoalemanno/dex'.",
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-15T14:03:35+00:00",
       "repo": "francescoalemanno/dex"
     },
     "frankbria/ralph-claude-code": {
@@ -23089,7 +23089,7 @@
     "ker0olos/ignite": {
       "error": 404,
       "error_message": "Could not resolve to a Repository with the name 'ker0olos/ignite'.",
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-15T14:03:35+00:00",
       "repo": "ker0olos/ignite"
     },
     "kimyx0207/meta_kim": {
