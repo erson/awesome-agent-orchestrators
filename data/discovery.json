@@ -1,0 +1,28 @@
+{
+  "about": "Search queries for `python3 scripts/update.py --discover`. Each query runs through GitHub's GraphQL search with created:>=<window start>, stars:>=min_stars, fork:false and archived:false added. Hits go to data/candidates.json for review; nothing is added to the index automatically. Put repos you reviewed and turned down in `rejected` so they stop coming back.",
+  "min_stars": 25,
+  "window_days": 30,
+  "queries": [
+    "topic:agent-orchestration",
+    "topic:agent-orchestrator",
+    "topic:multi-agent-orchestration",
+    "topic:ai-orchestration",
+    "topic:agent-harness",
+    "topic:agentic-coding",
+    "topic:claude-code orchestrator",
+    "topic:claude-code parallel",
+    "topic:claude-code multi-agent",
+    "topic:claude-code worktree",
+    "topic:codex orchestrator",
+    "\"agent orchestrator\" in:name,description",
+    "\"agent orchestration\" in:name,description",
+    "\"agent harness\" in:name,description",
+    "orchestrate agents in:name,description",
+    "\"coding agents\" parallel in:name,description",
+    "\"parallel agents\" in:name,description",
+    "worktree agents in:name,description",
+    "swarm agents in:name,description",
+    "\"multi-agent\" orchestrator in:name,description"
+  ],
+  "rejected": []
+}

@@ -1,0 +1,97 @@
+name: Update index
+
+# Guardrails against runaway runs:
+# - No push or pull_request trigger, and the bot's commits carry [skip ci], so a run never starts another run.
+# - One run at a time (concurrency); a queued duplicate replaces the older queued one.
+# - The script stops starting work after --max-minutes, and timeout-minutes kills the job as a backstop.
+#   Projects not reached are fetched on the next day's run.
+# - The script exits after 3 batches in a row fail completely (bad token, GitHub outage).
+# - Set the repository variable INDEX_UPDATES_DISABLED to "true" to switch the workflow off.
+# Worst case: about 34 runs a month (30 daily + 4 weekly) x 40 min timeout = 1,360 runner minutes, under the
+# 2,000 free minutes of a private repo. In practice the budgets stop work at 25 min (metrics) and 8 min (discovery).
+# Minutes are free and unmetered for public repositories on GitHub-hosted runners.
+
+on:
+  schedule:
+    - cron: "23 4 * * *"   # metrics, every day
+    - cron: "47 5 * * 1"   # discovery of new projects, every Monday
+  workflow_dispatch:
+    inputs:
+      task:
+        description: What to run
+        type: choice
+        options: [metrics, discover, both]
+        default: metrics
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: update-index
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: vars.INDEX_UPDATES_DISABLED != 'true'
+    runs-on: ubuntu-latest
+    # Backstop only: the script's own budget (--max-minutes) ends the work well before this.
+    timeout-minutes: 40
+    env:
+      # Optional: a personal access token in the INDEX_TOKEN secret raises the API limits
+      # from 1,000 to 5,000 per hour. Without it the workflow's own token is used.
+      GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Choose tasks
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          TASK: ${{ inputs.task }}
+        run: |
+          if [ "$EVENT" = "schedule" ]; then
+            if [ "$SCHEDULE" = "47 5 * * 1" ]; then TASK=discover; else TASK=metrics; fi
+          fi
+          [ "$TASK" != "discover" ] && echo "metrics=true" >> "$GITHUB_OUTPUT"
+          [ "$TASK" != "metrics" ] && echo "discover=true" >> "$GITHUB_OUTPUT"
+          echo "running: $TASK"
+
+      - name: Refresh metrics and README
+        if: steps.plan.outputs.metrics == 'true'
+        run: python3 scripts/update.py --max-minutes 25
+
+      - name: Search for new projects
+        if: steps.plan.outputs.discover == 'true'
+        run: python3 scripts/update.py --discover --max-minutes 8 --report "$RUNNER_TEMP/candidates.md"
+
+      - name: Update the review issue
+        if: steps.plan.outputs.discover == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create candidates --color 0E8A16 --description "New projects found by discovery" --force
+          number=$(gh issue list --label candidates --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file "$RUNNER_TEMP/candidates.md"
+          else
+            gh issue create --title "Candidates for the index" --label candidates --body-file "$RUNNER_TEMP/candidates.md"
+          fi
+
+      - name: Commit changes
+        run: |
+          git add README.md data/
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh index data ($(date -u +%F)) [skip ci]"
+          git pull --rebase
+          git push

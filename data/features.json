@@ -1,0 +1,41 @@
+{
+  "about": "Keyword map for feature detection. Each pattern is a case-insensitive Python regex matched against a project's README, GitHub description, and topics. Use (?-i:...) for a case-sensitive part. Matches are a heuristic: a README that only mentions a tool in passing also counts.",
+  "groups": {
+    "Agents": {
+      "Claude Code": ["claude[ -]?code"],
+      "Codex": ["\\bcodex\\b"],
+      "Gemini CLI": ["gemini[ -]cli"],
+      "Cursor": ["cursor[ -](?:agent|cli)", "\\b(?-i:Cursor)\\b"],
+      "Aider": ["\\baider\\b"],
+      "OpenCode": ["\\bopencode\\b"],
+      "Copilot": ["\\bcopilot\\b"],
+      "Amp": ["\\bampcode\\b", "\\bamp cli\\b", "sourcegraph amp"],
+      "Goose": ["\\bgoose\\b"],
+      "Cline": ["\\bcline\\b"],
+      "Qwen Code": ["qwen[ -]code"],
+      "Kiro": ["\\bkiro\\b"]
+    },
+    "Isolation": {
+      "Git worktrees": ["\\bworktrees?\\b"],
+      "Containers": ["\\bdocker\\b", "\\bpodman\\b", "devcontainer", "\\bcontainers?\\b"],
+      "tmux": ["\\btmux\\b"],
+      "Sandbox / VM": ["\\bsandbox(?:es|ed|ing)?\\b", "\\bfirecracker\\b", "\\bmicro-?vms?\\b"]
+    },
+    "Interface": {
+      "TUI": ["\\btui\\b", "terminal ui", "terminal user interface", "\\bratatui\\b", "bubble ?tea"],
+      "Desktop app": ["desktop app", "\\belectron\\b", "\\btauri\\b", "native macos app"],
+      "Web UI": ["web ui", "web dashboard", "web interface", "browser-based", "\\bweb app\\b"],
+      "IDE extension": ["vs ?code extension", "jetbrains plugin", "n?vim plugin", "neovim plugin", "zed extension"],
+      "Mobile": ["\\bios app\\b", "android app", "mobile app", "\\biphone\\b"]
+    },
+    "Protocols": {
+      "MCP": ["\\bmcp\\b", "model context protocol"],
+      "A2A": ["\\ba2a\\b", "agent2agent", "agent-to-agent protocol"],
+      "ACP": ["agent client protocol", "\\bacp\\b"]
+    },
+    "Workflow": {
+      "Kanban / task board": ["\\bkanban\\b", "task board"],
+      "Scheduled runs": ["\\bcron\\b", "scheduled (?:tasks?|runs?|jobs?)"]
+    }
+  }
+}
