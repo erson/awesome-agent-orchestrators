@@ -1,8 +1,10 @@
 # Stop building new AI agent orchestrators — there are 636
 
-An index of open-source and source-available tools for orchestrating AI agents. Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, and how recently it was updated.
+Before you write another orchestrator, check whether someone already has. This repo indexes 636 open-source and source-available tools that run, supervise, or coordinate AI agents: parallel coding agents, multi-agent swarms, loop and task runners, infrastructure, and personal assistants. 449 of them had a commit in the last 30 days.
 
-It starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0) and adds projects that list does not cover. Figures are a snapshot; see [Methodology](#methodology).
+Most of these projects are doing the same few things: running several agent sessions side by side, isolating them in worktrees or containers, and routing tasks between them. The gap is rarely another orchestrator. It is maturity: more contributors, releases, docs, and tests. Pick one that is close to what you need and contribute to it, or fork it. If you still build your own, use this list to see what already exists and say what yours does differently.
+
+Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, and how recently it was updated. The [Single-maintainer risk](#single-maintainer-risk) table shows projects that depend on one person. The list starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0) and adds projects that list does not cover. Figures are a snapshot; see [Methodology](#methodology).
 
 **Metrics collected 2026-11-15 (UTC)** · 346 from the source list · 275 new · 15 adjacent frameworks · refresh with `python3 scripts/update.py`
 

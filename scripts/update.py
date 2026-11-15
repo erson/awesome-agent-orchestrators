@@ -51,10 +51,19 @@ CSV_FIELDS = [
 ]
 TITLE = "Stop building new AI agent orchestrators"
 INTRO = (
-    "An index of open-source and source-available tools for orchestrating AI agents. "
-    "Every project has live GitHub metrics: stars, contributors, commit activity, releases, "
-    "open work, license, and how recently it was updated.\n\n"
-    "It starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) "
+    "Before you write another orchestrator, check whether someone already has. This repo indexes "
+    "{total} open-source and source-available tools that run, supervise, or coordinate AI agents: "
+    "parallel coding agents, multi-agent swarms, loop and task runners, infrastructure, and personal assistants. "
+    "{active} of them had a commit in the last 30 days.\n\n"
+    "Most of these projects are doing the same few things: running several agent sessions side by side, "
+    "isolating them in worktrees or containers, and routing tasks between them. The gap is rarely another "
+    "orchestrator. It is maturity: more contributors, releases, docs, and tests. Pick one that is close to "
+    "what you need and contribute to it, or fork it. If you still build your own, use this list to see what "
+    "already exists and say what yours does differently.\n\n"
+    "Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, "
+    "and how recently it was updated. The [Single-maintainer risk](#single-maintainer-risk) table shows "
+    "projects that depend on one person. The list starts from "
+    "[andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) "
     "(CC0-1.0) and adds projects that list does not cover. Figures are a snapshot; see [Methodology](#methodology)."
 )
 METHOD = """## Methodology
@@ -431,7 +440,8 @@ def render_readme(doc, rows):
     dates = sorted({as_of(r).isoformat() for r in rows if r.get("fetched_at")})
     snapshot = dates[0] if len(dates) == 1 else f"{dates[0]} to {dates[-1]}" if dates else TODAY.isoformat()
     parts = [
-        f"# {TITLE} — there are {len(rows)}", "", INTRO, "",
+        f"# {TITLE} — there are {len(rows)}", "",
+        INTRO.format(total=len(rows), active=sum(r["status"] == "Active" for r in rows)), "",
         f"**Metrics collected {snapshot} (UTC)** · {origins['awesome-list']} from the source list · "
         f"{origins['discovered']} new · {origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
         "",
