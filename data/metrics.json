@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-11-15T14:05:24+00:00",
+  "generated_at": "2026-11-16T12:58:11+00:00",
   "repos": {
     "0-ai-ug/cate": {
       "archived": false,
       "bots": 3,
-      "commits_90d": 368,
-      "commits_all_time": 1474,
+      "commits_90d": 369,
+      "commits_all_time": 1475,
       "contributors": 17,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-29T14:49:51Z",
       "features": [
         "Claude Code",
@@ -14,7 +15,7 @@
         "Git worktrees",
         "Mobile"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 146,
       "full_name": "0-AI-UG/cate",
@@ -55,18 +56,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T17:44:36Z",
+      "last_commit_at": "2026-11-15T19:14:59Z",
       "latest_release_at": "2026-11-13T12:25:25Z",
       "latest_release_prerelease": true,
       "latest_release_tag": "v2.1.0-beta.15",
       "license": "MIT",
-      "open_issues": 2,
-      "open_prs": 2,
-      "pushed_at": "2026-11-14T17:44:38Z",
+      "open_issues": 3,
+      "open_prs": 3,
+      "pushed_at": "2026-11-15T19:29:08Z",
       "readme_found": true,
       "releases_12m": 112,
       "repo": "0-AI-UG/cate",
-      "stars": 2239,
+      "stars": 2240,
       "top_author_share": 0.678,
       "topics": [],
       "url": "https://github.com/0-AI-UG/cate"
@@ -77,6 +78,7 @@
       "commits_90d": 12,
       "commits_all_time": 43,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-29T00:26:27Z",
       "features": [
         "Claude Code",
@@ -87,7 +89,7 @@
         "tmux",
         "Sandbox / VM"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1,
       "full_name": "0xmmo/crew",
@@ -127,11 +129,12 @@
       "commits_90d": 0,
       "commits_all_time": 30,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-18T12:42:13Z",
       "features": [
         "OpenCode"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 19,
       "full_name": "0xSero/orchestra",
@@ -271,6 +274,7 @@
       "commits_90d": 5,
       "commits_all_time": 991,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-26T13:58:09Z",
       "features": [
         "Claude Code",
@@ -279,7 +283,7 @@
         "Sandbox / VM",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 97,
       "full_name": "1mancompany/OneManCompany",
@@ -319,7 +323,7 @@
       "readme_found": true,
       "releases_12m": 25,
       "repo": "1mancompany/OneManCompany",
-      "stars": 470,
+      "stars": 472,
       "top_author_share": 0.545,
       "topics": [
         "one-person-company",
@@ -338,6 +342,7 @@
       "commits_90d": 0,
       "commits_all_time": 103,
       "contributors": 17,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-14T02:12:40Z",
       "features": [
         "Claude Code",
@@ -350,7 +355,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 606,
       "full_name": "21st-dev/1code",
@@ -398,9 +403,10 @@
     "23blocks-os/ai-maestro": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 711,
+      "commits_90d": 710,
       "commits_all_time": 1757,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-10-10T00:17:03Z",
       "features": [
         "Claude Code",
@@ -413,7 +419,7 @@
         "Mobile",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 115,
       "full_name": "23blocks-OS/ai-maestro",
@@ -497,6 +503,7 @@
       "commits_90d": 15,
       "commits_all_time": 1280,
       "contributors": 29,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2024-07-23T12:48:30Z",
       "features": [
         "Cursor",
@@ -505,7 +512,7 @@
         "Mobile",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 746,
       "full_name": "2FastLabs/agent-squad",
@@ -574,9 +581,10 @@
     "5dive-ai/5dive": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 1002,
-      "commits_all_time": 2742,
+      "commits_90d": 966,
+      "commits_all_time": 2745,
       "contributors": 5,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-15T08:12:36Z",
       "features": [
         "Claude Code",
@@ -589,9 +597,9 @@
         "A2A",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 13,
+      "forks": 14,
       "full_name": "5dive-ai/5dive",
       "github_description": "Run your own AI team from your phone. Claude Code, Codex and more on your own server: shared tasks, always-on agents, a small composable bash core. MIT. An open-source alternative to Grok Bot and OpenAI Dots.",
       "homepage": "https://5dive.ai",
@@ -638,18 +646,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T06:13:21Z",
-      "latest_release_at": "2026-11-15T07:20:25Z",
+      "last_commit_at": "2026-11-16T05:50:55Z",
+      "latest_release_at": "2026-11-16T07:24:28Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.133.2",
+      "latest_release_tag": "v0.134.0",
       "license": "MIT",
       "open_issues": 9,
-      "open_prs": 1,
-      "pushed_at": "2026-11-15T07:20:22Z",
+      "open_prs": 0,
+      "pushed_at": "2026-11-16T07:24:27Z",
       "readme_found": true,
-      "releases_12m": 534,
+      "releases_12m": 535,
       "repo": "5dive-ai/5dive",
-      "stars": 117,
+      "stars": 119,
       "top_author_share": 0.688,
       "topics": [
         "claude-code",
@@ -678,9 +686,10 @@
     "777genius/agent-teams-ai": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 2886,
-      "commits_all_time": 7293,
+      "commits_90d": 2873,
+      "commits_all_time": 7295,
       "contributors": 33,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-21T08:14:44Z",
       "features": [
         "Claude Code",
@@ -699,7 +708,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 406,
       "full_name": "777genius/agent-teams-ai",
@@ -748,18 +757,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T19:39:26Z",
+      "last_commit_at": "2026-11-16T09:33:22Z",
       "latest_release_at": "2026-11-11T18:32:14Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v2.18.7",
       "license": "AGPL-3.0",
-      "open_issues": 30,
-      "open_prs": 26,
-      "pushed_at": "2026-11-15T13:49:18Z",
+      "open_issues": 31,
+      "open_prs": 34,
+      "pushed_at": "2026-11-16T12:54:11Z",
       "readme_found": true,
       "releases_12m": 35,
       "repo": "777genius/agent-teams-ai",
-      "stars": 2492,
+      "stars": 2495,
       "top_author_share": 0.906,
       "topics": [
         "agent-teams",
@@ -1018,9 +1027,10 @@
     "abilityai/trinity": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 41,
+      "commits_90d": 40,
       "commits_all_time": 1677,
       "contributors": 10,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-10T19:58:27Z",
       "features": [
         "Claude Code",
@@ -1032,7 +1042,7 @@
         "A2A",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 154,
       "full_name": "Abilityai/trinity",
@@ -1082,17 +1092,17 @@
         }
       ],
       "last_commit_at": "2026-11-10T22:10:46Z",
-      "latest_release_at": "2026-11-11T10:26:31Z",
+      "latest_release_at": "2026-11-15T15:09:37Z",
       "latest_release_prerelease": true,
-      "latest_release_tag": "v1.0.5-rc2",
+      "latest_release_tag": "v1.0.5-rc3",
       "license": "Apache-2.0",
-      "open_issues": 772,
-      "open_prs": 51,
-      "pushed_at": "2026-11-15T13:30:58Z",
+      "open_issues": 775,
+      "open_prs": 54,
+      "pushed_at": "2026-11-16T09:33:18Z",
       "readme_found": true,
-      "releases_12m": 17,
+      "releases_12m": 18,
       "repo": "Abilityai/trinity",
-      "stars": 775,
+      "stars": 777,
       "top_author_share": 0.582,
       "topics": [
         "agent-orchestration",
@@ -1407,6 +1417,7 @@
       "commits_90d": 9,
       "commits_all_time": 9,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-09-30T08:39:30Z",
       "features": [
         "Claude Code",
@@ -1414,7 +1425,7 @@
         "Containers",
         "Desktop app"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 51,
       "full_name": "AFK-surf/Comma",
@@ -1474,7 +1485,7 @@
       "readme_found": true,
       "releases_12m": 3,
       "repo": "AFK-surf/Comma",
-      "stars": 605,
+      "stars": 608,
       "top_author_share": 1.0,
       "topics": [
         "agent",
@@ -1573,9 +1584,10 @@
     "agent-field/agentfield": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 367,
-      "commits_all_time": 1851,
+      "commits_90d": 362,
+      "commits_all_time": 1859,
       "contributors": 68,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-11-05T02:04:44Z",
       "features": [
         "Claude Code",
@@ -1588,7 +1600,7 @@
         "MCP",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 438,
       "full_name": "Agent-Field/agentfield",
@@ -1598,7 +1610,7 @@
       "languages": [
         {
           "name": "Go",
-          "share": 0.556
+          "share": 0.555
         },
         {
           "name": "TypeScript",
@@ -1637,16 +1649,16 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T14:04:23Z",
-      "latest_release_at": "2026-11-14T14:10:16Z",
+      "last_commit_at": "2026-11-15T14:04:20Z",
+      "latest_release_at": "2026-11-15T14:10:50Z",
       "latest_release_prerelease": true,
-      "latest_release_tag": "v0.1.146-rc.32",
+      "latest_release_tag": "v0.1.146-rc.34",
       "license": "Apache-2.0",
       "open_issues": 29,
-      "open_prs": 15,
-      "pushed_at": "2026-11-14T14:04:27Z",
+      "open_prs": 12,
+      "pushed_at": "2026-11-15T14:04:23Z",
       "readme_found": true,
-      "releases_12m": 649,
+      "releases_12m": 651,
       "repo": "Agent-Field/agentfield",
       "stars": 2656,
       "top_author_share": 0.401,
@@ -1677,9 +1689,10 @@
     "agent-field/codeaf": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 2145,
+      "commits_90d": 2013,
       "commits_all_time": 3225,
       "contributors": 13,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-08-05T16:00:07Z",
       "features": [
         "Claude Code",
@@ -1689,7 +1702,7 @@
         "tmux",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 83,
       "full_name": "Agent-Field/CodeAF",
@@ -1732,12 +1745,12 @@
       "latest_release_tag": "dev-20261114-9eb0b516b6f2",
       "license": "Apache-2.0",
       "open_issues": 294,
-      "open_prs": 20,
-      "pushed_at": "2026-11-15T13:44:22Z",
+      "open_prs": 23,
+      "pushed_at": "2026-11-16T12:16:27Z",
       "readme_found": true,
       "releases_12m": 106,
       "repo": "Agent-Field/CodeAF",
-      "stars": 745,
+      "stars": 749,
       "top_author_share": 0.871,
       "topics": [
         "agent-fleet",
@@ -1766,9 +1779,10 @@
     "agent-field/swe-af": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 93,
+      "commits_90d": 83,
       "commits_all_time": 312,
       "contributors": 16,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-04T16:33:08Z",
       "features": [
         "Claude Code",
@@ -1779,7 +1793,7 @@
         "Containers",
         "Sandbox / VM"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 187,
       "full_name": "Agent-Field/SWE-AF",
@@ -3454,6 +3468,7 @@
       "commits_90d": 283,
       "commits_all_time": 768,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-07T17:18:41Z",
       "features": [
         "Codex",
@@ -3461,7 +3476,7 @@
         "Sandbox / VM",
         "TUI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 15,
       "full_name": "AgwaB/pi-workflow",
@@ -3893,6 +3908,7 @@
       "commits_90d": 186,
       "commits_all_time": 186,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-09-29T15:43:40Z",
       "features": [
         "Claude Code",
@@ -3905,7 +3921,7 @@
         "MCP",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 0,
       "full_name": "Alekla0126/alchemist-coder",
@@ -4185,9 +4201,10 @@
     "alihamzaazam/repomon": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 647,
+      "commits_90d": 638,
       "commits_all_time": 1342,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-29T19:43:20Z",
       "features": [
         "Claude Code",
@@ -4201,7 +4218,7 @@
         "Desktop app",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 3,
       "full_name": "AliHamzaAzam/repomon",
@@ -4389,9 +4406,10 @@
     "altans/collie": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 5725,
-      "commits_all_time": 6193,
+      "commits_90d": 5730,
+      "commits_all_time": 6235,
       "contributors": 102,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-28T21:30:25Z",
       "features": [
         "Claude Code",
@@ -4404,9 +4422,9 @@
         "Web UI",
         "Mobile"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 222,
+      "forks": 221,
       "full_name": "AltanS/collie",
       "github_description": "Herdr mobile app for iPhone and Android. A self-hosted PWA to drive Claude Code, Pi, Codex and OpenCode in Herdr, tmux or zellij from your phone. Push alerts, no app store.",
       "homepage": "https://colliepwa.dev/",
@@ -4445,18 +4463,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T15:58:22Z",
-      "latest_release_at": "2026-11-14T16:16:50Z",
+      "last_commit_at": "2026-11-15T23:11:03Z",
+      "latest_release_at": "2026-11-16T01:22:13Z",
       "latest_release_prerelease": true,
-      "latest_release_tag": "v1.29.0-edge.2",
+      "latest_release_tag": "v1.29.0-edge.3",
       "license": "MIT",
-      "open_issues": 20,
+      "open_issues": 21,
       "open_prs": 21,
-      "pushed_at": "2026-11-14T16:14:15Z",
+      "pushed_at": "2026-11-16T01:18:53Z",
       "readme_found": true,
-      "releases_12m": 160,
+      "releases_12m": 161,
       "repo": "AltanS/collie",
-      "stars": 1659,
+      "stars": 1663,
       "top_author_share": 0.903,
       "topics": [
         "herdr",
@@ -4588,9 +4606,10 @@
     "amap-ml/longhorizon-harness": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 30,
+      "commits_90d": 29,
       "commits_all_time": 65,
       "contributors": 16,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-08-04T04:30:58Z",
       "features": [
         "Claude Code",
@@ -4600,7 +4619,7 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 196,
       "full_name": "AMAP-ML/LongHorizon-Harness",
@@ -4646,13 +4665,13 @@
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.1.8",
       "license": "MIT",
-      "open_issues": 10,
+      "open_issues": 11,
       "open_prs": 9,
       "pushed_at": "2026-11-11T09:40:18Z",
       "readme_found": true,
       "releases_12m": 9,
       "repo": "AMAP-ML/LongHorizon-Harness",
-      "stars": 1873,
+      "stars": 1875,
       "top_author_share": 0.349,
       "topics": [
         "agent",
@@ -4882,6 +4901,7 @@
       "commits_90d": 4,
       "commits_all_time": 187,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-11-15T08:59:04Z",
       "features": [
         "Claude Code",
@@ -4889,7 +4909,7 @@
         "Cursor",
         "Git worktrees"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 93,
       "full_name": "AnandChowdhary/continuous-claude",
@@ -4915,7 +4935,7 @@
       "open_prs": 0,
       "pushed_at": "2026-10-29T08:08:09Z",
       "readme_found": true,
-      "releases_12m": 61,
+      "releases_12m": 55,
       "repo": "AnandChowdhary/continuous-claude",
       "stars": 1389,
       "top_author_share": 0.992,
@@ -5015,6 +5035,7 @@
       "commits_90d": 0,
       "commits_all_time": 1106,
       "contributors": 23,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-04T22:10:37Z",
       "features": [
         "Claude Code",
@@ -5023,7 +5044,7 @@
         "Desktop app",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1887,
       "full_name": "AndyMik90/Aperant",
@@ -5461,6 +5482,7 @@
       "commits_90d": 176,
       "commits_all_time": 176,
       "contributors": 22,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-08-22T05:07:35Z",
       "features": [
         "Containers",
@@ -5469,7 +5491,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 342,
       "full_name": "ApodexAI/FrontierAgent",
@@ -5506,11 +5528,11 @@
       "license": "Apache-2.0",
       "open_issues": 4,
       "open_prs": 7,
-      "pushed_at": "2026-11-15T12:21:40Z",
+      "pushed_at": "2026-11-16T12:33:50Z",
       "readme_found": true,
       "releases_12m": 0,
       "repo": "ApodexAI/FrontierAgent",
-      "stars": 5439,
+      "stars": 5440,
       "top_author_share": 0.553,
       "topics": [
         "agent-orchestration",
@@ -5892,6 +5914,7 @@
       "commits_90d": 0,
       "commits_all_time": 212,
       "contributors": 9,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-19T20:24:35Z",
       "features": [
         "Claude Code",
@@ -5900,9 +5923,9 @@
         "tmux",
         "TUI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 77,
+      "forks": 76,
       "full_name": "Ataraxy-Labs/opensessions",
       "github_description": "tmux sidebar for coding agents — Amp, Claude Code, Codex, OpenCode. Per-thread markers, local HTTP API, live session state.",
       "homepage": "https://ataraxy-labs.com/#opensessions",
@@ -6046,6 +6069,7 @@
       "commits_90d": 0,
       "commits_all_time": 2281,
       "contributors": 41,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-07T21:42:08Z",
       "features": [
         "Claude Code",
@@ -6060,9 +6084,9 @@
         "Desktop app",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 584,
+      "forks": 583,
       "full_name": "AutoMaker-Org/automaker",
       "github_description": "",
       "homepage": "https://automaker.app/",
@@ -6217,9 +6241,10 @@
     "autoresearch-factory/agon": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 44,
+      "commits_90d": 23,
       "commits_all_time": 76,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-18T14:56:15Z",
       "features": [
         "Claude Code",
@@ -6227,7 +6252,7 @@
         "Containers",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 5,
       "full_name": "AutoResearch-Factory/Agon",
@@ -7026,6 +7051,7 @@
       "commits_90d": 0,
       "commits_all_time": 1150,
       "contributors": 30,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-06-08T15:36:50Z",
       "features": [
         "Claude Code",
@@ -7036,7 +7062,7 @@
         "IDE extension",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1037,
       "full_name": "BeehiveInnovations/pal-mcp-server",
@@ -7080,9 +7106,10 @@
     "bennykok/omg.dev": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 1991,
-      "commits_all_time": 3487,
+      "commits_90d": 1968,
+      "commits_all_time": 3497,
       "contributors": 9,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-17T07:33:04Z",
       "features": [
         "Claude Code",
@@ -7094,9 +7121,9 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 41,
+      "forks": 42,
       "full_name": "BennyKok/omg.dev",
       "github_description": "omg.dev — Remote control for claude, codex, cursor, opencode, pi, grok, jcode with mobile client",
       "homepage": "https://omg.dev",
@@ -7104,7 +7131,7 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.971
+          "share": 0.972
         },
         {
           "name": "CSS",
@@ -7131,14 +7158,14 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T08:41:54Z",
+      "last_commit_at": "2026-11-16T11:14:17Z",
       "latest_release_at": "2026-11-14T04:11:57Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.7.8",
       "license": "MIT",
       "open_issues": 2,
-      "open_prs": 0,
-      "pushed_at": "2026-11-15T08:45:52Z",
+      "open_prs": 1,
+      "pushed_at": "2026-11-16T11:14:27Z",
       "readme_found": true,
       "releases_12m": 794,
       "repo": "BennyKok/omg.dev",
@@ -7405,9 +7432,10 @@
     "bloopai/vibe-kanban": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 22,
-      "commits_all_time": 2092,
+      "commits_90d": 23,
+      "commits_all_time": 2093,
       "contributors": 66,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-06-14T19:10:21Z",
       "features": [
         "Claude Code",
@@ -7424,9 +7452,9 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 3063,
+      "forks": 3062,
       "full_name": "BloopAI/vibe-kanban",
       "github_description": "Get 10X more out of Claude Code, Codex or any coding agent",
       "homepage": "https://www.vibekanban.com/",
@@ -7434,11 +7462,11 @@
       "languages": [
         {
           "name": "Rust",
-          "share": 0.511
+          "share": 0.509
         },
         {
           "name": "TypeScript",
-          "share": 0.451
+          "share": 0.45
         },
         {
           "name": "JavaScript",
@@ -7449,12 +7477,12 @@
           "share": 0.009
         },
         {
-          "name": "HTML",
-          "share": 0.005
+          "name": "Shell",
+          "share": 0.008
         },
         {
-          "name": "Shell",
-          "share": 0.004
+          "name": "HTML",
+          "share": 0.005
         },
         {
           "name": "PLpgSQL",
@@ -7469,18 +7497,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T10:36:48Z",
+      "last_commit_at": "2026-11-15T16:05:51Z",
       "latest_release_at": "2026-11-15T13:16:39Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.1.46.1794744340",
       "license": "Apache-2.0",
       "open_issues": 382,
       "open_prs": 152,
-      "pushed_at": "2026-11-15T13:13:24Z",
+      "pushed_at": "2026-11-15T16:05:54Z",
       "readme_found": true,
       "releases_12m": 168,
       "repo": "BloopAI/vibe-kanban",
-      "stars": 28694,
+      "stars": 28706,
       "top_author_share": 0.465,
       "topics": [
         "agent",
@@ -7735,6 +7763,7 @@
       "commits_90d": 96,
       "commits_all_time": 96,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-10-20T10:04:03Z",
       "features": [
         "Claude Code",
@@ -7744,7 +7773,7 @@
         "Sandbox / VM",
         "Desktop app"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 0,
       "full_name": "Breadstick-Crumbs/fanout",
@@ -8296,9 +8325,10 @@
     "caffeinatedsoftwarellc/agora": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 939,
-      "commits_all_time": 1067,
+      "commits_90d": 945,
+      "commits_all_time": 1073,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-15T03:41:39Z",
       "features": [
         "Claude Code",
@@ -8313,7 +8343,7 @@
         "ACP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 3,
       "full_name": "CaffeinatedSoftwareLLC/agora",
@@ -8327,7 +8357,7 @@
         },
         {
           "name": "Shell",
-          "share": 0.039
+          "share": 0.038
         },
         {
           "name": "PowerShell",
@@ -8362,16 +8392,16 @@
           "share": 0.001
         }
       ],
-      "last_commit_at": "2026-11-14T21:34:37Z",
-      "latest_release_at": "2026-11-14T20:40:33Z",
+      "last_commit_at": "2026-11-16T02:46:26Z",
+      "latest_release_at": "2026-11-16T02:46:30Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.4.2",
+      "latest_release_tag": "v0.4.3",
       "license": "AGPL-3.0",
       "open_issues": 9,
       "open_prs": 19,
-      "pushed_at": "2026-11-14T21:34:38Z",
+      "pushed_at": "2026-11-16T02:46:30Z",
       "readme_found": true,
-      "releases_12m": 19,
+      "releases_12m": 20,
       "repo": "CaffeinatedSoftwareLLC/agora",
       "stars": 6,
       "top_author_share": 0.985,
@@ -8605,6 +8635,7 @@
       "commits_90d": 0,
       "commits_all_time": 2,
       "contributors": 0,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-18T12:45:16Z",
       "features": [
         "Claude Code",
@@ -8613,7 +8644,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 7,
       "full_name": "CelaenoIndustry/OpenSepia",
@@ -9005,6 +9036,7 @@
       "commits_90d": 2,
       "commits_all_time": 189,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-24T05:08:03Z",
       "features": [
         "Claude Code",
@@ -9015,7 +9047,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 61,
       "full_name": "Charlie85270/Dorothy",
@@ -9154,9 +9186,10 @@
     "chorus-aidlc/chorus": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 216,
+      "commits_90d": 215,
       "commits_all_time": 1014,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-04T06:56:16Z",
       "features": [
         "Claude Code",
@@ -9167,7 +9200,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 112,
       "full_name": "Chorus-AIDLC/Chorus",
@@ -10207,14 +10240,15 @@
     "cognipeer/agent-sdk": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 92,
-      "commits_all_time": 192,
+      "commits_90d": 94,
+      "commits_all_time": 196,
       "contributors": 6,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-09-26T13:16:48Z",
       "features": [
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 0,
       "full_name": "Cognipeer/agent-sdk",
@@ -10239,16 +10273,16 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T13:13:59Z",
-      "latest_release_at": "2026-11-15T13:21:35Z",
+      "last_commit_at": "2026-11-15T19:23:09Z",
+      "latest_release_at": "2026-11-15T19:23:35Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.23.0",
+      "latest_release_tag": "v0.24.0",
       "license": "MIT",
       "open_issues": 1,
       "open_prs": 1,
-      "pushed_at": "2026-11-15T13:21:34Z",
+      "pushed_at": "2026-11-15T19:23:34Z",
       "readme_found": true,
-      "releases_12m": 22,
+      "releases_12m": 23,
       "repo": "Cognipeer/agent-sdk",
       "stars": 7,
       "top_author_share": 0.807,
@@ -10437,6 +10471,7 @@
       "commits_90d": 0,
       "commits_all_time": 1506,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-12T01:01:32Z",
       "features": [
         "Codex",
@@ -10444,7 +10479,7 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 9,
       "full_name": "CompanyHelm/companyhelm",
@@ -10665,6 +10700,7 @@
       "commits_90d": 265,
       "commits_all_time": 265,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-08-29T08:41:53Z",
       "features": [
         "Claude Code",
@@ -10677,9 +10713,9 @@
         "Sandbox / VM",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 142,
+      "forks": 153,
       "full_name": "Continuum-AI-Corp/OrcaReplay",
       "github_description": "OrcaReplay — Time travel for AI agents. Record, replay, fork, and debug any agent run with any model. Built by the OrcaRouter.ai team.",
       "homepage": "http://www.orcarouter.ai",
@@ -10710,7 +10746,7 @@
       "readme_found": true,
       "releases_12m": 0,
       "repo": "Continuum-AI-Corp/OrcaReplay",
-      "stars": 748,
+      "stars": 817,
       "top_author_share": 0.535,
       "topics": [
         "agent-debugging",
@@ -10884,6 +10920,7 @@
       "commits_90d": 0,
       "commits_all_time": 10,
       "contributors": 0,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-19T09:18:22Z",
       "features": [
         "Claude Code",
@@ -10894,7 +10931,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1,
       "full_name": "CorellisOrg/Corellis",
@@ -10944,9 +10981,10 @@
     "cotal-ai/cotal": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 10973,
-      "commits_all_time": 13628,
+      "commits_90d": 10779,
+      "commits_all_time": 13712,
       "contributors": 19,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-02T02:52:25Z",
       "features": [
         "Claude Code",
@@ -10958,7 +10996,7 @@
         "MCP",
         "A2A"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 47,
       "full_name": "Cotal-AI/Cotal",
@@ -10968,22 +11006,22 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.929
+          "share": 0.927
         },
         {
           "name": "JavaScript",
-          "share": 0.058
+          "share": 0.059
         },
         {
           "name": "Python",
           "share": 0.003
         },
         {
-          "name": "Shell",
+          "name": "PowerShell",
           "share": 0.002
         },
         {
-          "name": "PowerShell",
+          "name": "Shell",
           "share": 0.002
         },
         {
@@ -11007,18 +11045,18 @@
           "share": 0.001
         }
       ],
-      "last_commit_at": "2026-11-15T13:22:54Z",
-      "latest_release_at": "2026-11-15T10:08:04Z",
+      "last_commit_at": "2026-11-16T12:57:49Z",
+      "latest_release_at": "2026-11-15T22:15:26Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.164.15",
+      "latest_release_tag": "v0.164.18",
       "license": "Apache-2.0",
-      "open_issues": 115,
-      "open_prs": 22,
-      "pushed_at": "2026-11-15T13:30:20Z",
+      "open_issues": 121,
+      "open_prs": 26,
+      "pushed_at": "2026-11-16T12:58:05Z",
       "readme_found": true,
-      "releases_12m": 455,
+      "releases_12m": 458,
       "repo": "Cotal-AI/Cotal",
-      "stars": 393,
+      "stars": 394,
       "top_author_share": 0.95,
       "topics": [
         "agent-orchestration",
@@ -11155,14 +11193,15 @@
     "crewbeelab/crewbee": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 0,
-      "commits_all_time": 236,
+      "commits_90d": 11,
+      "commits_all_time": 247,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-05T19:00:36Z",
       "features": [
         "OpenCode"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 5,
       "full_name": "CrewBeeLab/CrewBee",
@@ -11172,27 +11211,27 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.72
+          "share": 0.708
         },
         {
           "name": "JavaScript",
-          "share": 0.277
+          "share": 0.289
         },
         {
           "name": "Batchfile",
-          "share": 0.003
+          "share": 0.002
         }
       ],
-      "last_commit_at": "2026-07-25T12:44:29Z",
-      "latest_release_at": "2026-05-14T19:37:39Z",
+      "last_commit_at": "2026-11-16T12:10:15Z",
+      "latest_release_at": "2026-11-16T12:34:17Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.1.24",
+      "latest_release_tag": "v0.2.0",
       "license": "MIT",
       "open_issues": 0,
-      "open_prs": 2,
-      "pushed_at": "2026-07-25T12:44:33Z",
+      "open_prs": 0,
+      "pushed_at": "2026-11-16T12:10:26Z",
       "readme_found": true,
-      "releases_12m": 5,
+      "releases_12m": 6,
       "repo": "CrewBeeLab/CrewBee",
       "stars": 24,
       "top_author_share": 1.0,
@@ -12190,9 +12229,10 @@
     "deadwavewave/opencove": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 301,
-      "commits_all_time": 826,
+      "commits_90d": 314,
+      "commits_all_time": 839,
       "contributors": 20,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-09T11:56:55Z",
       "features": [
         "Claude Code",
@@ -12201,7 +12241,7 @@
         "Desktop app",
         "Web UI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 152,
       "full_name": "DeadWaveWave/opencove",
@@ -12211,11 +12251,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.94
+          "share": 0.941
         },
         {
           "name": "JavaScript",
-          "share": 0.035
+          "share": 0.034
         },
         {
           "name": "CSS",
@@ -12238,16 +12278,16 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T13:36:51Z",
-      "latest_release_at": "2026-11-14T23:53:18Z",
+      "last_commit_at": "2026-11-16T12:28:27Z",
+      "latest_release_at": "2026-11-16T00:02:10Z",
       "latest_release_prerelease": true,
-      "latest_release_tag": "v0.5.0-nightly.20261115.1",
+      "latest_release_tag": "v0.5.0-nightly.20261116.1",
       "license": "MIT",
-      "open_issues": 22,
-      "open_prs": 0,
-      "pushed_at": "2026-11-15T13:37:04Z",
+      "open_issues": 26,
+      "open_prs": 1,
+      "pushed_at": "2026-11-16T12:28:53Z",
       "readme_found": true,
-      "releases_12m": 132,
+      "releases_12m": 133,
       "repo": "DeadWaveWave/opencove",
       "stars": 1652,
       "top_author_share": 0.943,
@@ -12270,9 +12310,10 @@
     "deepmyst/mysti": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 277,
+      "commits_90d": 276,
       "commits_all_time": 447,
       "contributors": 7,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-11-29T13:29:57Z",
       "features": [
         "Claude Code",
@@ -12284,7 +12325,7 @@
         "Cline",
         "Qwen Code"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 55,
       "full_name": "DeepMyst/Mysti",
@@ -12364,6 +12405,7 @@
       "commits_90d": 0,
       "commits_all_time": 143,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-14T11:12:27Z",
       "features": [
         "Claude Code",
@@ -12373,7 +12415,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 15,
       "full_name": "Dekelelz/let-them-talk",
@@ -12412,12 +12454,13 @@
       "commits_90d": 0,
       "commits_all_time": 14382,
       "contributors": 357,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-01T06:25:42Z",
       "features": [
         "Containers",
         "Web UI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": true,
       "forks": 126,
       "full_name": "DenchHQ/DenchClaw",
@@ -12565,9 +12608,10 @@
     "devin-axis/ipollowork": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 14668,
-      "commits_all_time": 27314,
+      "commits_90d": 14512,
+      "commits_all_time": 27356,
       "contributors": 51,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-08-25T03:57:40Z",
       "features": [
         "Claude Code",
@@ -12575,9 +12619,9 @@
         "OpenCode",
         "Web UI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 1135,
+      "forks": 1134,
       "full_name": "Devin-AXIS/iPolloWork",
       "github_description": "An enterprise collaboration platform for people and multi-agent teams, built on the open-source DeepSeek Harness. Shared projects, plugins and Skills, integrated messaging, and editable code, documents, presentations, design, websites and video.",
       "homepage": "https://www.ipollo.ai/",
@@ -12585,11 +12629,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.849
+          "share": 0.845
         },
         {
           "name": "JavaScript",
-          "share": 0.073
+          "share": 0.078
         },
         {
           "name": "PowerShell",
@@ -12624,18 +12668,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T11:56:03Z",
-      "latest_release_at": "2026-11-15T10:32:25Z",
+      "last_commit_at": "2026-11-16T10:32:01Z",
+      "latest_release_at": "2026-11-16T11:21:25Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v1.0",
+      "latest_release_tag": "v1.0.3",
       "license": "NOASSERTION",
       "open_issues": 60,
-      "open_prs": 36,
-      "pushed_at": "2026-11-15T11:56:15Z",
+      "open_prs": 33,
+      "pushed_at": "2026-11-16T11:21:25Z",
       "readme_found": true,
-      "releases_12m": 44,
+      "releases_12m": 49,
       "repo": "Devin-AXIS/iPolloWork",
-      "stars": 7454,
+      "stars": 7479,
       "top_author_share": 0.262,
       "topics": [
         "ai-agents",
@@ -12665,6 +12709,7 @@
       "commits_90d": 2,
       "commits_all_time": 50,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-06-28T01:46:46Z",
       "features": [
         "Claude Code",
@@ -12673,7 +12718,7 @@
         "Containers",
         "tmux"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 107,
       "full_name": "Dicklesworthstone/claude_code_agent_farm",
@@ -12715,6 +12760,7 @@
       "commits_90d": 32,
       "commits_all_time": 890,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-10-23T03:42:36Z",
       "features": [
         "Claude Code",
@@ -12726,7 +12772,7 @@
         "Mobile",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 230,
       "full_name": "Dicklesworthstone/mcp_agent_mail",
@@ -12788,9 +12834,10 @@
     "dicklesworthstone/mcp_agent_mail_rust": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 2855,
-      "commits_all_time": 6340,
+      "commits_90d": 2835,
+      "commits_all_time": 6352,
       "contributors": 4,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-05T05:33:42Z",
       "features": [
         "Claude Code",
@@ -12805,7 +12852,7 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 46,
       "full_name": "Dicklesworthstone/mcp_agent_mail_rust",
@@ -12846,18 +12893,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T13:44:48Z",
+      "last_commit_at": "2026-11-16T10:32:29Z",
       "latest_release_at": "2026-11-01T03:27:13Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.3.40",
       "license": "NOASSERTION",
-      "open_issues": 30,
+      "open_issues": 33,
       "open_prs": 0,
-      "pushed_at": "2026-11-15T13:45:03Z",
+      "pushed_at": "2026-11-16T10:32:58Z",
       "readme_found": true,
       "releases_12m": 77,
       "repo": "Dicklesworthstone/mcp_agent_mail_rust",
-      "stars": 255,
+      "stars": 257,
       "top_author_share": 0.998,
       "topics": [
         "ai-agents",
@@ -12871,9 +12918,10 @@
     "dicklesworthstone/ntm": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 1027,
-      "commits_all_time": 5712,
+      "commits_90d": 1003,
+      "commits_all_time": 5727,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-10T07:02:48Z",
       "features": [
         "Claude Code",
@@ -12885,7 +12933,7 @@
         "tmux",
         "TUI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 75,
       "full_name": "Dicklesworthstone/ntm",
@@ -12895,11 +12943,11 @@
       "languages": [
         {
           "name": "Go",
-          "share": 0.968
+          "share": 0.957
         },
         {
           "name": "TypeScript",
-          "share": 0.022
+          "share": 0.034
         },
         {
           "name": "Shell",
@@ -12922,14 +12970,14 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T07:28:56Z",
+      "last_commit_at": "2026-11-16T07:06:23Z",
       "latest_release_at": "2026-10-31T12:07:56Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v1.38.0",
       "license": "NOASSERTION",
       "open_issues": 13,
       "open_prs": 0,
-      "pushed_at": "2026-11-15T13:05:51Z",
+      "pushed_at": "2026-11-16T07:06:27Z",
       "readme_found": true,
       "releases_12m": 61,
       "repo": "Dicklesworthstone/ntm",
@@ -12950,6 +12998,7 @@
       "commits_90d": 0,
       "commits_all_time": 972,
       "contributors": 73,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-11T07:56:35Z",
       "features": [
         "Codex",
@@ -12957,9 +13006,9 @@
         "Desktop app",
         "Mobile"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 418,
+      "forks": 419,
       "full_name": "Dimillian/CodexMonitor",
       "github_description": "An app to monitor the (Codex) situation",
       "homepage": "https://www.codexmonitor.app",
@@ -13120,13 +13169,14 @@
       "commits_90d": 0,
       "commits_all_time": 13,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-19T05:02:20Z",
       "features": [
         "Claude Code",
         "Codex",
         "Web UI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 5,
       "full_name": "Dmatut7/AgentHub",
@@ -14434,9 +14484,10 @@
     "ekkolearnai/ekko-studio": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 629,
-      "commits_all_time": 1885,
+      "commits_90d": 632,
+      "commits_all_time": 1896,
       "contributors": 92,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-04-11T07:38:18Z",
       "features": [
         "Claude Code",
@@ -14454,9 +14505,9 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 1473,
+      "forks": 1476,
       "full_name": "EKKOLearnAI/ekko-studio",
       "github_description": "Ekko Studio is a local-first AI workspace for multi-agent chat, coding, and visual workflows, available on desktop and the web.",
       "homepage": "https://ekkostudio.xyz",
@@ -14464,15 +14515,15 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.727
+          "share": 0.731
         },
         {
           "name": "Vue",
-          "share": 0.188
+          "share": 0.185
         },
         {
           "name": "JavaScript",
-          "share": 0.032
+          "share": 0.031
         },
         {
           "name": "C++",
@@ -14503,18 +14554,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T07:36:11Z",
-      "latest_release_at": "2026-11-15T07:37:44Z",
+      "last_commit_at": "2026-11-16T12:12:31Z",
+      "latest_release_at": "2026-11-16T12:13:24Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.8.24",
+      "latest_release_tag": "v0.8.25",
       "license": "NOASSERTION",
       "open_issues": 415,
       "open_prs": 175,
-      "pushed_at": "2026-11-15T07:37:27Z",
+      "pushed_at": "2026-11-16T12:13:19Z",
       "readme_found": true,
-      "releases_12m": 181,
+      "releases_12m": 182,
       "repo": "EKKOLearnAI/ekko-studio",
-      "stars": 11779,
+      "stars": 11781,
       "top_author_share": 0.727,
       "topics": [
         "ai-agent",
@@ -14768,9 +14819,10 @@
     "emanuele-web04/synara": {
       "archived": false,
       "bots": 4,
-      "commits_90d": 2603,
-      "commits_all_time": 5493,
+      "commits_90d": 2598,
+      "commits_all_time": 5524,
       "contributors": 140,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-27T21:15:39Z",
       "features": [
         "Claude Code",
@@ -14781,9 +14833,9 @@
         "Desktop app",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 333,
+      "forks": 334,
       "full_name": "Emanuele-web04/synara",
       "github_description": "The best place to build with your AI sub",
       "homepage": "https://trysynara.com",
@@ -14791,11 +14843,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.973
+          "share": 0.971
         },
         {
           "name": "JavaScript",
-          "share": 0.008
+          "share": 0.01
         },
         {
           "name": "MDX",
@@ -14830,18 +14882,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T21:00:30Z",
-      "latest_release_at": "2026-11-14T21:20:25Z",
+      "last_commit_at": "2026-11-15T18:26:52Z",
+      "latest_release_at": "2026-11-15T19:34:20Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v1.5.4",
+      "latest_release_tag": "v1.6.0",
       "license": "MIT",
       "open_issues": 139,
-      "open_prs": 221,
-      "pushed_at": "2026-11-15T12:54:32Z",
+      "open_prs": 230,
+      "pushed_at": "2026-11-16T12:59:00Z",
       "readme_found": true,
-      "releases_12m": 116,
+      "releases_12m": 117,
       "repo": "Emanuele-web04/synara",
-      "stars": 2230,
+      "stars": 2238,
       "top_author_share": 0.579,
       "topics": [],
       "url": "https://github.com/Emanuele-web04/synara"
@@ -14849,9 +14901,10 @@
     "enderfga/claw-orchestrator": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 381,
+      "commits_90d": 372,
       "commits_all_time": 756,
       "contributors": 14,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-30T16:00:53Z",
       "features": [
         "Claude Code",
@@ -14867,7 +14920,7 @@
         "ACP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 103,
       "full_name": "Enderfga/claw-orchestrator",
@@ -14903,7 +14956,7 @@
       "readme_found": true,
       "releases_12m": 142,
       "repo": "Enderfga/claw-orchestrator",
-      "stars": 607,
+      "stars": 609,
       "top_author_share": 0.775,
       "topics": [
         "ai-agent",
@@ -14935,6 +14988,7 @@
       "commits_90d": 54,
       "commits_all_time": 257,
       "contributors": 11,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-04-04T06:12:31Z",
       "features": [
         "Claude Code",
@@ -14944,7 +14998,7 @@
         "TUI",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 9,
       "full_name": "Endgame-Labs/goated",
@@ -15089,9 +15143,10 @@
     "evanzhang008/open-walnut": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 4801,
-      "commits_all_time": 6338,
+      "commits_90d": 4941,
+      "commits_all_time": 6482,
       "contributors": 3,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-24T01:55:43Z",
       "features": [
         "Claude Code",
@@ -15105,7 +15160,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 12,
       "full_name": "EvanZhang008/open-walnut",
@@ -15115,11 +15170,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.865
+          "share": 0.866
         },
         {
           "name": "Swift",
-          "share": 0.094
+          "share": 0.093
         },
         {
           "name": "CSS",
@@ -15154,16 +15209,16 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T10:12:00Z",
-      "latest_release_at": "2026-11-12T10:57:02Z",
+      "last_commit_at": "2026-11-16T12:54:17Z",
+      "latest_release_at": "2026-11-16T09:22:26Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.6.32",
+      "latest_release_tag": "v0.6.33",
       "license": "MIT",
       "open_issues": 0,
       "open_prs": 1,
-      "pushed_at": "2026-11-15T11:13:24Z",
+      "pushed_at": "2026-11-16T12:57:15Z",
       "readme_found": true,
-      "releases_12m": 44,
+      "releases_12m": 47,
       "repo": "EvanZhang008/open-walnut",
       "stars": 140,
       "top_author_share": 0.999,
@@ -15194,9 +15249,10 @@
     "evermind-ai/raven": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 1866,
-      "commits_all_time": 2090,
+      "commits_90d": 1827,
+      "commits_all_time": 2108,
       "contributors": 52,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-21T08:45:07Z",
       "features": [
         "Claude Code",
@@ -15206,9 +15262,9 @@
         "Web UI",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 259,
+      "forks": 262,
       "full_name": "EverMind-AI/Raven",
       "github_description": "The Harness of Harnesses • Super Agent: a trusted, persistent, self-evolving multi-agent ecosystem for all-domain collaboration.",
       "homepage": "https://raven.evermind.ai",
@@ -15251,18 +15307,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T11:08:49Z",
+      "last_commit_at": "2026-11-16T09:16:57Z",
       "latest_release_at": "2026-11-03T16:25:01Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.2.7",
       "license": "Apache-2.0",
-      "open_issues": 38,
-      "open_prs": 44,
-      "pushed_at": "2026-11-15T11:36:35Z",
+      "open_issues": 36,
+      "open_prs": 33,
+      "pushed_at": "2026-11-16T11:34:47Z",
       "readme_found": true,
       "releases_12m": 23,
       "repo": "EverMind-AI/Raven",
-      "stars": 6210,
+      "stars": 6225,
       "top_author_share": 0.314,
       "topics": [
         "ai",
@@ -15666,13 +15722,14 @@
       "commits_90d": 0,
       "commits_all_time": 6367,
       "contributors": 116,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2023-06-30T09:04:55Z",
       "features": [
         "Containers"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 9109,
+      "forks": 9111,
       "full_name": "FoundationAgents/MetaGPT",
       "github_description": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
       "homepage": "https://atoms.dev/",
@@ -15704,13 +15761,13 @@
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.8.2",
       "license": "MIT",
-      "open_issues": 8,
-      "open_prs": 146,
+      "open_issues": 9,
+      "open_prs": 147,
       "pushed_at": "2026-01-21T10:12:33Z",
       "readme_found": true,
       "releases_12m": 0,
       "repo": "FoundationAgents/MetaGPT",
-      "stars": 71280,
+      "stars": 71292,
       "top_author_share": 0.189,
       "topics": [
         "agent",
@@ -16363,9 +16420,10 @@
     "gaurav-gosain/tuios": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 5661,
-      "commits_all_time": 6829,
+      "commits_90d": 5739,
+      "commits_all_time": 6907,
       "contributors": 76,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-09-06T18:13:51Z",
       "features": [
         "Claude Code",
@@ -16382,9 +16440,9 @@
         "MCP",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 323,
+      "forks": 321,
       "full_name": "Gaurav-Gosain/tuios",
       "github_description": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent. Official only at tuios.dev and this repo. tuios has no X/Twitter account.",
       "homepage": "https://tuios.dev",
@@ -16427,18 +16485,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T11:24:32Z",
-      "latest_release_at": "2026-11-15T03:53:44Z",
+      "last_commit_at": "2026-11-16T12:20:00Z",
+      "latest_release_at": "2026-11-15T20:12:29Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.13.1",
+      "latest_release_tag": "v0.13.2",
       "license": "MIT",
-      "open_issues": 19,
-      "open_prs": 36,
-      "pushed_at": "2026-11-15T13:20:31Z",
+      "open_issues": 23,
+      "open_prs": 26,
+      "pushed_at": "2026-11-16T12:54:24Z",
       "readme_found": true,
-      "releases_12m": 26,
+      "releases_12m": 27,
       "repo": "Gaurav-Gosain/tuios",
-      "stars": 6532,
+      "stars": 6540,
       "top_author_share": 0.889,
       "topics": [
         "bubbletea",
@@ -16660,9 +16718,10 @@
     "gentleman-programming/gentle-shell": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 2819,
-      "commits_all_time": 7220,
+      "commits_90d": 2804,
+      "commits_all_time": 7223,
       "contributors": 255,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-10T10:11:33Z",
       "features": [
         "Codex",
@@ -16672,7 +16731,7 @@
         "Desktop app",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 286,
       "full_name": "Gentleman-Programming/gentle-shell",
@@ -16690,7 +16749,7 @@
         },
         {
           "name": "HTML",
-          "share": 0.008
+          "share": 0.007
         },
         {
           "name": "PowerShell",
@@ -16709,18 +16768,18 @@
           "share": 0.001
         }
       ],
-      "last_commit_at": "2026-11-14T01:32:55Z",
+      "last_commit_at": "2026-11-16T12:35:05Z",
       "latest_release_at": "2026-11-14T02:35:05Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v4.8.0",
       "license": "MIT",
-      "open_issues": 461,
-      "open_prs": 77,
-      "pushed_at": "2026-11-15T13:32:47Z",
+      "open_issues": 467,
+      "open_prs": 78,
+      "pushed_at": "2026-11-16T12:35:05Z",
       "readme_found": true,
       "releases_12m": 86,
       "repo": "Gentleman-Programming/gentle-shell",
-      "stars": 2657,
+      "stars": 2689,
       "top_author_share": 0.44,
       "topics": [
         "agent-harness",
@@ -16831,6 +16890,7 @@
       "commits_90d": 496,
       "commits_all_time": 674,
       "contributors": 24,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-07-14T16:30:00Z",
       "features": [
         "Claude Code",
@@ -16844,9 +16904,9 @@
         "TUI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 66,
+      "forks": 70,
       "full_name": "Get-Concord-AI/concord-mcp",
       "github_description": "Live messaging for coding agents",
       "homepage": "https://getconcord.ai",
@@ -16874,13 +16934,13 @@
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.22.0",
       "license": "MIT",
-      "open_issues": 34,
-      "open_prs": 16,
+      "open_issues": 37,
+      "open_prs": 18,
       "pushed_at": "2026-11-13T12:25:11Z",
       "readme_found": true,
       "releases_12m": 34,
       "repo": "Get-Concord-AI/concord-mcp",
-      "stars": 1154,
+      "stars": 1163,
       "top_author_share": 0.694,
       "topics": [
         "agentic-coding",
@@ -17130,6 +17190,7 @@
       "commits_90d": 48,
       "commits_all_time": 2125,
       "contributors": 7,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2025-12-09T15:57:56Z",
       "features": [
         "Codex",
@@ -17140,7 +17201,7 @@
         "Web UI",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 74,
       "full_name": "Git-on-my-level/codex-autorunner",
@@ -17192,7 +17253,7 @@
       "readme_found": true,
       "releases_12m": 74,
       "repo": "Git-on-my-level/codex-autorunner",
-      "stars": 875,
+      "stars": 876,
       "top_author_share": 0.996,
       "topics": [],
       "url": "https://github.com/Git-on-my-level/codex-autorunner"
@@ -17560,9 +17621,10 @@
     "googlecloudplatform/scion": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 3687,
-      "commits_all_time": 7402,
+      "commits_90d": 3716,
+      "commits_all_time": 7447,
       "contributors": 35,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-10T00:19:58Z",
       "features": [
         "Claude Code",
@@ -17575,9 +17637,9 @@
         "MCP",
         "A2A"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 311,
+      "forks": 312,
       "full_name": "GoogleCloudPlatform/scion",
       "github_description": "",
       "homepage": "",
@@ -17593,7 +17655,7 @@
         },
         {
           "name": "Shell",
-          "share": 0.025
+          "share": 0.024
         },
         {
           "name": "Python",
@@ -17624,18 +17686,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T12:06:03Z",
-      "latest_release_at": "2026-11-15T03:16:51Z",
+      "last_commit_at": "2026-11-16T12:43:43Z",
+      "latest_release_at": "2026-11-16T03:18:08Z",
       "latest_release_prerelease": true,
-      "latest_release_tag": "nightly-20261115",
+      "latest_release_tag": "nightly-20261116",
       "license": "Apache-2.0",
       "open_issues": 46,
-      "open_prs": 25,
-      "pushed_at": "2026-11-15T12:06:04Z",
+      "open_prs": 19,
+      "pushed_at": "2026-11-16T12:43:44Z",
       "readme_found": true,
       "releases_12m": 24,
       "repo": "GoogleCloudPlatform/scion",
-      "stars": 2117,
+      "stars": 2120,
       "top_author_share": 0.974,
       "topics": [],
       "url": "https://github.com/GoogleCloudPlatform/scion"
@@ -17821,6 +17883,7 @@
       "commits_90d": 0,
       "commits_all_time": 380,
       "contributors": 12,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-18T13:42:25Z",
       "features": [
         "Claude Code",
@@ -17833,9 +17896,9 @@
         "Desktop app",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 284,
+      "forks": 285,
       "full_name": "GreenSheep01201/claw-empire",
       "github_description": "Command Your AI Agent Empire from the CEO Desk — A local-first AI agent office simulator that orchestrates CLI, OAuth, and API-connected agents (Claude Code, Codex CLI, Gemini CLI, OpenCode, and more) as a virtual autonomous company.",
       "homepage": "",
@@ -17885,7 +17948,7 @@
       "readme_found": true,
       "releases_12m": 24,
       "repo": "GreenSheep01201/claw-empire",
-      "stars": 1446,
+      "stars": 1449,
       "top_author_share": 0.905,
       "topics": [
         "openclaw",
@@ -17904,6 +17967,7 @@
       "commits_90d": 0,
       "commits_all_time": 19,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-07T15:28:57Z",
       "features": [
         "Claude Code",
@@ -17916,7 +17980,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 9,
       "full_name": "GreenSheep01201/Claw-Kanban",
@@ -18615,9 +18679,10 @@
     "harjjotsinghh/helicon": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 471,
-      "commits_all_time": 471,
+      "commits_90d": 479,
+      "commits_all_time": 479,
       "contributors": 9,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-09-11T11:53:14Z",
       "features": [
         "Claude Code",
@@ -18630,7 +18695,7 @@
         "IDE extension",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 23,
       "full_name": "HarjjotSinghh/helicon",
@@ -18640,11 +18705,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.942
+          "share": 0.938
         },
         {
           "name": "JavaScript",
-          "share": 0.025
+          "share": 0.024
         },
         {
           "name": "CSS",
@@ -18652,7 +18717,7 @@
         },
         {
           "name": "Rust",
-          "share": 0.008
+          "share": 0.012
         },
         {
           "name": "Python",
@@ -18671,16 +18736,16 @@
           "share": 0.002
         }
       ],
-      "last_commit_at": "2026-11-14T05:48:06Z",
-      "latest_release_at": "2026-11-14T05:54:47Z",
+      "last_commit_at": "2026-11-16T11:49:44Z",
+      "latest_release_at": "2026-11-16T11:56:19Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v0.23.2",
+      "latest_release_tag": "v0.23.4",
       "license": "MIT",
-      "open_issues": 37,
-      "open_prs": 13,
-      "pushed_at": "2026-11-14T16:50:38Z",
+      "open_issues": 33,
+      "open_prs": 7,
+      "pushed_at": "2026-11-16T11:49:51Z",
       "readme_found": true,
-      "releases_12m": 58,
+      "releases_12m": 60,
       "repo": "HarjjotSinghh/helicon",
       "stars": 113,
       "top_author_share": 0.961,
@@ -18711,9 +18776,10 @@
     "harnessmd/munder-difflin": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 752,
-      "commits_all_time": 1470,
+      "commits_90d": 740,
+      "commits_all_time": 1472,
       "contributors": 48,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-31T15:25:05Z",
       "features": [
         "Claude Code",
@@ -18729,9 +18795,9 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 1343,
+      "forks": 1349,
       "full_name": "HarnessMD/munder-difflin",
       "github_description": "an open-source alternative to the dots, bots and muses of the world, run an office of claude code/codex like agents on your laptop, sandboxes or anywhere, uses your existing subscriptions",
       "homepage": "https://munderdiffl.in",
@@ -18739,15 +18805,15 @@
       "languages": [
         {
           "name": "JavaScript",
-          "share": 0.511
+          "share": 0.518
         },
         {
           "name": "TypeScript",
-          "share": 0.397
+          "share": 0.391
         },
         {
           "name": "HTML",
-          "share": 0.048
+          "share": 0.047
         },
         {
           "name": "CSS",
@@ -18762,18 +18828,18 @@
           "share": 0.002
         }
       ],
-      "last_commit_at": "2026-11-15T04:33:31Z",
+      "last_commit_at": "2026-11-16T08:11:12Z",
       "latest_release_at": "2026-10-01T21:00:56Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.5.5",
       "license": "MIT",
       "open_issues": 141,
-      "open_prs": 149,
-      "pushed_at": "2026-11-15T04:34:03Z",
+      "open_prs": 150,
+      "pushed_at": "2026-11-16T08:11:45Z",
       "readme_found": true,
       "releases_12m": 42,
       "repo": "HarnessMD/munder-difflin",
-      "stars": 9541,
+      "stars": 9579,
       "top_author_share": 0.872,
       "topics": [
         "agents",
@@ -18802,9 +18868,10 @@
     "hash-7777/hashcortx": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 864,
+      "commits_90d": 851,
       "commits_all_time": 1022,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-05-16T01:25:46Z",
       "features": [
         "Claude Code",
@@ -18812,7 +18879,7 @@
         "Desktop app",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 17,
       "full_name": "Hash-7777/HashCortX",
@@ -18888,6 +18955,7 @@
       "commits_90d": 65,
       "commits_all_time": 931,
       "contributors": 8,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-07T15:38:58Z",
       "features": [
         "Claude Code",
@@ -18897,7 +18965,7 @@
         "MCP",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 21,
       "full_name": "HCF-STUDIOS/openhermit",
@@ -19446,6 +19514,7 @@
       "commits_90d": 0,
       "commits_all_time": 217,
       "contributors": 22,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-17T14:42:46Z",
       "features": [
         "Claude Code",
@@ -19460,7 +19529,7 @@
         "Web UI",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 759,
       "full_name": "HKUDS/ClawTeam",
@@ -19500,7 +19569,7 @@
       "readme_found": true,
       "releases_12m": 2,
       "repo": "HKUDS/ClawTeam",
-      "stars": 5553,
+      "stars": 5554,
       "top_author_share": 0.68,
       "topics": [],
       "url": "https://github.com/HKUDS/ClawTeam"
@@ -19508,9 +19577,10 @@
     "hkuds/nanobot": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 1278,
-      "commits_all_time": 5338,
+      "commits_90d": 1268,
+      "commits_all_time": 5340,
       "contributors": 394,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-01T07:16:15Z",
       "features": [
         "Containers",
@@ -19519,9 +19589,9 @@
         "MCP",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 8749,
+      "forks": 8750,
       "full_name": "HKUDS/nanobot",
       "github_description": "Your lightweight open-source personal agent.",
       "homepage": "https://nanobot.wiki",
@@ -19560,18 +19630,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T12:30:07Z",
+      "last_commit_at": "2026-11-16T09:58:49Z",
       "latest_release_at": "2026-11-06T15:55:22Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.4.1",
       "license": "MIT",
       "open_issues": 221,
-      "open_prs": 643,
-      "pushed_at": "2026-11-15T12:30:07Z",
+      "open_prs": 641,
+      "pushed_at": "2026-11-16T11:38:35Z",
       "readme_found": true,
       "releases_12m": 22,
       "repo": "HKUDS/nanobot",
-      "stars": 50099,
+      "stars": 50123,
       "top_author_share": 0.434,
       "topics": [
         "ai-agent",
@@ -19795,6 +19865,7 @@
       "commits_90d": 36,
       "commits_all_time": 78,
       "contributors": 3,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-17T16:01:09Z",
       "features": [
         "Claude Code",
@@ -19804,7 +19875,7 @@
         "Git worktrees",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 36,
       "full_name": "Ibrahim-3d/orchestrator-supaconductor",
@@ -20364,6 +20435,7 @@
       "commits_90d": 416,
       "commits_all_time": 964,
       "contributors": 5,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-23T07:14:58Z",
       "features": [
         "Claude Code",
@@ -20377,7 +20449,7 @@
         "MCP",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 149,
       "full_name": "Intrect-io/OpenSwarm",
@@ -20655,9 +20727,10 @@
     "ivy-interactive/ivy-tendril": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 1169,
+      "commits_90d": 1145,
       "commits_all_time": 4402,
       "contributors": 9,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-04-15T18:55:10Z",
       "features": [
         "Claude Code",
@@ -20671,7 +20744,7 @@
         "Desktop app",
         "IDE extension"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 10,
       "full_name": "Ivy-Interactive/Ivy-Tendril",
@@ -21440,6 +21513,7 @@
       "commits_90d": 4,
       "commits_all_time": 46,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-19T22:53:03Z",
       "features": [
         "Claude Code",
@@ -21451,7 +21525,7 @@
         "Sandbox / VM",
         "Web UI"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1,
       "full_name": "JesseRWeigel/toryo",
@@ -22035,9 +22109,10 @@
     "jonathanriche/verde": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 1096,
+      "commits_90d": 1089,
       "commits_all_time": 2306,
       "contributors": 4,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-24T13:34:36Z",
       "features": [
         "Claude Code",
@@ -22053,7 +22128,7 @@
         "MCP",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 4,
       "full_name": "JonathanRiche/verde",
@@ -22113,7 +22188,7 @@
       "readme_found": true,
       "releases_12m": 89,
       "repo": "JonathanRiche/verde",
-      "stars": 34,
+      "stars": 35,
       "top_author_share": 0.985,
       "topics": [
         "ade",
@@ -22302,9 +22377,10 @@
     "jovancoding/network-ai": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 66,
+      "commits_90d": 65,
       "commits_all_time": 499,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-04T14:37:22Z",
       "features": [
         "Claude Code",
@@ -22319,7 +22395,7 @@
         "MCP",
         "A2A"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 15,
       "full_name": "Jovancoding/Network-AI",
@@ -22363,7 +22439,7 @@
       "readme_found": true,
       "releases_12m": 170,
       "repo": "Jovancoding/Network-AI",
-      "stars": 89,
+      "stars": 90,
       "top_author_share": 0.875,
       "topics": [
         "agent-framework",
@@ -22395,6 +22471,7 @@
       "commits_90d": 0,
       "commits_all_time": 142,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-04-10T08:08:08Z",
       "features": [
         "Containers",
@@ -22405,7 +22482,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 90,
       "full_name": "JPeetz/Hermes-Studio",
@@ -22453,7 +22530,7 @@
       "readme_found": true,
       "releases_12m": 5,
       "repo": "JPeetz/Hermes-Studio",
-      "stars": 421,
+      "stars": 422,
       "top_author_share": 0.993,
       "topics": [
         "ai",
@@ -22644,9 +22721,10 @@
     "kangentic/kangentic": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 2164,
+      "commits_90d": 2148,
       "commits_all_time": 3903,
       "contributors": 11,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-22T19:46:32Z",
       "features": [
         "Claude Code",
@@ -22663,7 +22741,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 25,
       "full_name": "Kangentic/kangentic",
@@ -22717,7 +22795,7 @@
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.58.0",
       "license": "AGPL-3.0",
-      "open_issues": 1,
+      "open_issues": 4,
       "open_prs": 0,
       "pushed_at": "2026-11-13T21:03:38Z",
       "readme_found": true,
@@ -22744,9 +22822,10 @@
     "kc1t/alethe-agents": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 502,
+      "commits_90d": 486,
       "commits_all_time": 787,
       "contributors": 56,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-15T19:13:22Z",
       "features": [
         "Claude Code",
@@ -22761,7 +22840,7 @@
         "Desktop app",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 145,
       "full_name": "Kc1t/alethe-agents",
@@ -22821,7 +22900,7 @@
       "readme_found": true,
       "releases_12m": 9,
       "repo": "Kc1t/alethe-agents",
-      "stars": 1204,
+      "stars": 1206,
       "top_author_share": 0.546,
       "topics": [
         "agents",
@@ -23014,6 +23093,7 @@
       "commits_90d": 434,
       "commits_all_time": 1061,
       "contributors": 3,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-04-04T05:34:39Z",
       "features": [
         "Claude Code",
@@ -23024,7 +23104,7 @@
         "Qwen Code",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 30,
       "full_name": "Keesan12/martin-loop",
@@ -23095,9 +23175,10 @@
     "kimyx0207/meta_kim": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 275,
-      "commits_all_time": 1054,
+      "commits_90d": 291,
+      "commits_all_time": 1070,
       "contributors": 5,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-03-23T11:19:21Z",
       "features": [
         "Claude Code",
@@ -23106,7 +23187,7 @@
         "Cursor",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 68,
       "full_name": "KimYx0207/Meta_Kim",
@@ -23120,7 +23201,7 @@
         },
         {
           "name": "Python",
-          "share": 0.009
+          "share": 0.01
         },
         {
           "name": "PowerShell",
@@ -23135,18 +23216,18 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T13:19:51Z",
-      "latest_release_at": "2026-11-15T10:16:38Z",
+      "last_commit_at": "2026-11-16T10:10:33Z",
+      "latest_release_at": "2026-11-16T10:11:46Z",
       "latest_release_prerelease": false,
-      "latest_release_tag": "v3.15.0",
+      "latest_release_tag": "v3.16.3",
       "license": "Apache-2.0",
-      "open_issues": 0,
-      "open_prs": 0,
-      "pushed_at": "2026-11-15T13:19:57Z",
+      "open_issues": 3,
+      "open_prs": 1,
+      "pushed_at": "2026-11-16T10:11:46Z",
       "readme_found": true,
-      "releases_12m": 200,
+      "releases_12m": 205,
       "repo": "KimYx0207/Meta_Kim",
-      "stars": 289,
+      "stars": 290,
       "top_author_share": 0.983,
       "topics": [
         "agent-governance",
@@ -23172,12 +23253,13 @@
       "commits_90d": 0,
       "commits_all_time": 23,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-12T10:19:20Z",
       "features": [
         "Claude Code",
         "Codex"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 0,
       "full_name": "KnoxOps/agent-runbook",
@@ -23633,9 +23715,10 @@
     "latand/delegatus": {
       "archived": false,
       "bots": 2,
-      "commits_90d": 3104,
-      "commits_all_time": 5234,
+      "commits_90d": 3116,
+      "commits_all_time": 5249,
       "contributors": 4,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-07-03T13:17:32Z",
       "features": [
         "Claude Code",
@@ -23646,7 +23729,7 @@
         "MCP",
         "Kanban / task board"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 12,
       "full_name": "Latand/delegatus",
@@ -23656,7 +23739,7 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.979
+          "share": 0.978
         },
         {
           "name": "JavaScript",
@@ -23691,14 +23774,14 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T02:28:04Z",
+      "last_commit_at": "2026-11-16T12:05:24Z",
       "latest_release_at": "2026-11-14T10:50:49Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v2.1.0",
       "license": "MIT",
-      "open_issues": 435,
-      "open_prs": 39,
-      "pushed_at": "2026-11-15T13:46:22Z",
+      "open_issues": 438,
+      "open_prs": 37,
+      "pushed_at": "2026-11-16T12:39:42Z",
       "readme_found": true,
       "releases_12m": 13,
       "repo": "Latand/delegatus",
@@ -23726,9 +23809,10 @@
     "layernorm/overlay-web": {
       "archived": false,
       "bots": 3,
-      "commits_90d": 3032,
-      "commits_all_time": 4337,
+      "commits_90d": 3061,
+      "commits_all_time": 4366,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-01-13T16:19:07Z",
       "features": [
         "Git worktrees",
@@ -23736,37 +23820,37 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 24,
+      "forks": 25,
       "full_name": "LayerNorm/overlay-web",
       "github_description": "The control plane for your AI employees",
       "homepage": "https://getoverlay.io/",
-      "language": "TypeScript",
+      "language": "HTML",
       "languages": [
         {
-          "name": "TypeScript",
-          "share": 0.563
+          "name": "HTML",
+          "share": 0.788
         },
         {
-          "name": "HTML",
-          "share": 0.41
+          "name": "TypeScript",
+          "share": 0.202
         },
         {
           "name": "JavaScript",
-          "share": 0.019
+          "share": 0.007
         },
         {
           "name": "CSS",
-          "share": 0.004
+          "share": 0.002
         },
         {
           "name": "Go",
-          "share": 0.003
+          "share": 0.001
         },
         {
           "name": "Shell",
-          "share": 0.001
+          "share": 0.0
         },
         {
           "name": "Python",
@@ -23777,14 +23861,14 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-15T08:09:35Z",
+      "last_commit_at": "2026-11-16T11:02:35Z",
       "latest_release_at": "2026-07-16T06:56:23Z",
       "latest_release_prerelease": true,
       "latest_release_tag": "v0.1.0-rc.1",
       "license": "AGPL-3.0",
-      "open_issues": 16,
-      "open_prs": 33,
-      "pushed_at": "2026-11-15T13:34:46Z",
+      "open_issues": 31,
+      "open_prs": 34,
+      "pushed_at": "2026-11-16T12:50:52Z",
       "readme_found": true,
       "releases_12m": 1,
       "repo": "LayerNorm/overlay-web",
@@ -23805,9 +23889,10 @@
     "lazyagi/lazymind": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 367,
-      "commits_all_time": 1150,
+      "commits_90d": 371,
+      "commits_all_time": 1155,
       "contributors": 30,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2024-07-03T11:00:32Z",
       "features": [
         "Codex",
@@ -23817,9 +23902,9 @@
         "Web UI",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
-      "forks": 77,
+      "forks": 79,
       "full_name": "LazyAGI/LazyMind",
       "github_description": "An AI Skill Runtime for knowledge-intensive work which makes everything under your control.",
       "homepage": "",
@@ -23831,7 +23916,7 @@
         },
         {
           "name": "TypeScript",
-          "share": 0.281
+          "share": 0.282
         },
         {
           "name": "HTML",
@@ -23866,18 +23951,18 @@
           "share": 0.001
         }
       ],
-      "last_commit_at": "2026-11-15T06:37:35Z",
+      "last_commit_at": "2026-11-16T11:45:03Z",
       "latest_release_at": "2026-11-02T02:43:34Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.5.0",
       "license": "Apache-2.0",
       "open_issues": 8,
-      "open_prs": 20,
-      "pushed_at": "2026-11-15T06:42:59Z",
+      "open_prs": 26,
+      "pushed_at": "2026-11-16T11:45:03Z",
       "readme_found": true,
       "releases_12m": 4,
       "repo": "LazyAGI/LazyMind",
-      "stars": 727,
+      "stars": 741,
       "top_author_share": 0.21,
       "topics": [
         "ai",
@@ -24143,6 +24228,7 @@
       "commits_90d": 1317,
       "commits_all_time": 1347,
       "contributors": 3,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-10-11T07:09:14Z",
       "features": [
         "Claude Code",
@@ -24156,7 +24242,7 @@
         "MCP",
         "ACP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 4,
       "full_name": "LeulAria/volt",
@@ -24216,7 +24302,7 @@
       "readme_found": true,
       "releases_12m": 6,
       "repo": "LeulAria/volt",
-      "stars": 32,
+      "stars": 33,
       "top_author_share": 0.998,
       "topics": [
         "agent-client-protocol",
@@ -25269,6 +25355,7 @@
       "commits_90d": 44,
       "commits_all_time": 2659,
       "contributors": 7,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-06-07T19:32:15Z",
       "features": [
         "Codex",
@@ -25280,7 +25367,7 @@
         "Kanban / task board",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 20,
       "full_name": "MarlBurroW/hivekeep",
@@ -25349,9 +25436,10 @@
     "marlburrow/sillage": {
       "archived": false,
       "bots": 0,
-      "commits_90d": 382,
-      "commits_all_time": 547,
+      "commits_90d": 393,
+      "commits_all_time": 558,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-07-27T22:27:36Z",
       "features": [
         "Claude Code",
@@ -25364,7 +25452,7 @@
         "ACP",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 1,
       "full_name": "MarlBurroW/sillage",
@@ -25374,11 +25462,11 @@
       "languages": [
         {
           "name": "TypeScript",
-          "share": 0.834
+          "share": 0.833
         },
         {
           "name": "JavaScript",
-          "share": 0.14
+          "share": 0.142
         },
         {
           "name": "CSS",
@@ -25413,14 +25501,14 @@
           "share": 0.0
         }
       ],
-      "last_commit_at": "2026-11-14T21:32:18Z",
+      "last_commit_at": "2026-11-16T11:12:26Z",
       "latest_release_at": "2026-11-14T18:54:46Z",
       "latest_release_prerelease": false,
       "latest_release_tag": "v0.36.1",
       "license": "MIT",
       "open_issues": 0,
       "open_prs": 0,
-      "pushed_at": "2026-11-14T22:52:08Z",
+      "pushed_at": "2026-11-16T11:12:31Z",
       "readme_found": true,
       "releases_12m": 44,
       "repo": "MarlBurroW/sillage",
@@ -25834,12 +25922,13 @@
       "commits_90d": 502,
       "commits_all_time": 502,
       "contributors": 6,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-08-25T14:42:47Z",
       "features": [
         "Containers",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 87,
       "full_name": "Merit-Systems/OpenInstinct",
@@ -25872,7 +25961,7 @@
       "readme_found": true,
       "releases_12m": 0,
       "repo": "Merit-Systems/OpenInstinct",
-      "stars": 491,
+      "stars": 492,
       "top_author_share": 0.331,
       "topics": [
         "agent",
@@ -25976,13 +26065,14 @@
       "commits_90d": 0,
       "commits_all_time": 277,
       "contributors": 1,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-02-26T05:20:16Z",
       "features": [
         "Containers",
         "Sandbox / VM",
         "Scheduled runs"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 9,
       "full_name": "Michaelliv/mercury",
@@ -26695,9 +26785,10 @@
     "mindflock/mindflock": {
       "archived": false,
       "bots": 1,
-      "commits_90d": 2273,
+      "commits_90d": 2270,
       "commits_all_time": 2412,
       "contributors": 2,
+      "contributors_fetched_at": "2026-11-15T13:44:47+00:00",
       "created_at": "2026-07-24T13:01:47Z",
       "features": [
         "Claude Code",
@@ -26717,7 +26808,7 @@
         "Mobile",
         "MCP"
       ],
-      "fetched_at": "2026-11-15T13:44:47+00:00",
+      "fetched_at": "2026-11-16T12:58:11+00:00",
       "fork": false,
       "forks": 2,
       "full_name": "MindFlock/MindFlock",
