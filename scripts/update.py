@@ -1377,10 +1377,10 @@ def render_readme(doc, rows, features):
         f"# {TITLE}", "",
         "Find tools for running, coordinating, and supervising AI agents. Start with the task you need to do, "
         "then compare activity, releases, and maintenance across projects.", "",
-        "**[Download the interactive explorer](https://github.com/erson/orchestration-atlas/raw/refs/heads/main/catalog.html)** "
+        "**[Open the explorer](https://erson.github.io/orchestration-atlas/)** · [Download for offline use](https://github.com/erson/orchestration-atlas/raw/refs/heads/main/catalog.html) "
         "· [Browse the searchable CSV on GitHub](data/projects.csv) · [Methodology](#methodology)", "",
-        "Open the downloaded HTML file in your browser to filter by task, feature, language, or activity "
-        "and compare up to four projects side by side. It works offline.", "",
+        "Filter by task, feature, language, or activity "
+        "and compare up to four projects side by side. The downloadable edition also works offline.", "",
         readme_editor.snapshot_figure(metrics, editorial.get("snapshot", "spec")), "",
         f"*Metrics collected {snapshot} (UTC). The index tracks {len(rows)} projects across {len(cats)} categories.*", "",
         *([readme_editor.render(editorial), ""] if editorial else []),
