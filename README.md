@@ -4,7 +4,7 @@ Find tools for running, coordinating, and supervising AI agents. Start with the 
 
 **[Open the explorer](https://erson.github.io/orchestration-atlas/)** · [Download for offline use](https://github.com/erson/orchestration-atlas/raw/refs/heads/main/catalog.html) · [Browse the searchable CSV on GitHub](data/projects.csv) · [Methodology](#methodology)
 
-Filter by task, feature, language, or activity and compare up to four projects side by side. The downloadable edition also works offline.
+Filter by task, feature, language, or activity and compare up to four projects side by side. Inspect a project against category peers, select a region of the project map, or copy a link to your comparison. The downloadable edition also works offline.
 
 ```text
 +----- [ INDEX SNAPSHOT ] ----+

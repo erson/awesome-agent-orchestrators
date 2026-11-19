@@ -29,9 +29,10 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 if __package__:
-    from . import discovery_stats, readme_editor
+    from . import discovery_stats, history, readme_editor
 else:
     import discovery_stats
+    import history
     import readme_editor
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -1344,24 +1345,29 @@ TASKS = {
     "adjacent": "Build with a general-purpose agent SDK",
 }
 EXPLORER_FILE = ROOT / "catalog.html"
+HISTORY_FILE = ROOT / "data" / "weekly-history.json"
 
 
-def render_explorer(doc, rows):
+def render_explorer(doc, rows, weeks=None):
     keys = ("repo", "name", "category", "status", "language", "stars", "features", "description",
             "contributors", "commits_90d", "latest_release_at", "last_commit_at", "license",
-            "top_author_share", "releases_12m", "fetched_at")
+            "top_author_share", "releases_12m", "fetched_at", "commits_all_time")
     entries = [{k: r.get(k) for k in keys} for r in rows]
     for entry in entries:
         for key in ("latest_release_at", "last_commit_at", "fetched_at"):
             entry[key] = (entry[key] or "")[:10]
     dates = sorted(r["fetched_at"][:10] for r in rows if r.get("fetched_at"))
     snapshot = "unknown" if not dates else " to ".join(dict.fromkeys((dates[0], dates[-1])))
-    payload = {"snapshot": snapshot, "projects": entries,
+    if weeks is None:
+        weeks = history.load(HISTORY_FILE)["weeks"]
+    payload = {"snapshot": snapshot, "projects": entries, "history": weeks,
                "categories": {c["id"]: TASKS.get(c["id"], c["title"]) for c in doc["categories"]}}
     # JSON script contents must never contain an HTML closing tag from a project description.
     encoded = json.dumps(payload, separators=(",", ":")).replace("<", r"\u003c")
     template = (ROOT / "scripts/catalog.html").read_text(encoding="utf-8")
-    return template.replace("__CATALOG_JSON__", encoded)
+    modules = ("project-map.js", "inspect.js", "history.js", "share-view.js")
+    scripts = "\n".join((ROOT / "scripts" / name).read_text(encoding="utf-8") for name in modules)
+    return template.replace("/*__EXPLORER_MODULES__*/", scripts).replace("__CATALOG_JSON__", encoded)
 
 
 def render_readme(doc, rows, features):
@@ -1380,7 +1386,8 @@ def render_readme(doc, rows, features):
         "**[Open the explorer](https://erson.github.io/orchestration-atlas/)** · [Download for offline use](https://github.com/erson/orchestration-atlas/raw/refs/heads/main/catalog.html) "
         "· [Browse the searchable CSV on GitHub](data/projects.csv) · [Methodology](#methodology)", "",
         "Filter by task, feature, language, or activity "
-        "and compare up to four projects side by side. The downloadable edition also works offline.", "",
+        "and compare up to four projects side by side. Inspect a project against category peers, "
+        "select a region of the project map, or copy a link to your comparison. The downloadable edition also works offline.", "",
         readme_editor.snapshot_figure(metrics, editorial.get("snapshot", "spec")), "",
         f"*Metrics collected {snapshot} (UTC). The index tracks {len(rows)} projects across {len(cats)} categories.*", "",
         *([readme_editor.render(editorial), ""] if editorial else []),
@@ -1480,6 +1487,10 @@ def check(generated=False):
     except (OSError, ValueError) as err:
         problems.append(f"data/discovery-stats.json: {err}")
     try:
+        weekly = history.load(HISTORY_FILE)
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as err:
+        problems.append(f"data/weekly-history.json: {err}")
+    try:
         features = load_features()
     except (OSError, json.JSONDecodeError, KeyError, AttributeError, re.error) as err:
         problems.append(f"data/features.json: {err}")
@@ -1496,7 +1507,7 @@ def check(generated=False):
             sys.exit(f"data/metrics.json: {err}")
     rows = build_rows(doc["projects"], cache)
     outputs = ((README_FILE, render_readme(doc, rows, features)), (CSV_FILE, render_csv(rows)),
-               (EXPLORER_FILE, render_explorer(doc, rows)))
+               (EXPLORER_FILE, render_explorer(doc, rows, weekly["weeks"])))
     if generated:
         for path, expected in outputs:
             if not path.is_file() or path.read_bytes() != expected.encode("utf-8"):
@@ -1578,7 +1589,13 @@ def main():
     if args.maintenance:
         write_atomic(Path(args.maintenance), maintenance_markdown(doc["projects"], cache))
     rows = build_rows(doc["projects"], cache)
-    write_atomic(EXPLORER_FILE, render_explorer(doc, rows))
+    weekly = history.load(HISTORY_FILE)
+    observed_at = NOW.isoformat(timespec="seconds")
+    if not args.render_only and not args.only and not stopped:
+        updated = any(r.get("fetched_at") == observed_at and not r.get("error") for r in rows)
+        if updated and history.observe(weekly, rows, observed_at):
+            write_atomic(HISTORY_FILE, json.dumps(weekly, indent=2, ensure_ascii=False) + "\n")
+    write_atomic(EXPLORER_FILE, render_explorer(doc, rows, weekly["weeks"]))
     write_atomic(CSV_FILE, render_csv(rows))
     write_atomic(README_FILE, render_readme(doc, rows, features))
     print(f"rendered {README_FILE.name} and {CSV_FILE.name} for {len(rows)} projects")
