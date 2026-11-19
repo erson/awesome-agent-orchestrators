@@ -89,7 +89,7 @@ CSV_FIELDS = [
     "latest_release_tag", "latest_release_at", "releases_12m", "open_issues", "open_prs",
     "license", "language", "languages", "features", "homepage", "archived", "topics", "url", "description",
 ]
-TITLE = "Stop building new AI agent orchestrators"
+TITLE = "Orchestration Atlas"
 INTRO = (
     "Before you write another orchestrator, check whether someone already has. This repo indexes "
     "{total} open-source and source-available tools that run, supervise, or coordinate AI agents: "
@@ -1348,7 +1348,7 @@ def render_readme(doc, rows, features):
     metrics = [("Available projects", f"{len(live):,}"), ("Active in 30 days", f"{active:,}"),
                ("Combined stars", short_num(sum(r.get("stars") or 0 for r in live)))]
     parts = [
-        f"# {TITLE} — there are {len(live)}", "",
+        f"# {TITLE}", "",
         readme_editor.snapshot_figure(metrics, editorial.get("snapshot", "spec")), "",
         f"*Metrics collected {snapshot} (UTC).*", "",
         INTRO.format(total=len(live), active=active), "",

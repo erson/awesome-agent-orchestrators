@@ -1,4 +1,4 @@
-# Stop building new AI agent orchestrators — there are 633
+# Orchestration Atlas
 
 ```text
 +----- [ INDEX SNAPSHOT ] ----+
