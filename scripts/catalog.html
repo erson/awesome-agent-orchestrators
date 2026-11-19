@@ -2,16 +2,15 @@
 <html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Catalog explorer · Orchestration Atlas</title>
 <style>
-:root{color-scheme:light;--paper:#f7f5ed;--ink:#172d29;--accent:#176344;--line:#c3cdc2;font:16px/1.5 "Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
-*{box-sizing:border-box}body{margin:0}main{max-width:76rem;margin:auto;padding:2rem clamp(1rem,4vw,4rem) 4rem}
-header{border-top:6px solid var(--accent);padding:1.5rem 0;border-bottom:1px solid var(--line)}
-h1,h2{font-family:"Source Serif 4",Georgia,serif;line-height:1.12}h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:500;letter-spacing:-.055em;margin:.25em 0}h2{font-size:1.7rem;margin:.3em 0}p{margin:.4em 0}a{color:var(--accent);text-underline-offset:.18em}
-.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.75rem;margin:1.5rem 0}label{font-weight:650;font-size:.86rem}input,select,button{font:inherit;color:inherit;border:1px solid #8c9d92;border-radius:.3rem;background:white;padding:.55rem}
-input,select{display:block;width:100%;margin-top:.25rem}button{cursor:pointer}button:disabled{opacity:.55;cursor:default}button[aria-pressed=true]{background:var(--accent);color:white}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #cb720e;outline-offset:2px}
-.toolbar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%}td,th{padding:.75rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:.83rem}td:first-child{min-width:14rem}td small{display:block;max-width:40rem;margin-top:.2rem;color:#40574c}#shortlist{background:#e6eee3;padding:1rem;margin:1rem 0}#shortlist table{width:auto}#shortlist td,#shortlist th{min-width:8rem}#shortlist td:first-child{min-width:0}footer{margin-top:1rem}button,input,select{min-height:2.6rem}
-@media(max-width:640px){.results thead{display:none}.results tr{display:grid;grid-template-columns:1fr 1fr;padding:.7rem 0;border-bottom:1px solid var(--line)}.results td{border:0;padding:.2rem}.results td:first-child{grid-column:1/-1}.results td[data-label]::before{content:attr(data-label) " ";font-size:.8rem;color:#40574c}.results td:last-child{grid-column:1/-1}}
+:root{color-scheme:light;--ink:#17201f;--muted:#52605c;--bg:#f2f4f1;--line:#d7ddd6;--dark:#172724;--lime:#d2fa79;--green:#287458;font:16px/1.45 "DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--bg)}*{box-sizing:border-box}body{margin:0}main{max-width:90rem;margin:auto;padding:0 clamp(1rem,4vw,4rem) 3rem}nav,.toolbar,.chart-head{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}nav{min-height:4rem;border-bottom:1px solid var(--line);font-size:.92rem}nav strong{letter-spacing:-.04em;font-size:1.12rem}nav a,a{color:#215f49;text-underline-offset:.22em}nav div{display:flex;gap:1.2rem}.hero{background:var(--dark);color:white;border-radius:1.2rem;padding:clamp(1.3rem,3vw,3rem);margin:1.2rem 0;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1rem,4vw,4rem);align-items:center}.hero h1{font:600 clamp(3.2rem,6.2vw,6.5rem)/.94 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.085em;margin:0 0 1.3rem}.hero h1 span{color:var(--lime)}.hero p{color:#cfdbd5;max-width:36rem}.hero small{color:#acbfb6}.hero .activity{border-left:1px solid #486158;padding-left:clamp(1rem,3vw,3rem)}h2,h3{letter-spacing:-.045em;margin:0;font-weight:650}h2{font-size:clamp(1.45rem,2.6vw,2.2rem)}h3{font-size:1.22rem}p{margin:.45rem 0}.band{display:flex;height:2rem;gap:0;border-radius:.45rem;overflow:hidden;background:#344a44;margin:1.1rem 0}.band span{display:block}.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.22rem .7rem}.legend button{padding:.25rem .2rem;min-height:2rem;background:transparent;color:white;border:1px solid transparent;display:flex;align-items:center;gap:.45rem;font-size:.85rem}.legend button b{margin-left:auto;font-variant-numeric:tabular-nums}.dot{display:inline-block;width:.7rem;height:.7rem;border-radius:3px;flex:none}.legend button:hover,.legend button[aria-pressed=true]{border-color:#a9c2b7;background:#30463e}.panels{display:grid;grid-template-columns:1.1fr 1fr;gap:1rem;margin-bottom:1.2rem}.panel,#shortlist,.directory{background:white;border:1px solid var(--line);border-radius:1rem;padding:clamp(1rem,2vw,1.7rem)}.note,td small{font-size:.88rem;color:var(--muted)}.bars{display:grid;gap:.18rem;margin-top:.8rem}.bar-row{display:grid;grid-template-columns:minmax(6rem,1fr) 1.5fr 3rem;align-items:center;text-align:left;gap:.55rem;padding:.18rem .32rem;border:1px solid transparent;background:transparent;min-height:1.9rem;font-size:.86rem}.bar-row b{text-align:right;font-variant-numeric:tabular-nums}.bar-row:hover,.bar-row[aria-pressed=true]{background:#e8f4de;color:var(--ink);border-color:#9db886}.track{background:#ebefea;height:.72rem;border-radius:2px;overflow:hidden}.track i{display:block;background:var(--green);height:100%}.panel select{width:auto}.hist{display:flex;gap:.4rem;margin:1rem 0 0}.bucket{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;background:transparent;border:1px solid transparent;padding:.3rem .1rem;font-size:.8rem}.bucket:hover,.bucket[aria-pressed=true]{background:#f3ebff;border-color:#b299ca;color:var(--ink)}.column{height:8rem;width:75%;display:flex;align-items:flex-end;margin:.3rem 0}.column i{width:100%;background:#8761a5;border-radius:4px 4px 0 0}.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem;margin:.9rem 0}label{font-weight:650;font-size:.83rem}input,select,button{font:inherit;color:inherit;border:1px solid #aebbb2;border-radius:.4rem;background:white;padding:.52rem}input,select{display:block;width:100%;margin-top:.22rem}button{cursor:pointer}button:disabled{opacity:.48;cursor:default}button[aria-pressed=true]{background:var(--green);color:white}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #d5812b;outline-offset:2px}.toolbar{margin:.7rem 0}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%}td,th{padding:.75rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:.8rem}td small{display:block;max-width:42rem;margin-top:.25rem}.results a{font-weight:650}.results tr:hover{background:#f7faf5}#shortlist{background:#edf5e5;margin:.8rem 0}#shortlist td,#shortlist th{min-width:8rem}button,input,select{min-height:2.5rem}
+@media(max-width:760px){.hero,.panels{grid-template-columns:1fr}.hero .activity{border:0;border-top:1px solid #486158;padding:1rem 0 0}.hero h1 br{display:none}.hero h1{font-size:clamp(2.7rem,10vw,4rem)}.column{height:5rem}.results thead{display:none}.results tr{display:grid;grid-template-columns:1fr 1fr;padding:.65rem 0;border-bottom:1px solid var(--line)}.results td{border:0;padding:.2rem}.results td:first-child,.results td:last-child{grid-column:1/-1}.results td[data-label]::before{content:attr(data-label) " ";font-size:.8rem;color:var(--muted)}}
 </style>
-<main><header><a href="https://github.com/erson/orchestration-atlas">Orchestration Atlas</a><h1>Find an orchestrator</h1><p id="snapshot"></p></header>
+<main><nav aria-label="Main navigation"><strong>Orchestration Atlas</strong><div><a href="#directory">Directory</a><a href="https://github.com/erson/orchestration-atlas">GitHub ↗</a></div></nav>
+<header class="hero"><div><h1>Orchestration <br><span>Atlas</span></h1><p>Explore agent orchestrators by purpose, activity, and maintenance.</p><small id="snapshot"></small></div>
+<section class="activity"><h2>Activity mix</h2><p id="mixTotal"></p><div class="band" id="band" aria-hidden="true"></div><div class="legend" id="legend"></div></section></header>
+<section class="panels" aria-label="Explore catalog distributions"><article class="panel"><div class="chart-head"><h3>Project distribution</h3><select id="dimension" aria-label="Distribution dimension"><option value="category">By task</option><option value="language">By language</option></select></div><p class="note" id="rankNote"></p><div class="bars" id="ranking"></div></article>
+<article class="panel"><h3>Commit volume</h3><p class="note">Default-branch commits in the 90 days before each snapshot. Select a range to filter.</p><div class="hist" id="hist"></div><p class="note" id="volumeNote"></p><p id="medianVolume"></p></article></section>
+<section class="directory" id="directory"><h2>Project directory</h2>
 <section aria-label="Filter projects" class="filters">
 <label>Search<input type="search" id="search" placeholder="Name, tool, or use case"></label>
 <label>Task<select id="category"></select></label><label>Activity<select id="status"></select></label>
@@ -21,13 +20,13 @@ input,select{display:block;width:100%;margin-top:.25rem}button{cursor:pointer}bu
 <div class="toolbar"><h2 id="count" aria-live="polite"></h2><button id="reset">Reset filters</button></div>
 <p>Compare up to four projects. Activity uses the latest default-branch commit at collection time. A dash means the measurement is unavailable.</p>
 <div class="scroll"><table class="results"><thead><tr><th>Project</th><th>Activity</th><th>Language</th><th>Stars</th><th>Shortlist</th></tr></thead><tbody id="rows"></tbody></table></div>
-<footer class="toolbar"><button id="back">Previous</button><span id="page"></span><button id="next">Next</button></footer></main>
+<footer class="toolbar"><button id="back">Previous</button><span id="page"></span><button id="next">Next</button></footer></section></main>
 <script type="application/json" id="catalog">__CATALOG_JSON__</script>
 <script>
 'use strict';
 const catalog=JSON.parse(document.getElementById('catalog').textContent);
 const projects=catalog.projects, selected=new Set(), pageSize=20;
-let page=0;
+let page=0, volume='';
 const el=id=>document.getElementById(id);
 function node(tag,text){const n=document.createElement(tag);if(text!=null)n.textContent=text;return n}
 function link(p){const a=node('a',p.name);a.href='https://github.com/'+p.repo;return a}
@@ -49,9 +48,83 @@ function showComparison(){
  }
  el('comparison').replaceChildren(table);
 }
+const colors={Active:'#cef57e',Recent:'#61c7ad',Slow:'#85a7ee',Stale:'#cc9ae1',Archived:'#f3b274',Unavailable:'#a5aaa7','Not fetched':'#e4e8e6'};
+const taskNames={terminal:'Terminal',desktop:'Desktop & web',swarms:'Agent swarms',loops:'Loop runners',tasks:'Task runners',infra:'Infrastructure',assistants:'Assistants',resting:'Resting',adjacent:'Agent SDKs'};
+const ranges=['0','1–9','10–99','100–999','1k+','Unknown'];
+function bucket(n){
+ if(n==null)return 'Unknown';
+ if(n===0)return '0';
+ if(n<10)return '1–9';
+ if(n<100)return '10–99';
+ return n<1000?'100–999':'1k+';
+}
+function currentFilters(){
+ return {category:el('category').value,status:el('status').value,language:el('language').value,
+         feature:el('feature').value,volume,search:el('search').value.trim().toLowerCase()};
+}
+function matches(p,f,omit){
+ for(const key of ['category','status','language']){
+  if(key!==omit&&f[key]&&p[key]!==f[key])return false;
+ }
+ if(f.feature&&!(p.features||[]).includes(f.feature))return false;
+ if(omit!=='volume'&&f.volume&&bucket(p.commits_90d)!==f.volume)return false;
+ return !f.search||[p.repo,p.name,p.description,...(p.features||[])].join(' ').toLowerCase().includes(f.search);
+}
+function frequencies(rows,key){
+ const counts=new Map();
+ for(const p of rows){const value=key==='volume'?bucket(p.commits_90d):p[key];counts.set(value,(counts.get(value)||0)+1)}
+ return counts;
+}
+function chartButton(key,value,label,css,f){
+ const button=node('button');button.className=css;button.dataset.key=key;button.dataset.value=value;
+ button.setAttribute('aria-label',label);button.setAttribute('aria-pressed',f[key]===value);
+ button.onclick=()=>{const next=f[key]===value?'':value;if(key==='volume')volume=next;else el(key).value=next;
+  page=0;draw();[...document.querySelectorAll('button[data-key]')].find(b=>b.dataset.key===key&&b.dataset.value===value)?.focus()};
+ return button;
+}
+function charts(f){
+ // Each chart keeps its own alternatives visible while honoring all other filters.
+ const cohort=key=>projects.filter(p=>matches(p,f,key));
+ const activity=cohort('status'),byStatus=frequencies(activity,'status');
+ el('mixTotal').textContent=activity.length+' projects across activity states';
+ el('band').replaceChildren();el('legend').replaceChildren();
+ for(const [value,color] of Object.entries(colors)){
+  const n=byStatus.get(value)||0;if(!n&&f.status!==value)continue;
+  const share=Math.round(100*n/(activity.length||1));
+  const segment=node('span');segment.style.width=(100*n/(activity.length||1))+'%';segment.style.background=color;el('band').append(segment);
+  const b=chartButton('status',value,value+': '+n+' projects, '+share+' percent','',f);
+  const dot=node('i');dot.className='dot';dot.style.background=color;
+  b.append(dot,node('span',value),node('b',n+' · '+share+'%'));el('legend').append(b);
+ }
+ const dim=el('dimension').value,group=cohort(dim),counts=frequencies(group,dim);
+ const ranked=[...counts].filter(([value])=>value).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
+ const displayed=ranked.slice(0,dim==='category'?9:7);
+ if(f[dim]&&!displayed.some(([k])=>k===f[dim]))displayed.push([f[dim],counts.get(f[dim])||0]);
+ el('rankNote').textContent=dim==='category'?'Project count by task. Select a bar to filter.':'Top seven known languages by project count. Select a bar to filter.';
+ el('ranking').replaceChildren();
+ for(const [value,n] of displayed){
+  const label=dim==='category'?(taskNames[value]||value):value;
+  const b=chartButton(dim,value,label+': '+n+' projects','bar-row',f),track=node('span'),bar=node('i');
+  track.className='track';bar.style.width=(100*n/(ranked[0]?.[1]||1))+'%';track.append(bar);b.append(node('span',label),track,node('b',n));el('ranking').append(b);
+ }
+ if(!displayed.length)el('ranking').append(node('p','No matching projects.'));
+ const volumes=cohort('volume');
+ const measured=volumes.map(p=>p.commits_90d).filter(Number.isFinite).sort((a,b)=>a-b);
+ const mid=Math.floor(measured.length/2);
+ const median=measured.length%2?measured[mid]:(measured[mid-1]+measured[mid])/2;
+ el('medianVolume').textContent=measured.length?'Median: '+median.toLocaleString('en-US')+' commits across '+measured.length+' measured projects.':'No measured projects in this selection.';
+ const byVolume=frequencies(volumes,'volume'),peak=Math.max(1,...byVolume.values());
+ el('hist').replaceChildren();
+ for(const value of ranges){
+  const n=byVolume.get(value)||0,b=chartButton('volume',value,value+' commits: '+n+' projects','bucket',f);
+  const column=node('span'),bar=node('i');column.className='column';bar.style.height=(100*n/peak)+'%';column.append(bar);
+  b.append(node('b',n),column,node('span',value));el('hist').append(b);
+ }
+ el('volumeNote').textContent=volume?'Selected range: '+volume+'. Select again to clear.':'Bar height shows project count. Unknown means no commit measurement.';
+}
 function draw(){
- const term=el('search').value.trim().toLowerCase(),order=el('sort').value;
- const hits=projects.filter(p=>(!el('category').value||p.category===el('category').value)&&(!el('status').value||p.status===el('status').value)&&(!el('language').value||p.language===el('language').value)&&(!el('feature').value||(p.features||[]).includes(el('feature').value))&&(!term||[p.repo,p.name,p.description,...(p.features||[])].join(' ').toLowerCase().includes(term)));
+ const f=currentFilters(),order=el('sort').value;
+ const hits=projects.filter(p=>matches(p,f));charts(f);
  hits.sort((a,b)=>{if(order==='last_commit_at'){const diff=(b[order]||'').localeCompare(a[order]||'');if(diff)return diff}
  else if(order!=='name'){const diff=(b[order]??-1)-(a[order]??-1);if(diff)return diff}return a.name.localeCompare(b.name)||a.repo.localeCompare(b.repo)});
  const pages=Math.ceil(hits.length/pageSize);page=Math.min(page,Math.max(0,pages-1));
@@ -66,6 +139,7 @@ function draw(){
  el('back').disabled=page===0;el('next').disabled=page+1>=pages;showComparison();
 }
 for(const id of ['search','category','status','language','feature','sort'])el(id).addEventListener(id==='search'?'input':'change',()=>{page=0;draw()});
-el('reset').onclick=()=>{for(const id of ['search','category','status','feature','language'])el(id).value='';el('sort').value='name';page=0;draw()};
+el('dimension').onchange=draw;
+el('reset').onclick=()=>{volume='';for(const id of ['search','category','status','feature','language'])el(id).value='';el('sort').value='name';page=0;draw()};
 el('clearSelection').onclick=()=>{selected.clear();draw()};el('back').onclick=()=>{page--;draw()};el('next').onclick=()=>{page++;draw()};draw();
 </script></html>
