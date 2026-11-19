@@ -7,13 +7,15 @@ name: Update index
 #   Projects not reached are fetched on the next day's run.
 # - The script exits after 3 batches in a row fail completely (bad token, GitHub outage).
 # - Set the repository variable INDEX_UPDATES_DISABLED to "true" to switch the workflow off.
-# Worst case: about 34 runs a month (30 daily + 4 weekly) x 40 min timeout = 1,360 runner minutes, under the
-# 2,000 free minutes of a private repo. In practice the budgets stop work at 25 min (metrics) and 8 min (discovery).
-# Minutes are free and unmetered for public repositories on GitHub-hosted runners.
+# At most 36 scheduled runs in a month (31 daily + 5 weekly). The script budgets are 25 min for metrics
+# and 8 min for discovery. Standard GitHub-hosted runners are free while the repository is public.
 #
 # Security:
 # - Actions are pinned to a commit SHA, so a moved tag cannot change what runs here.
 # - The checkout leaves no token in .git/config; each step gets only the token it needs.
+# - Only issues opened by this workflow are rewritten or closed, so a label put on someone else's issue
+#   cannot make the bot overwrite it.
+# - Text from other repositories (descriptions, release tags, names) is escaped before it is posted.
 # - The script uses the Python that ships with the runner (standard library only), so no setup action is needed.
 
 on:
@@ -69,7 +71,33 @@ jobs:
         if: steps.plan.outputs.metrics == 'true'
         env:
           GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
-        run: python3 scripts/update.py --spread --max-minutes 25
+        run: python3 scripts/update.py --spread --max-minutes 25 --maintenance "$RUNNER_TEMP/maintenance.md"
+
+      # Renamed, removed, or failing projects: shown in the job summary and kept in one open issue, which is
+      # closed again once data/projects.json is fixed.
+      - name: Update the maintenance issue
+        if: ${{ !cancelled() && steps.plan.outputs.metrics == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ runner.temp }}/maintenance.md
+        run: |
+          # No file: the script stopped before it got this far (the fetch step shows why).
+          [ -f "$REPORT" ] || exit 0
+          number=$(gh issue list --label maintenance --state open --json number,author --jq '[.[] | select(.author.is_bot and .author.login == "app/github-actions")][0].number // empty')
+          if [ -s "$REPORT" ]; then
+            { echo "## Needs attention"; echo; cat "$REPORT"; } >> "$GITHUB_STEP_SUMMARY"
+            gh label create maintenance --color D93F0B --description "Projects that need a manual fix" --force
+            if [ -n "$number" ]; then
+              gh issue edit "$number" --body-file "$REPORT"
+            else
+              gh issue create --title "Projects that need a manual fix" --label maintenance --body-file "$REPORT"
+            fi
+          else
+            echo "Nothing needs attention." >> "$GITHUB_STEP_SUMMARY"
+            if [ -n "$number" ]; then
+              gh issue close "$number" --comment "Nothing needs attention any more."
+            fi
+          fi
 
       - name: Search for new projects
         if: steps.plan.outputs.discover == 'true'
@@ -78,17 +106,19 @@ jobs:
         run: python3 scripts/update.py --discover --max-minutes 8 --report "$RUNNER_TEMP/candidates.md"
 
       - name: Update the review issue
-        if: steps.plan.outputs.discover == 'true'
+        if: ${{ !cancelled() && steps.plan.outputs.discover == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          [ -f "$RUNNER_TEMP/candidates.md" ] || exit 0
           gh label create candidates --color 0E8A16 --description "New projects found by discovery" --force
-          number=$(gh issue list --label candidates --state open --json number --jq '.[0].number // empty')
+          number=$(gh issue list --label candidates --state open --json number,author --jq '[.[] | select(.author.is_bot and .author.login == "app/github-actions")][0].number // empty')
           if [ -n "$number" ]; then
             gh issue edit "$number" --body-file "$RUNNER_TEMP/candidates.md"
           else
             gh issue create --title "Candidates for the index" --label candidates --body-file "$RUNNER_TEMP/candidates.md"
           fi
+          { echo "## Discovery"; echo; cat "$RUNNER_TEMP/candidates.md"; } >> "$GITHUB_STEP_SUMMARY"
 
       # Runs after a failed fetch step too: the script saves what it fetched before it stops, and the
       # files are written atomically, so partial progress is safe to commit.
@@ -97,7 +127,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add README.md data/
+          # A discovery-only run can follow an edit to the index before the next metrics run.
+          # Render that edit from the existing cache using the same offline code path.
+          if [ "${{ steps.plan.outputs.metrics }}" != true ]; then
+            python3 scripts/update.py --render-only
+          fi
+          python3 scripts/update.py --check-generated
+          git add README.md data/metrics.json data/candidates.json data/projects.csv
+          if [ -f data/discovery-state.json ]; then git add data/discovery-state.json; fi
+          if [ -f data/discovery-stats.json ]; then git add data/discovery-stats.json; fi
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0
@@ -106,5 +144,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Refresh index data ($(date -u +%F)) [skip ci]"
+          before=$(git rev-parse HEAD)
           git pull --rebase
+          if [ "$(git rev-parse HEAD)" != "$before" ]; then
+            python3 scripts/update.py --check-generated
+          fi
           git push

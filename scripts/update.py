@@ -10,6 +10,7 @@ GraphQL API in batches; contributors come from the REST API, because GraphQL doe
     python3 scripts/update.py --render-only   render from data/metrics.json, no network calls
     python3 scripts/update.py --only a/b c/d  fetch only these projects (always fresh), then render
     python3 scripts/update.py --discover      search GitHub for new projects, write data/candidates.json
+    python3 scripts/update.py --check         validate the data files; writes nothing, no network calls
 """
 
 import argparse
@@ -27,12 +28,19 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+if __package__:
+    from . import discovery_stats
+else:
+    import discovery_stats
+
 ROOT = Path(__file__).resolve().parent.parent
 PROJECTS_FILE = ROOT / "data" / "projects.json"
 METRICS_FILE = ROOT / "data" / "metrics.json"
 CSV_FILE = ROOT / "data" / "projects.csv"
 FEATURES_FILE = ROOT / "data" / "features.json"
 DISCOVERY_FILE = ROOT / "data" / "discovery.json"
+DISCOVERY_STATS_FILE = ROOT / "data" / "discovery-stats.json"
+DISCOVERY_STATE_FILE = ROOT / "data" / "discovery-state.json"
 CANDIDATES_FILE = ROOT / "data" / "candidates.json"
 README_FILE = ROOT / "README.md"
 
@@ -130,11 +138,12 @@ python3 scripts/update.py --refresh      # fetch everything again
 python3 scripts/update.py --only a/b    # fetch these projects now, then re-render
 python3 scripts/update.py --render-only  # rebuild this README from data/metrics.json
 python3 scripts/update.py --discover     # search GitHub for new projects; results go to data/candidates.json
+python3 scripts/update.py --check        # validate the data files without writing anything
 ```
 
 The script needs the GitHub CLI (`gh`) signed in. It runs GraphQL queries one at a time, and waits when GitHub's rate limits run low. To add a project, append an entry to `data/projects.json` with `repo`, `name`, `category`, `origin`, and `description`, then run the script. To stop a reviewed candidate from coming back, add it to `rejected` in `data/discovery.json`. Feature keywords live in `data/features.json`.
 
-A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes about a seventh of the projects every day (`--spread`) and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review.
+A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes about a seventh of the projects every day (`--spread`) and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review. Projects that moved or disappeared are listed in the issue labelled `maintenance`. The daily job summary shows successful refreshes, seven-day coverage, and the age of the oldest snapshot. Weekly discovery resumes interrupted searches and samples older, recently active repositories once a month within the same eight-minute budget. The candidates issue lists new finds first and shows each candidate’s matching searches, evidence, and last observation. The discovery summary counts candidates found by each query, candidates found only by that query, and review outcomes. A weekly one-page README search and a monthly rotating search share the existing discovery budget. Acceptance rates use reviewed candidates only. Historical results cover the query matches still present when tracking began. Before pushing, the bot validates the generated files against the local cache. Pull requests that touch the data, script, or workflows run offline validation and show a README and CSV preview in the job summary.
 """
 CREDITS = """## Credits
 
@@ -212,10 +221,16 @@ def check_budget(extra=0):
 
 def gh_once(args, stdin=None):
     """Run `gh api --include` once and return (status, lower-cased headers, body). Status is None without a response."""
+    timeout = GH_TIMEOUT
+    if DEADLINE is not None:
+        timeout = min(timeout, DEADLINE - time.monotonic())
+        if timeout <= 0:
+            raise BudgetExceeded()
     try:
         proc = subprocess.run(["gh", "api", "--include", *args], input=stdin, capture_output=True, text=True,
-                              timeout=GH_TIMEOUT)
+                              timeout=timeout)
     except subprocess.TimeoutExpired:   # a hung call must not outlive the time budget
+        check_budget()
         return None, {}, f"gh api did not answer within {GH_TIMEOUT} seconds"
     if not proc.stdout.startswith("HTTP/"):
         return None, {}, proc.stderr.strip()
@@ -257,6 +272,7 @@ def call(args, stdin=None, retry_transient=True):
         reset = _int(headers.get("x-ratelimit-reset"), 0)
         if status is None:
             if attempt < 3:
+                check_budget(3 * 2 ** attempt)
                 time.sleep(3 * 2 ** attempt)
                 continue
             raise GhError(None, body)
@@ -271,6 +287,7 @@ def call(args, stdin=None, retry_transient=True):
                 pause(60 * 2 ** min(attempt, 3), "secondary rate limit")
             continue
         if status in TRANSIENT and retry_transient and attempt < 3:
+            check_budget(3 * 2 ** attempt)
             time.sleep(3 * 2 ** attempt)
             continue
         if remaining is not None and remaining < RESERVE:
@@ -657,120 +674,398 @@ def collect(projects, cache, refresh, features, spread=False):
     return done
 
 
-def report(projects, cache):
-    """Print projects that need attention in data/projects.json."""
+def attention(projects, cache):
+    """Projects that need attention in data/projects.json, as [(heading, hint, [(repo, detail)])].
+
+    Only repository names and error codes go in: an error message can quote text from GitHub, and this list is
+    posted to an issue."""
     gone, failing, renamed, capped = [], [], [], []
     for p in projects:
         m = cache.get(p["repo"].lower()) or {}
         if m.get("error"):
-            gone.append(f"{p['repo']} ({m['error']})")
+            gone.append((p["repo"], f"{m['error']}, last checked {day(m.get('fetched_at'))}"))
         if m.get("last_error"):
-            failing.append(f"{p['repo']} ({m['last_error']}, kept snapshot from {day(m.get('fetched_at'))})")
+            failing.append((p["repo"], f"{m['last_error']}, kept snapshot from {day(m.get('fetched_at'))}"))
         if m.get("full_name") and m["full_name"].lower() != p["repo"].lower():
-            renamed.append(f"{p['repo']} -> {m['full_name']}")
+            renamed.append((p["repo"], f"now {m['full_name']}"))
         if m.get("releases_12m_capped"):
-            capped.append(p["repo"])
-    for label, items in [("unavailable", gone), ("fetch failed, previous snapshot kept", failing),
-                         ("renamed or moved; update data/projects.json", renamed),
-                         (f"more than {RELEASE_PAGES * 100} releases, count is a lower bound", capped)]:
-        if items:
-            print(f"{label} ({len(items)}):")
-            for item in items:
-                print(f"  {item}")
+            capped.append((p["repo"], ""))
+    return [(heading, hint, items) for heading, hint, items in [
+        ("Unavailable", "The repository is gone or blocked. Remove it from `data/projects.json`, or point it at "
+                        "the new location.", gone),
+        ("Fetch failed", "A temporary error; the previous snapshot is kept and the fetch is retried every run.",
+         failing),
+        ("Renamed or moved", "Update `repo` in `data/projects.json` to the new name.", renamed),
+        (f"More than {RELEASE_PAGES * 100} releases", "The 12-month release count is a lower bound.", capped),
+    ] if items]
+
+
+def report(projects, cache):
+    """Print projects that need attention in data/projects.json."""
+    for heading, _, items in attention(projects, cache):
+        print(f"{heading.lower()} ({len(items)}):")
+        for repo, detail in items:
+            print(f"  {repo}" + (f" ({detail})" if detail else ""))
+
+
+def freshness_summary(projects, cache, previous):
+    snapshots = []
+    refreshed = 0
+    for project in projects:
+        key = project["repo"].lower()
+        record = cache.get(key)
+        if not record or record.get("error") or not record.get("fetched_at"):
+            continue
+        snapshots.append(parse_ts(record["fetched_at"]))
+        if record is not previous.get(key) and not record.get("last_error"):
+            refreshed += 1
+    fresh = sum(stamp >= NOW - MAX_AGE for stamp in snapshots)
+    total = len(projects)
+    coverage = f"{fresh / total:.0%}" if total else "n/a"
+    oldest = f"{(NOW - min(snapshots)).days} days" if snapshots else "n/a"
+    return (f"## Metrics freshness\n\n"
+            f"- Successfully refreshed this run: {refreshed}\n"
+            f"- Measured within seven days: {fresh}/{total} ({coverage})\n"
+            f"- Oldest successful snapshot: {oldest}\n\n")
+
+
+def maintenance_markdown(projects, cache):
+    """Review list for the maintenance issue and the job summary; empty when nothing needs attention."""
+    # Only what an edit to data/projects.json fixes. Failed fetches clear themselves on a later run, and capped
+    # release counts cannot be fixed, so either would keep the issue open (or reopen it) for nothing.
+    fixable = ("Unavailable", "Renamed or moved")
+    groups = [g for g in attention(projects, cache) if g[0] in fixable]
+    if not groups:
+        return ""
+    lines = ["Projects in `data/projects.json` that need a manual fix, from the latest metrics run. "
+             "This issue is rewritten on every run and closed when the list is empty."]
+    for heading, hint, items in groups:
+        lines += ["", f"### {heading} ({len(items)})", "", hint, ""]
+        for repo, detail in items:
+            # Names come from data/projects.json and from GitHub; neither is trusted in an issue body.
+            name = f"[{untrusted(repo)}](https://github.com/{repo})" if REPO_NAME.match(repo) else untrusted(repo)
+            lines.append(f"- {name}" + (f" — {untrusted(str(detail))}" if detail else ""))
+    return "\n".join(lines)[:65000] + "\n"
+
+
+# --- Validation --------------------------------------------------------------------------------------------------
+
+REPO_NAME = re.compile(r"^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$")
+ORIGINS = {"awesome-list", "discovered", "adjacent"}
+
+
+def check_data(doc):
+    """Problems in the hand-edited data files, as a list of messages. Makes no network calls."""
+    problems = []
+    if not isinstance(doc, dict):
+        return ["data/projects.json: the top level must be an object"]
+    cats = doc.get("categories")
+    if not isinstance(cats, list) or not cats:
+        return ["data/projects.json: `categories` must be a non-empty list"]
+    if not all(isinstance(c, dict) for c in cats):
+        return ["data/projects.json: every category must be an object"]
+    if not isinstance(doc.get("projects"), list) or not all(isinstance(p, dict) for p in doc["projects"]):
+        return ["data/projects.json: `projects` must be a list of objects"]
+    ids = [c.get("id") for c in cats]
+    for c in cats:
+        if not c.get("id") or not c.get("title"):
+            problems.append(f"data/projects.json: category without id or title: {c}")
+    for dup in sorted({i for i in ids if ids.count(i) > 1}):
+        problems.append(f"data/projects.json: category id `{dup}` appears more than once")
+    seen = {}
+    for n, p in enumerate(doc.get("projects") or [], 1):
+        where = f"data/projects.json: project {n} ({p.get('repo', '?')})"
+        repo = p.get("repo")
+        if not isinstance(repo, str) or not REPO_NAME.match(repo):
+            problems.append(f"{where}: `repo` must look like owner/name")
+        elif repo.lower() in seen:
+            problems.append(f"{where}: duplicate of project {seen[repo.lower()]}")
+        else:
+            seen[repo.lower()] = n
+        for key in ("name", "description"):
+            if not isinstance(p.get(key), str) or not p[key].strip():
+                problems.append(f"{where}: `{key}` is missing or empty")
+        if p.get("category") not in ids:
+            problems.append(f"{where}: unknown category `{p.get('category')}` (known: {', '.join(ids)})")
+        if p.get("origin") not in ORIGINS:
+            problems.append(f"{where}: `origin` must be one of {', '.join(sorted(ORIGINS))}")
+    if not seen:
+        problems.append("data/projects.json: `projects` is empty")
+
+    try:
+        cfg = json.loads(DISCOVERY_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as err:
+        return problems + [f"data/discovery.json: {err}"]
+    if not isinstance(cfg, dict):
+        return problems + ["data/discovery.json: expected an object"]
+    if not cfg.get("queries") or not isinstance(cfg["queries"], list) or not all(isinstance(q, str) and q.strip() for q in cfg["queries"]):
+        problems.append("data/discovery.json: `queries` must be a list of non-empty strings")
+    if "older_queries" in cfg:
+        older = cfg["older_queries"]
+        if not isinstance(older, list) or not older or not all(isinstance(q, str) and q.strip() for q in older):
+            problems.append("data/discovery.json: older_queries must be a non-empty list of search queries")
+    if "readme_query" in cfg:
+        readme = cfg["readme_query"]
+        if not isinstance(readme, str) or "in:readme" not in readme.split():
+            problems.append("data/discovery.json: readme_query must include in:readme")
+        elif isinstance(cfg.get("queries"), list) and readme in cfg["queries"]:
+            problems.append("data/discovery.json: readme_query must be separate from regular searches")
+    if "older_query" in cfg and not (isinstance(cfg["older_query"], str) and cfg["older_query"].strip()):
+        problems.append("data/discovery.json: older_query must be a non-empty string")
+    for key in ("min_stars", "window_days"):
+        if key in cfg and (not isinstance(cfg[key], int) or cfg[key] < 0):
+            problems.append(f"data/discovery.json: `{key}` must be a non-negative integer")
+    for repo in cfg.get("rejected", []):
+        if not isinstance(repo, str) or not REPO_NAME.match(repo):
+            problems.append(f"data/discovery.json: rejected entry `{repo}` must look like owner/name")
+        elif repo.lower() in seen:
+            problems.append(f"data/discovery.json: `{repo}` is rejected but also listed in data/projects.json")
+    return problems
 
 
 # --- Discovery ---------------------------------------------------------------------------------------------------
 
+def check_discovery_state():
+    if not DISCOVERY_STATE_FILE.exists():
+        return []
+    try:
+        state = json.loads(DISCOVERY_STATE_FILE.read_text(encoding="utf-8"))
+        if not isinstance(state, dict):
+            raise ValueError("expected an object")
+        month = state.get("older_month")
+        if month is not None:
+            datetime.strptime(month, "%Y-%m")
+        if "readme_week" in state:
+            datetime.strptime(state["readme_week"], "%Y-%m-%d")
+        if "older_topic" in state and not isinstance(state["older_topic"], str):
+            raise ValueError("invalid older_topic")
+        if not isinstance(state.get("next_query"), str) or not state["next_query"].strip():
+            raise ValueError("missing next_query")
+        pages = state.get("pages", 0)
+        if type(pages) is not int or not 0 <= pages < 20:
+            raise ValueError("invalid page count")
+        if pages:
+            if not isinstance(state.get("after"), str) or not state["after"]:
+                raise ValueError("missing page cursor")
+            datetime.strptime(state["window_start"], "%Y-%m-%d")
+            if not isinstance(state.get("filters"), str):
+                raise ValueError("missing cursor search filters")
+        elif state.get("after") is not None:
+            raise ValueError("cursor without completed pages")
+    except (OSError, ValueError, KeyError, TypeError) as err:
+        return [f"data/discovery-state.json: {err}"]
+    return []
+
+
+def discovery_page(query, qualifiers, after, found, previous, excluded, features, performance=None):
+    check_budget()
+    data, errors = graphql(SEARCH_QUERY, {"q": f"{query} {qualifiers}", "after": after})
+    result = data.get("search")
+    if errors or not result:
+        raise GhError(None, (errors[0] if errors else {}).get("message", "search returned no data"))
+    if performance is not None:
+        discovery_stats.record_page(performance, query, len(result["nodes"]))
+    for node in result["nodes"]:
+        if not node or not node.get("nameWithOwner"):
+            continue
+        key = node["nameWithOwner"].lower()
+        if key in excluded or node["isFork"] or node["isArchived"]:
+            continue
+        topics = [n["topic"]["name"] for n in (node.get("repositoryTopics") or {}).get("nodes") or []]
+        entry = found.setdefault(key, {
+            "repo": node["nameWithOwner"], "url": node["url"], "description": node.get("description") or "",
+            "stars": node["stargazerCount"], "language": (node.get("primaryLanguage") or {}).get("name") or "",
+            "topics": topics, "created_at": node["createdAt"], "pushed_at": node["pushedAt"],
+            "features": detect_features(features, node.get("description"), " ".join(topics)),
+            "first_seen": previous.get(key, {}).get("first_seen", TODAY.isoformat()),
+            "last_seen": TODAY.isoformat(), "queries": list(previous.get(key, {}).get("queries", [])),
+        })
+        if query not in entry["queries"]:
+            entry["queries"].append(query)
+    return result["pageInfo"]["endCursor"] if result["pageInfo"]["hasNextPage"] else None
+
+
+def next_older_query(choices, last_query, totals):
+    """Rotate in configuration order, preferring queries with at least one accepted candidate."""
+    # Scan from the successor even when the previous topic no longer has eligible candidates.
+    offset = choices.index(last_query) + 1 if last_query in choices else 0
+    rotated = choices[offset:] + choices[:offset]
+    return next((q for q in rotated if totals.get(q, {}).get("accepted", 0)), rotated[0])
+
+
+def sample_discovery_page(query, qualifiers, seconds, found, previous, excluded, features, performance):
+    global DEADLINE
+    overall_deadline = DEADLINE
+    expires = time.monotonic() + seconds
+    DEADLINE = min(expires, overall_deadline) if overall_deadline is not None else expires
+    try:
+        discovery_page(query, qualifiers, None, found, previous, excluded, features, performance=performance)
+        return f"checked one page for `{query}`"
+    except (BudgetExceeded, GhError) as err:
+        print(f"  sample interrupted: {query} ({err})", flush=True)
+        return f"interrupted while checking `{query}`"
+    finally:
+        DEADLINE = overall_deadline
+
+
+def reset_search_cursor(state, next_query):
+    for key in ("after", "pages", "window_start", "filters"):
+        state.pop(key, None)
+    state["next_query"] = next_query
+
+
 def discover(doc, cache, features, days, report=None):
-    """Search GitHub for recently created projects that match data/discovery.json and are not indexed yet."""
     cfg = json.loads(DISCOVERY_FILE.read_text(encoding="utf-8"))
     days = days or cfg.get("window_days", 30)
-    start = (NOW - timedelta(days=days)).date().isoformat()
-    known = {p["repo"].lower() for p in doc["projects"]}
-    known |= {m["full_name"].lower() for m in cache.values() if m.get("full_name")}
+    start = (TODAY - timedelta(days=days)).isoformat()
+    filters = f"stars:>={cfg.get('min_stars', 10)} fork:false archived:false"
+    project_keys = {p["repo"].lower() for p in doc["projects"]}
+    indexed = project_keys | {m["full_name"].lower() for key, m in cache.items()
+                             if key in project_keys and m.get("full_name")}
     rejected = {r.lower() for r in cfg.get("rejected", [])}
+    excluded = indexed | rejected
     previous = {}
     if CANDIDATES_FILE.exists():
         previous = {c["repo"].lower(): c for c in json.loads(CANDIDATES_FILE.read_text(encoding="utf-8"))["candidates"]}
-    preflight()
+    performance = discovery_stats.load(DISCOVERY_STATS_FILE)
+    discovery_stats.attribute(performance, previous.values())
+    discovery_stats.reconcile(performance, indexed, rejected)
     found = {}
+    queries = list(dict.fromkeys(cfg["queries"]))
+    state = json.loads(DISCOVERY_STATE_FILE.read_text(encoding="utf-8")) if DISCOVERY_STATE_FILE.exists() else {}
+    if state.get("next_query") not in queries:
+        reset_search_cursor(state, queries[0])
+    if state.get("after") and state.get("filters") != filters:
+        reset_search_cursor(state, state["next_query"])
+    preflight()
+    month = TODAY.strftime("%Y-%m")
+    week = (TODAY - timedelta(days=TODAY.weekday())).isoformat()
+    older = cfg.get("older_queries") or ([cfg["older_query"]] if cfg.get("older_query") else [])
+    monthly_due = bool(older) and state.get("older_month") != month
+    readme_due = bool(cfg.get("readme_query")) and state.get("readme_week") != week
+    samples = []
+    # Both samples together receive at most one eighth of the remaining time, capped at one minute.
+    if monthly_due or readme_due:
+        available = max(0, DEADLINE - time.monotonic()) if DEADLINE is not None else 480
+        seconds = min(60, available / 8) / (int(monthly_due) + int(readme_due))
+    if monthly_due:
+        query = next_older_query(older, state.get("older_topic"), discovery_stats.totals(performance))
+        state.update(older_month=month, older_topic=query)
+        result = sample_discovery_page(query, f"created:<{start} pushed:>={start} {filters} sort:updated-desc",
+                                       seconds, found, previous, excluded, features, performance)
+        samples.append(f"Monthly search: {result}.")
+    if readme_due:
+        state["readme_week"] = week
+        result = sample_discovery_page(cfg["readme_query"], f"created:>={start} {filters}", seconds,
+                                       found, previous, excluded, features, performance)
+        samples.append(f"Weekly README experiment: {result}.")
+    # A README experiment takes one regular search slot. Resume the deferred query next week.
+    regular_target = max(1, len(queries) - int(readme_due))
+    completed = 0
+    reason = "planned regular queries completed"
+    capped = 0
+    failure = None
     try:
-        for query in cfg["queries"]:
-            check_budget()
-            full = f"{query} created:>={start} stars:>={cfg.get('min_stars', 10)} fork:false archived:false"
-            after, hits = None, 0
-            for _ in range(20):   # GitHub returns at most 1,000 results per search
-                data, errors = graphql(SEARCH_QUERY, {"q": full, "after": after})
-                result = data.get("search")
-                if not result:
-                    print(f"  search failed: {query}: {(errors[0] if errors else {}).get('message', 'no data')}")
-                    break
-                for node in result["nodes"]:
-                    if not node or not node.get("nameWithOwner"):
-                        continue
-                    key = node["nameWithOwner"].lower()
-                    if key in known or key in rejected or node["isFork"] or node["isArchived"]:
-                        continue
-                    hits += 1
-                    topics = [n["topic"]["name"] for n in (node.get("repositoryTopics") or {}).get("nodes") or []]
-                    entry = found.setdefault(key, {
-                        "repo": node["nameWithOwner"],
-                        "url": node["url"],
-                        "description": node.get("description") or "",
-                        "stars": node["stargazerCount"],
-                        "language": (node.get("primaryLanguage") or {}).get("name") or "",
-                        "topics": topics,
-                        "created_at": node["createdAt"],
-                        "pushed_at": node["pushedAt"],
-                        "features": detect_features(features, node.get("description"), " ".join(topics)),
-                        "first_seen": previous.get(key, {}).get("first_seen", TODAY.isoformat()),
-                        "queries": [],
-                    })
-                    if query not in entry["queries"]:
-                        entry["queries"].append(query)
-                if not result["pageInfo"]["hasNextPage"]:
-                    break
-                after = result["pageInfo"]["endCursor"]
-            print(f"  {hits:>4}  {query}", flush=True)
+        while completed < regular_target:
+            query = state["next_query"]
+            # The GitHub cursor belongs to the exact search used on the preceding run.
+            window = state.get("window_start", start)
+            after = discovery_page(query, f"created:>={window} {filters}", state.get("after"),
+                                   found, previous, excluded, features, performance=performance)
+            pages = state.get("pages", 0) + 1
+            if after and pages < 20:
+                state.update(after=after, pages=pages, window_start=window, filters=filters)
+                continue
+            if after:
+                capped += 1
+            completed += 1
+            next_query = queries[(queries.index(query) + 1) % len(queries)]
+            reset_search_cursor(state, next_query)
+            print(f"  completed {query} ({pages} pages)", flush=True)
     except BudgetExceeded:
-        print("  time budget reached; keeping the candidates found so far", flush=True)
-    # Keep earlier candidates that were neither added nor rejected, even if they fell out of the window.
+        reason = "time budget reached"
+    except GhError as err:
+        failure = err
+        reason = "GitHub search interrupted"
+        print(f"  {reason}: {err}", flush=True)
+        if state.get("after") and "cursor" in str(err).lower():
+            # An expired GitHub cursor must not block every following run.
+            reset_search_cursor(state, state["next_query"])
+    fresh = set(found).difference(previous)
     for key, entry in previous.items():
-        if key not in found and key not in known and key not in rejected:
-            found[key] = entry
+        if key not in excluded:
+            found.setdefault(key, entry)
     candidates = sorted(found.values(), key=lambda c: (-c["stars"], c["repo"].lower()))
     payload = {"generated_at": NOW.isoformat(timespec="seconds"), "window_start": start, "candidates": candidates}
+    # Commit progress only after saving the candidates from those pages. Replaying a page is idempotent.
+    discovery_stats.attribute(performance, candidates)
+    write_atomic(DISCOVERY_STATS_FILE, json.dumps(performance, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
     write_atomic(CANDIDATES_FILE, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
-    fresh = [c for c in candidates if c["first_seen"] == TODAY.isoformat()]
-    print(f"{len(candidates)} candidates in {CANDIDATES_FILE.relative_to(ROOT)} ({len(fresh)} first seen today)")
-    for c in candidates[:20]:
-        print(f"  {c['stars']:>6}  {c['repo']}  {c['description'][:80]}")
+    write_atomic(DISCOVERY_STATE_FILE, json.dumps(state, indent=2) + "\n")
+    coverage = f"Weekly queries completed: {completed}/{len(queries)} ({reason})."
+    if completed < len(queries):
+        coverage += f" Next query: `{state['next_query']}`."
+    if capped:
+        coverage += f" Queries at the 1,000-result limit: {capped}."
+    if samples:
+        coverage += " " + " ".join(samples)
+    print(f"{len(candidates)} open candidates, {len(fresh)} new this run. {coverage}")
     if report:
-        write_atomic(Path(report), candidates_markdown(candidates, start))
+        write_atomic(Path(report), candidates_markdown(candidates, fresh, coverage))
+    if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(summary, "a", encoding="utf-8") as out:
+            print(discovery_stats.markdown(performance), file=out)
+    if failure:
+        raise SystemExit(f"{reason}: {failure}")
 
 
-def candidates_markdown(candidates, start, limit=150):
-    """Review list for a GitHub issue. Issue bodies are capped at 65,536 characters, so long lists are cut."""
-    today = TODAY.isoformat()
+def candidate_evidence(candidate):
+    queries = candidate.get("queries") or []
+    topics = candidate.get("topics") or []
+    features = candidate.get("features") or []
+    query = queries[-1] if queries else ""
+    matched_topic = next((t for t in topics if f"topic:{t}".lower() in query.lower().split()), None)
+    evidence = [f"Query: {untrusted(query)}"] if query else []
+    if matched_topic:
+        evidence.append(f"Topic: {untrusted(matched_topic)}")
+    elif features:
+        evidence.append(f"Feature: {untrusted(features[0])}")
+    elif topics:
+        evidence.append(f"Topic: {untrusted(topics[0])}")
+    elif candidate.get("description"):
+        evidence.append(f"Description: {untrusted(candidate['description'][:80])}")
+    return "<br>".join(evidence) or "—"
+
+
+def candidates_markdown(candidates, fresh, coverage, limit=150):
     lines = [
-        f"Repositories created since {start} that match the searches in `data/discovery.json` and are not in the index. "
-        f"{len(candidates)} open candidates, {sum(c['first_seen'] == today for c in candidates)} new this run.",
-        "",
-        "To add one, append it to `data/projects.json` with `origin: \"discovered\"`. To dismiss one, add it to "
+        f"{len(candidates)} open candidates, {len(fresh)} new this run. {coverage}", "",
+        'To add one, append it to `data/projects.json` with `origin: "discovered"`. To dismiss one, add it to '
         "`rejected` in `data/discovery.json`. This issue is rewritten on every discovery run.",
-        "",
-        "| | Repository | Stars | Language | Created | Description | Features |",
-        "|---|---|--:|---|---|---|---|",
     ]
-    for c in candidates[:limit]:
-        new = "🆕" if c["first_seen"] == today else ""
-        desc = untrusted((c["description"] or "")[:140])
-        feats = ", ".join(c["features"]) if isinstance(c.get("features"), list) else ""
-        lines.append(f"| {new} | [{cell(c['repo'])}]({c['url']}) | {c['stars']:,} | {cell(c['language']) or '—'} | "
-                     f"{day(c['created_at'])} | {desc or '—'} | {feats or '—'} |")
-    if len(candidates) > limit:
-        lines += ["", f"{len(candidates) - limit} more in `data/candidates.json`."]
-    return "\n".join(lines)[:65000] + "\n"
+    shown = 0
+    for heading, is_new in (("New this run", True), ("Previously found", False)):
+        group = [c for c in candidates if (c["repo"].lower() in fresh) == is_new]
+        lines.extend(["", f"### {heading} ({len(group)})", ""])
+        if not group:
+            lines.append("None.")
+            continue
+        if shown == limit:
+            continue
+        lines.extend(["| Repository | Stars | Last seen | Language | Created | Description | Features | Why matched |",
+                      "|---|---:|---|---|---|---|---|---|"])
+        for c in group[:limit - shown]:
+            desc = untrusted((c["description"] or "")[:140])
+            feats = ", ".join(untrusted(f) for f in c.get("features", []))
+            lines.append(f"| [{cell(c['repo'])}]({c['url']}) | {c['stars']:,} | {c.get('last_seen') or 'Unknown'} | "
+                         f"{cell(c['language']) or '—'} | {day(c['created_at'])} | {desc or '—'} | "
+                         f"{feats or '—'} | {candidate_evidence(c)} |")
+            shown += 1
+    body = "\n".join(lines)
+    if shown < len(candidates) or len(body) > 64000:
+        body = body[:64000].rsplit("\n", 1)[0] if len(body) > 64000 else body
+        body += "\n\nSee the complete list in `data/candidates.json`."
+    return body + "\n"
 
 
 # --- Rendering ---------------------------------------------------------------------------------------------------
@@ -814,7 +1109,7 @@ def build_rows(projects, cache):
     return rows
 
 
-def write_csv(rows):
+def render_csv(rows):
     buf = io.StringIO(newline="")
     writer = csv.DictWriter(buf, fieldnames=CSV_FIELDS, extrasaction="ignore")
     writer.writeheader()
@@ -831,7 +1126,7 @@ def write_csv(rows):
                 value = "'" + value
             flat[key] = "" if value is None else value
         writer.writerow(flat)
-    write_atomic(CSV_FILE, buf.getvalue())
+    return buf.getvalue()
 
 
 def cell(text):
@@ -841,10 +1136,13 @@ def cell(text):
 def untrusted(text):
     """Text written by a repository owner (GitHub description), made inert for Markdown.
 
-    Escapes the characters that start links, images, HTML, emphasis, and issue references, and breaks
-    @mentions with a zero-width space, so a description cannot notify people or plant a disguised link."""
+    Escapes the characters that start links, images, HTML, and emphasis. A zero-width space breaks @mentions,
+    bare URLs (`https://`, `www.`), and issue references (`#1`, `owner/repo#1`, `GH-1`), which GitHub links
+    even when escaped. So the text cannot notify people, plant a link, or leave a "mentioned this" entry on
+    an issue in another repository."""
     text = re.sub(r"([\\`*_{}\[\]<>()#!~])", r"\\\1", text or "")   # before cell(), which adds its own backslashes
-    return cell(text).replace("@", "@​")
+    text = cell(text).replace("@", "@\u200b").replace("#", "#\u200b").replace("://", ":\u200b//")
+    return re.sub(r"(?i)\b(www|gh)(?=[.-])", "\\1\u200b", text)
 
 
 def fmt_int(value):
@@ -923,7 +1221,7 @@ def project_table(rows):
     for r in sorted(rows, key=lambda r: (-(r.get("stars") or 0), r["name"].lower())):
         tag = r.get("latest_release_tag")
         if tag:
-            tag = re.sub(r"([._/@-])", r"\1<wbr>", html.escape(cell(tag), quote=False))
+            tag = re.sub(r"([._/@-])", r"\1<wbr>", html.escape(untrusted(tag), quote=False))
         release = f"{tag} ({day(r.get('latest_release_at'))})" if tag else "—"
         open_work = "—" if r.get("open_prs") is None else f"{fmt_int(r.get('open_issues'))} / {fmt_int(r['open_prs'])}"
         lines.append("| " + " | ".join([
@@ -1075,6 +1373,96 @@ def render_readme(doc, rows, features):
     return re.sub(r"\n{3,}", "\n\n", "\n".join(parts)).rstrip() + "\n"
 
 
+def check_candidates():
+    try:
+        payload = json.loads(CANDIDATES_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as err:
+        return [f"data/candidates.json: {err}"]
+    if not isinstance(payload, dict) or not isinstance(payload.get("candidates"), list):
+        return ["data/candidates.json: expected a candidates list"]
+    problems = []
+    for field in ("generated_at", "window_start"):
+        value = payload.get(field)
+        try:
+            if not isinstance(value, str):
+                raise ValueError
+            parse_ts(value)
+        except ValueError:
+            problems.append(f"data/candidates.json: invalid {field}")
+    seen = set()
+    for n, candidate in enumerate(payload["candidates"], 1):
+        where = f"data/candidates.json: candidate {n}"
+        if not isinstance(candidate, dict):
+            problems.append(f"{where}: expected an object")
+            continue
+        repo = candidate.get("repo")
+        if not isinstance(repo, str) or not REPO_NAME.fullmatch(repo):
+            problems.append(f"{where}: invalid repository name")
+            continue
+        if repo.lower() in seen:
+            problems.append(f"{where}: duplicate repository {repo}")
+        seen.add(repo.lower())
+        if candidate.get("url") != f"https://github.com/{repo}":
+            problems.append(f"{where}: URL must match {repo}")
+        if type(candidate.get("stars")) is not int or candidate["stars"] < 0:
+            problems.append(f"{where}: stars must be a non-negative integer")
+        for field in ("description", "language", "first_seen", "created_at"):
+            if not isinstance(candidate.get(field), str):
+                problems.append(f"{where}: {field} must be a string")
+        if "last_seen" in candidate:
+            try:
+                stamp = datetime.strptime(candidate["last_seen"], "%Y-%m-%d").date()
+                if stamp.isoformat() != candidate["last_seen"]:
+                    raise ValueError()
+            except (TypeError, ValueError):
+                problems.append(f"{where}: last_seen must use YYYY-MM-DD")
+        for field in ("features", "topics", "queries"):
+            values = candidate.get(field)
+            if not isinstance(values, list) or not all(isinstance(v, str) for v in values):
+                problems.append(f"{where}: {field} must be a list of strings")
+    return problems
+
+
+def check(generated=False):
+    """--check: fail on broken data files, then render README and CSV in memory to catch rendering errors."""
+    problems = []
+    try:
+        doc = json.loads(PROJECTS_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as err:
+        sys.exit(f"data/projects.json: {err}")
+    problems += check_data(doc)
+    problems += check_candidates()
+    problems += check_discovery_state()
+    try:
+        discovery_stats.load(DISCOVERY_STATS_FILE)
+    except (OSError, ValueError) as err:
+        problems.append(f"data/discovery-stats.json: {err}")
+    try:
+        features = load_features()
+    except (OSError, json.JSONDecodeError, KeyError, AttributeError, re.error) as err:
+        problems.append(f"data/features.json: {err}")
+        features = None
+    if problems:
+        sys.exit("\n".join(["data check failed:", *(f"  {p}" for p in problems)]))
+    cache = {}
+    if METRICS_FILE.exists() or generated:
+        try:
+            cache = json.loads(METRICS_FILE.read_text(encoding="utf-8"))["repos"]
+            if not isinstance(cache, dict) or not all(isinstance(m, dict) for m in cache.values()):
+                raise ValueError("expected a repos object containing metric records")
+        except (OSError, ValueError, KeyError, TypeError) as err:
+            sys.exit(f"data/metrics.json: {err}")
+    rows = build_rows(doc["projects"], cache)
+    outputs = ((README_FILE, render_readme(doc, rows, features)), (CSV_FILE, render_csv(rows)))
+    if generated:
+        for path, expected in outputs:
+            if not path.is_file() or path.read_bytes() != expected.encode("utf-8"):
+                sys.exit(f"{path.relative_to(ROOT)} differs from the cached data; run --render-only")
+    missing = sum(p["repo"].lower() not in cache for p in doc["projects"])
+    print(f"data check passed: {len(doc['projects'])} projects, {len(doc['categories'])} categories"
+          + (f"; {missing} not fetched yet (the next daily run fetches them)" if missing else ""))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--refresh", action="store_true", help="fetch every project, not only stale ones")
@@ -1088,7 +1476,19 @@ def main():
     parser.add_argument("--max-minutes", type=float, metavar="N",
                         help="time budget: start no new work (and no rate-limit wait) after N minutes; "
                              "projects not reached are fetched on the next run")
+    parser.add_argument("--maintenance", metavar="FILE",
+                        help="also write a Markdown list of projects that need a manual fix (empty when none)")
+    parser.add_argument("--check", action="store_true",
+                        help="validate the data files and render in memory; writes nothing, makes no network calls")
+    parser.add_argument("--check-generated", action="store_true",
+                        help="validate data and verify README and CSV match the cache; makes no network calls")
     args = parser.parse_args()
+    if args.check or args.check_generated:
+        others = {k: v for k, v in vars(args).items() if k not in ("check", "check_generated")}
+        if any(v not in (None, False) for v in others.values()):
+            parser.error("data checks cannot be combined with update options")
+        check(generated=args.check_generated)
+        return
     global DEADLINE
     if args.max_minutes is not None:
         if args.max_minutes <= 0:
@@ -1098,6 +1498,8 @@ def main():
         parser.error("--render-only makes no network calls, so it cannot be combined with other options")
     if (args.days or args.report) and not args.discover:
         parser.error("--days and --report only apply to --discover")
+    if args.maintenance and args.discover:
+        parser.error("--maintenance does not apply to --discover")
 
     doc = json.loads(PROJECTS_FILE.read_text(encoding="utf-8"))
     features = load_features()
@@ -1111,6 +1513,7 @@ def main():
 
     stopped = None
     if not args.render_only:
+        previous = cache.copy()  # collect replaces records and retains older snapshots on transient errors.
         targets = doc["projects"]
         if args.only:
             wanted = {r.lower() for r in args.only}
@@ -1124,10 +1527,15 @@ def main():
             collect(targets, cache, args.refresh or bool(args.only), features, args.spread and not args.only)
         except Stopped as err:   # render what was fetched, then fail the run below
             stopped = str(err)
+        if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
+            with open(summary, "a", encoding="utf-8") as output:
+                output.write(freshness_summary(doc["projects"], cache, previous))
 
     report(doc["projects"], cache)
+    if args.maintenance:
+        write_atomic(Path(args.maintenance), maintenance_markdown(doc["projects"], cache))
     rows = build_rows(doc["projects"], cache)
-    write_csv(rows)
+    write_atomic(CSV_FILE, render_csv(rows))
     write_atomic(README_FILE, render_readme(doc, rows, features))
     print(f"rendered {README_FILE.name} and {CSV_FILE.name} for {len(rows)} projects")
     if stopped:

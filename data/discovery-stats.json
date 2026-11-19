@@ -1,0 +1,663 @@
+{
+  "candidates": {
+    "214140846/browser-hands": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code parallel"
+      ]
+    },
+    "abhigyan6/tri-agent-orchestrator": {
+      "decision": "open",
+      "queries": [
+        "\"agent orchestration\" in:name,description",
+        "\"agent orchestrator\" in:name,description",
+        "\"multi-agent\" orchestrator in:name,description",
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "acking-you/liftgate": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "acsunday/cocogem": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "agentes-chat/agentes-chat": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "agentic-system-lab/harness-relay": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:agentic-coding",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "ai4xe/parallax": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "alexj11324/mikka": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "aliengiraffe/rhizome": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "amiya-special/dynaflow": {
+      "decision": "open",
+      "queries": [
+        "\"agent orchestration\" in:name,description",
+        "\"agent orchestrator\" in:name,description",
+        "\"multi-agent\" orchestrator in:name,description",
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "amosblomqvist/learnharness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "aryehlev/peerharness": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "balanov/skein": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "balanov/uncut": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description",
+        "topic:agent-harness"
+      ]
+    },
+    "batuhan1999/sbx": {
+      "decision": "open",
+      "queries": [
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "bearisbug/imbo": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "beipo-ai/northcua": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "burns1028/moa-plus": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "callsymmetryecho/trace-canvas": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code parallel"
+      ]
+    },
+    "cccat6/iphone-agent-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "cedr1csun/chord-cli": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent",
+        "topic:claude-code worktree",
+        "worktree agents in:name,description"
+      ]
+    },
+    "chenhg5/myco": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "codician-team/diffinery": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "crommaai/crommacode": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "dagogo04/gogo-agent": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "darenhsin308365/virtual-card-usdt-claude-code-autonomous-agents-vcc": {
+      "decision": "open",
+      "queries": [
+        "\"parallel agents\" in:name,description"
+      ]
+    },
+    "diffuspace/clover-35b-a3b-preview": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "ebetica/recurse": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "eduwxyz/tucano": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "enowdev/enowx": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "ericcc0321/soulgent": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "eust-w/opengeniemaster": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-harness"
+      ]
+    },
+    "faraflow/faraflow": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "ferhatcore/claude-codex-project-os": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "fuzzykuji/openprogram": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "gadlus/letronna": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "galacticbehindvalor/ua-free-telegram-rpocket-team-autopilot": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "garrytan/g-harness-evals": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "geniusjia666/agent-system-design-cn": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "hitianqi/troupe": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent",
+        "topic:claude-code worktree",
+        "worktree agents in:name,description"
+      ]
+    },
+    "iampedii/herdr-redline": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code worktree",
+        "worktree agents in:name,description"
+      ]
+    },
+    "icodehq/icode-workbench": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code parallel"
+      ]
+    },
+    "ilkemerol/foreman": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code orchestrator"
+      ]
+    },
+    "inception3d/plumb": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "jialaoliu/dsh-baton": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "justxor/agent-harness-course": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "kc1t/alethe-orchestrate-skill": {
+      "decision": "open",
+      "queries": [
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "kemerd/claude-hardware-in-the-loop": {
+      "decision": "open",
+      "queries": [
+        "orchestrate agents in:name,description",
+        "swarm agents in:name,description"
+      ]
+    },
+    "kensuh/open-agent-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "klarluft/pitupitu": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "konic-labs/kubic": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "kumizeod/agentforeman": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code orchestrator",
+        "topic:codex orchestrator"
+      ]
+    },
+    "lanqiao-luca/ai-java-workflow": {
+      "decision": "open",
+      "queries": [
+        "worktree agents in:name,description"
+      ]
+    },
+    "laurencianaadina-gif/gpt-6-pro-parallel-agents-billing": {
+      "decision": "open",
+      "queries": [
+        "\"parallel agents\" in:name,description"
+      ]
+    },
+    "lose4578/auriga": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "luminousyyh/skill-wb-exec": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "worktree agents in:name,description"
+      ]
+    },
+    "mariomagdy/foreman": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "maxont/aisync": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "muaaz9329/cheap-ag": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "n1neman/sapper-v2": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "nagisanzenin/init-agent": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-harness"
+      ]
+    },
+    "open-rua/uni-robot-agent": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "over9rowth/o9-rd-mao-governance": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "pansalegrand/dojo-video-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "petritavd/airoom": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "phuryn/mini-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "protonspy/harness-for-rea": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code orchestrator"
+      ]
+    },
+    "qile-j/swarmevolve": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "rainyzhou2/sreagentharness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "rea1felix/h3-colab-studio": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "reason-machines/reason-network": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "rfxlamia/claude-foreman": {
+      "decision": "open",
+      "queries": [
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "rudderlabs/devbox": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-harness",
+        "topic:agentic-coding"
+      ]
+    },
+    "ruvnet/mouse-swarm": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "sametcelikbicak/opencode-team": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "scphq/scp": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "shawtim/gemini-app2api": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "sheernox/cedr": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "siloslabs/silo-cli": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "sinabs/spring-agent-scope": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "sshah03/recalc": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "stevenmichaelthomas/numbrone": {
+      "decision": "open",
+      "queries": [
+        "\"coding agents\" parallel in:name,description",
+        "topic:claude-code parallel",
+        "topic:claude-code worktree",
+        "worktree agents in:name,description"
+      ]
+    },
+    "taoqi132/qwork": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "techtideohio/binnacle": {
+      "decision": "open",
+      "queries": [
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "termilly/termilly": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "teydra/openautark": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "timwuhaotian/killi": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "tomtomsatnav/agent-orchestration-standard": {
+      "decision": "open",
+      "queries": [
+        "\"agent orchestration\" in:name,description",
+        "\"agent orchestrator\" in:name,description",
+        "orchestrate agents in:name,description",
+        "topic:claude-code orchestrator"
+      ]
+    },
+    "unitshaperextol/legion-os": {
+      "decision": "open",
+      "queries": [
+        "\"multi-agent\" orchestrator in:name,description",
+        "orchestrate agents in:name,description",
+        "swarm agents in:name,description",
+        "topic:claude-code multi-agent",
+        "topic:claude-code orchestrator"
+      ]
+    },
+    "vercel-labs/durable-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "video-rebirth/hyperflow-infinity": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description"
+      ]
+    },
+    "volekerb/hivemill": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "wanshuiyin/superaris": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration",
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "wey-gu/ducter": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-orchestration"
+      ]
+    },
+    "wiselnn570/co-design-bench": {
+      "decision": "open",
+      "queries": [
+        "topic:agentic-coding"
+      ]
+    },
+    "yc-software/minecraft-agent-harness": {
+      "decision": "open",
+      "queries": [
+        "\"agent harness\" in:name,description",
+        "topic:agent-harness"
+      ]
+    },
+    "yoyozero10/rarp": {
+      "decision": "open",
+      "queries": [
+        "\"agent orchestration\" in:name,description",
+        "\"agent orchestrator\" in:name,description",
+        "\"multi-agent\" orchestrator in:name,description",
+        "orchestrate agents in:name,description"
+      ]
+    },
+    "yuhuajiang2002/harnessmm": {
+      "decision": "open",
+      "queries": [
+        "topic:agent-harness"
+      ]
+    },
+    "yulmucoffee/artiboard": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "zadescoxp/agent-swarm-effect": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "zafer-liu/claude-super-sidebar": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    },
+    "zhenglinlei/cursor-swarm.js": {
+      "decision": "open",
+      "queries": [
+        "swarm agents in:name,description"
+      ]
+    },
+    "zuiho-kai/bothouse": {
+      "decision": "open",
+      "queries": [
+        "topic:claude-code multi-agent"
+      ]
+    }
+  },
+  "queries": {}
+}

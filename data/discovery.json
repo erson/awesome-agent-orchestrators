@@ -1,5 +1,5 @@
 {
-  "about": "Search queries for `python3 scripts/update.py --discover`. Each query runs through GitHub's GraphQL search with created:>=<window start>, stars:>=min_stars, fork:false and archived:false added. Hits go to data/candidates.json for review; nothing is added to the index automatically. Put repos you reviewed and turned down in `rejected` so they stop coming back.",
+  "about": "Weekly searches find recently created repositories. Once per UTC week, one query slot samples a narrow README search. The first discovery each month samples older, recently pushed repositories using a query from older_queries with past acceptances when available. Both samples stop after one page. All searches share the discovery time budget and min_stars threshold.",
   "min_stars": 25,
   "window_days": 30,
   "queries": [
@@ -24,5 +24,13 @@
     "swarm agents in:name,description",
     "\"multi-agent\" orchestrator in:name,description"
   ],
-  "rejected": []
+  "rejected": [],
+  "older_queries": [
+    "topic:agent-orchestration",
+    "topic:agent-orchestrator",
+    "topic:multi-agent-orchestration",
+    "topic:agent-harness",
+    "worktree agents in:name,description"
+  ],
+  "readme_query": "\"parallel coding agents\" \"worktrees\" in:readme"
 }

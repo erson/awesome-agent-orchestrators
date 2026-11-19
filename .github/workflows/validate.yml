@@ -1,0 +1,42 @@
+name: Validate
+
+# Checks the hand-edited data files and the script before they reach the daily update run.
+# - Read-only token, no secrets, no network calls from the script: safe for pull requests from forks.
+# - The update workflow's own commits carry [skip ci] and are pushed with the workflow token, so they never
+#   start this workflow.
+
+on:
+  pull_request:
+    paths: ["data/**", "scripts/**", ".github/workflows/**"]
+  push:
+    branches: [main]
+    paths: ["data/**", "scripts/**", ".github/workflows/**"]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          # The first parent of the PR merge commit is the exact base used for this preview.
+          fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 1 }}
+
+      - name: Check data files
+        run: python3 scripts/update.py --check
+
+      - name: Preview generated index changes
+        if: github.event_name == 'pull_request'
+        run: |
+          python3 scripts/update.py --render-only
+          python3 scripts/preview.py HEAD^1 >> "$GITHUB_STEP_SUMMARY"
