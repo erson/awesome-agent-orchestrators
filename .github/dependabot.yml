@@ -1,0 +1,16 @@
+# Keeps the SHA-pinned actions in .github/workflows current. Dependabot updates the commit SHA and the
+# version comment next to it, in one grouped pull request a week.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    # Wait a week before proposing a new release, so a hijacked release is likely caught first.
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "ci"
+    groups:
+      actions:
+        patterns: ["*"]
