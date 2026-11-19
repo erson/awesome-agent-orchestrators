@@ -29,9 +29,10 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 if __package__:
-    from . import discovery_stats
+    from . import discovery_stats, readme_editor
 else:
     import discovery_stats
+    import readme_editor
 
 ROOT = Path(__file__).resolve().parent.parent
 PROJECTS_FILE = ROOT / "data" / "projects.json"
@@ -144,6 +145,8 @@ python3 scripts/update.py --check        # validate the data files without writi
 The script needs the GitHub CLI (`gh`) signed in. It runs GraphQL queries one at a time, and waits when GitHub's rate limits run low. To add a project, append an entry to `data/projects.json` with `repo`, `name`, `category`, `origin`, and `description`, then run the script. To stop a reviewed candidate from coming back, add it to `rejected` in `data/discovery.json`. Feature keywords live in `data/features.json`.
 
 A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes about a seventh of the projects every day (`--spread`) and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review. Projects that moved or disappeared are listed in the issue labelled `maintenance`. The daily job summary shows successful refreshes, seven-day coverage, and the age of the oldest snapshot. Weekly discovery resumes interrupted searches and samples older, recently active repositories once a month within the same eight-minute budget. The candidates issue lists new finds first and shows each candidate’s matching searches, evidence, and last observation. The discovery summary counts candidates found by each query, candidates found only by that query, and review outcomes. A weekly one-page README search and a monthly rotating search share the existing discovery budget. Acceptance rates use reviewed candidates only. Historical results cover the query matches still present when tracking began. Before pushing, the bot validates the generated files against the local cache. Pull requests that touch the data, script, or workflows run offline validation and show a README and CSV preview in the job summary.
+
+After successful Monday discovery, the README editor uses ZenMux to select and arrange verified findings for the weekly brief. The editor runs in the `Orchestrate` environment with `ZENMUX_API_KEY`. DeepSeek is the primary model and HY4 is the provider fallback. The editor sends at most 24 short facts in one request with a 512-token output limit. Daily renders reuse the last published brief. The editor can also switch the index snapshot between the Spec and Stat Markdown designs from [MDXCN](https://www.mdxcn.dev/docs).
 """
 CREDITS = """## Credits
 
@@ -1341,16 +1344,20 @@ def render_readme(doc, rows, features):
     compare = " · ".join(f"[{t}](#{anchor(t)})" for t in (
         "At a glance", "Categories", "Features", "Languages", "Top 15 by stars", "Most recent commits",
         "Single-maintainer risk", "Methodology"))
+    editorial = json.loads(readme_editor.STATE.read_text()) if readme_editor.STATE.exists() else {}
+    metrics = [("Available projects", f"{len(live):,}"), ("Active in 30 days", f"{active:,}"),
+               ("Combined stars", short_num(sum(r.get("stars") or 0 for r in live)))]
     parts = [
         f"# {TITLE} — there are {len(live)}", "",
-        f"> **{len(live):,}** projects · **{active:,}** active in the last 30 days · "
-        f"**{short_num(sum(r.get('stars') or 0 for r in live))}** stars · metrics collected **{snapshot}** (UTC)", "",
+        readme_editor.snapshot_figure(metrics, editorial.get("snapshot", "spec")), "",
+        f"*Metrics collected {snapshot} (UTC).*", "",
         INTRO.format(total=len(live), active=active), "",
         f"**Browse by category:** {browse}", "",
         f"**Compare:** {compare}", "",
         f"{origins['awesome-list']} projects from the source list · {origins['discovered']} new · "
         f"{origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
         "",
+        *([readme_editor.render(editorial), ""] if editorial else []),
         "## At a glance", "", glance_table(rows), "",
         "### Categories", "", category_overview(cats, rows), "",
         "### Features", "", feature_overview(rows, features), "",

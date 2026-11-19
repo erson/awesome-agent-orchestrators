@@ -150,3 +150,39 @@ jobs:
             python3 scripts/update.py --check-generated
           fi
           git push
+
+  readme-editor:
+    needs: update
+    if: github.event_name == 'schedule' && github.event.schedule == '47 5 * * 1' && github.run_attempt == '1'
+    environment: Orchestrate
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Select weekly findings
+        env:
+          ZENMUX_API_KEY: ${{ secrets.ZENMUX_API_KEY }}
+          MODEL_DEEPSEEK: ${{ vars.MODEL_DEEPSEEK }}
+          MODEL_HY4: ${{ vars.MODEL_HY4 }}
+        run: python3 scripts/readme_editor.py
+
+      - name: Publish the validated brief
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- data/readme-editor.json)" ]; then exit 0; fi
+          python3 scripts/update.py --render-only
+          python3 scripts/update.py --check-generated
+          git add README.md data/readme-editor.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish weekly README brief [skip ci]"
+          gh auth setup-git
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"

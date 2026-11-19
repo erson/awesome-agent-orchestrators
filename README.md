@@ -1,6 +1,16 @@
 # Stop building new AI agent orchestrators — there are 633
 
-> **633** projects · **450** active in the last 30 days · **3.7M** stars · metrics collected **2026-11-15 to 2026-11-18** (UTC)
+```text
++----- [ INDEX SNAPSHOT ] ----+
+|                             |
+|  Available projects   633   |
+|  Active in 30 days    450   |
+|  Combined stars       3.7M  |
+|                             |
++-----------------------------+
+```
+
+*Metrics collected 2026-11-15 to 2026-11-18 (UTC).*
 
 Before you write another orchestrator, check whether someone already has. This repo indexes 633 open-source and source-available tools that run, supervise, or coordinate AI agents: parallel coding agents, multi-agent swarms, loop and task runners, infrastructure, and personal assistants. 450 of them had a commit in the last 30 days.
 
@@ -879,6 +889,8 @@ python3 scripts/update.py --check        # validate the data files without writi
 The script needs the GitHub CLI (`gh`) signed in. It runs GraphQL queries one at a time, and waits when GitHub's rate limits run low. To add a project, append an entry to `data/projects.json` with `repo`, `name`, `category`, `origin`, and `description`, then run the script. To stop a reviewed candidate from coming back, add it to `rejected` in `data/discovery.json`. Feature keywords live in `data/features.json`.
 
 A GitHub Actions workflow (`.github/workflows/update.yml`) refreshes about a seventh of the projects every day (`--spread`) and commits the result. Every Monday it runs discovery and rewrites the open issue labelled `candidates` with the projects to review. Projects that moved or disappeared are listed in the issue labelled `maintenance`. The daily job summary shows successful refreshes, seven-day coverage, and the age of the oldest snapshot. Weekly discovery resumes interrupted searches and samples older, recently active repositories once a month within the same eight-minute budget. The candidates issue lists new finds first and shows each candidate’s matching searches, evidence, and last observation. The discovery summary counts candidates found by each query, candidates found only by that query, and review outcomes. A weekly one-page README search and a monthly rotating search share the existing discovery budget. Acceptance rates use reviewed candidates only. Historical results cover the query matches still present when tracking began. Before pushing, the bot validates the generated files against the local cache. Pull requests that touch the data, script, or workflows run offline validation and show a README and CSV preview in the job summary.
+
+After successful Monday discovery, the README editor uses ZenMux to select and arrange verified findings for the weekly brief. The editor runs in the `Orchestrate` environment with `ZENMUX_API_KEY`. DeepSeek is the primary model and HY4 is the provider fallback. The editor sends at most 24 short facts in one request with a 512-token output limit. Daily renders reuse the last published brief. The editor can also switch the index snapshot between the Spec and Stat Markdown designs from [MDXCN](https://www.mdxcn.dev/docs).
 
 ## Credits
 
