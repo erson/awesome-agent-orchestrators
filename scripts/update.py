@@ -120,7 +120,7 @@ METHOD = """## Methodology
 | Contributors | GitHub accounts (type `User`) with at least one commit on the default branch. Bots are excluded and counted separately in `data/metrics.json`. |
 | Commits (90d) | Commits on the default branch in the 90 days before the snapshot. |
 | Last commit | Committer date of the newest default-branch commit. `pushed_at` is not used, because it also changes when other branches are pushed. |
-| Status | 🟢 **Active**: last commit within 30 days. 🟡 **Recent**: 31 to 90 days. 🟠 **Slow**: 91 to 365 days. 🔴 **Stale**: older than a year, or no commits. 📦 **Archived**: archived on GitHub. ⚫ **Unavailable**: the repository no longer exists, or the API call failed and there is no earlier snapshot. Unavailable projects are not included in the count in the title. When a fetch fails temporarily, the previous snapshot is kept. |
+| Status | 🟢 **Active**: last commit within 30 days. 🟡 **Recent**: 31 to 90 days. 🟠 **Slow**: 91 to 365 days. 🔴 **Stale**: older than a year, or no commits. 📦 **Archived**: archived on GitHub. ⚫ **Unavailable**: the repository no longer exists, or the API call failed and there is no earlier snapshot. Unavailable projects are excluded from the available-project count. When a fetch fails temporarily, the previous snapshot is kept. |
 | Latest release | Newest non-draft GitHub Release, pre-releases included. Projects that only push tags show "—". |
 | Open issues / PRs | Open issues (excluding pull requests) and open pull requests. |
 
@@ -1294,7 +1294,7 @@ def feature_overview(rows, features):
     lines = [
         f"Share of the {len(checked)} projects whose README, description, or topics mention each feature. "
         "Keyword matching, so treat it as a rough guide; see [Methodology](#methodology). "
-        "Per-project features are in each table below and in `data/projects.csv`.", "",
+        "Per-project features are in the interactive explorer and in `data/projects.csv`.", "",
         "| Group | Mentioned by |", "|---|---|",
     ]
     groups = {}
@@ -1332,50 +1332,85 @@ def risk_table(rows):
     return "\n".join(lines)
 
 
+TASKS = {
+    "terminal": "Run parallel coding sessions in a terminal",
+    "desktop": "Manage coding agents in a desktop or web UI",
+    "swarms": "Coordinate a team of agents",
+    "loops": "Repeat an agent loop until a condition is met",
+    "tasks": "Delegate a task to an autonomous runner",
+    "infra": "Build on orchestration infrastructure",
+    "assistants": "Set up a personal assistant",
+    "resting": "Explore the resting collection",
+    "adjacent": "Build with a general-purpose agent SDK",
+}
+EXPLORER_FILE = ROOT / "catalog.html"
+
+
+def render_explorer(doc, rows):
+    keys = ("repo", "name", "category", "status", "language", "stars", "features", "description",
+            "contributors", "commits_90d", "latest_release_at", "last_commit_at", "license",
+            "top_author_share", "releases_12m", "fetched_at")
+    entries = [{k: r.get(k) for k in keys} for r in rows]
+    for entry in entries:
+        for key in ("latest_release_at", "last_commit_at", "fetched_at"):
+            entry[key] = (entry[key] or "")[:10]
+    dates = sorted(r["fetched_at"][:10] for r in rows if r.get("fetched_at"))
+    snapshot = "unknown" if not dates else " to ".join(dict.fromkeys((dates[0], dates[-1])))
+    payload = {"snapshot": snapshot, "projects": entries,
+               "categories": {c["id"]: TASKS.get(c["id"], c["title"]) for c in doc["categories"]}}
+    # JSON script contents must never contain an HTML closing tag from a project description.
+    encoded = json.dumps(payload, separators=(",", ":")).replace("<", r"\u003c")
+    template = (ROOT / "scripts/catalog.html").read_text(encoding="utf-8")
+    return template.replace("__CATALOG_JSON__", encoded)
+
+
 def render_readme(doc, rows, features):
     cats = doc["categories"]
-    origins = {o: sum(r["origin"] == o for r in rows) for o in ("awesome-list", "discovered", "adjacent")}
     dates = sorted({as_of(r).isoformat() for r in rows if r.get("fetched_at")})
     snapshot = dates[0] if len(dates) == 1 else f"{dates[0]} to {dates[-1]}" if dates else TODAY.isoformat()
     live = [r for r in rows if r["status"] != "Unavailable"]
     active = sum(r["status"] == "Active" for r in live)
-    browse = " · ".join(f"[{SHORT.get(c['id'], c['id'])}](#{anchor(c['title'])}) ({sum(r['category'] == c['id'] for r in rows)})"
-                        for c in cats if any(r["category"] == c["id"] for r in rows))
-    compare = " · ".join(f"[{t}](#{anchor(t)})" for t in (
-        "At a glance", "Categories", "Features", "Languages", "Top 15 by stars", "Most recent commits",
-        "Single-maintainer risk", "Methodology"))
     editorial = json.loads(readme_editor.STATE.read_text()) if readme_editor.STATE.exists() else {}
     metrics = [("Available projects", f"{len(live):,}"), ("Active in 30 days", f"{active:,}"),
                ("Combined stars", short_num(sum(r.get("stars") or 0 for r in live)))]
     parts = [
         f"# {TITLE}", "",
+        "Find tools for running, coordinating, and supervising AI agents. Start with the task you need to do, "
+        "then compare activity, releases, and maintenance across projects.", "",
+        "**[Download the interactive explorer](https://github.com/erson/orchestration-atlas/raw/refs/heads/main/catalog.html)** "
+        "· [Browse the searchable CSV on GitHub](data/projects.csv) · [Methodology](#methodology)", "",
+        "Open the downloaded HTML file in your browser to filter by task, feature, language, or activity "
+        "and compare up to four projects side by side. It works offline.", "",
         readme_editor.snapshot_figure(metrics, editorial.get("snapshot", "spec")), "",
-        f"*Metrics collected {snapshot} (UTC).*", "",
-        INTRO.format(total=len(live), active=active), "",
-        f"**Browse by category:** {browse}", "",
-        f"**Compare:** {compare}", "",
-        f"{origins['awesome-list']} projects from the source list · {origins['discovered']} new · "
-        f"{origins['adjacent']} adjacent frameworks · refresh with `python3 scripts/update.py`",
-        "",
+        f"*Metrics collected {snapshot} (UTC). The index tracks {len(rows)} projects across {len(cats)} categories.*", "",
         *([readme_editor.render(editorial), ""] if editorial else []),
-        "## At a glance", "", glance_table(rows), "",
-        "### Categories", "", category_overview(cats, rows), "",
-        "### Features", "", feature_overview(rows, features), "",
-        "### Languages", "", language_overview(rows), "",
-        "### Top 15 by stars", "", top_by_stars(rows), "",
-        "### Most recent commits", "", recent_commits(rows), "",
-        "### Single-maintainer risk", "",
-        "Projects where one person wrote nearly all human commits. Ten highest top-author shares among projects with at least 100 commits that are not archived.", "",
-        risk_table(rows), "",
+        "## Choose a task", "",
+        "| I want to… | Indexed | Commit within 90 days |",
+        "|---|---:|---:|",
     ]
-    for cat in cats:
-        members = [r for r in rows if r["category"] == cat["id"]]
+    collections = [(c, [r for r in rows if r["category"] == c["id"]]) for c in cats]
+    for cat, members in collections:
+        lively = sum(r["status"] in ("Active", "Recent") for r in members)
+        title = TASKS.get(cat["id"], cat["title"])
+        parts.append(f"| [{title}](#{anchor(cat['title'])}) | {len(members)} | {lively} |")
+    parts += ["", "## Read the signals", "",
+              "Use **last commit** for recency, **latest release** for shipping cadence, and "
+              "**contributors** alongside **top author share** for maintenance concentration. "
+              "Stars measure attention. Feature matches come from project text and need checking against its docs.", ""]
+    analyses = [("At a glance", glance_table(rows)), ("Features", feature_overview(rows, features)),
+                ("Languages", language_overview(rows)), ("Top 15 by stars", top_by_stars(rows)),
+                ("Most recent commits", recent_commits(rows)), ("Single-maintainer risk", risk_table(rows))]
+    for title, content in analyses:
+        parts += [f"<details><summary>{title}</summary>", "", content, "", "</details>", ""]
+    for cat, members in collections:
         if not members:
             continue
-        lively = sum(r["status"] in ("Active", "Recent") for r in members)
         parts += [f"## {cat['title']}", "", cat.get("description", ""), "",
-                  f"**{len(members)} projects** · {lively} active or recent · sorted by stars · [↑ Back to top](#top)", "",
-                  project_table(members), ""]
+                  f"<details><summary>Browse {len(members)} projects by name</summary>", "",
+                  "| Project | Activity | Main language |", "|---|---|---|"]
+        for r in sorted(members, key=lambda r: (r["name"].casefold(), r["repo"])):
+            parts.append(f"| {name_link(r)} | {status_label(r['status'])} | {cell(r.get('language')) or '—'} |")
+        parts += ["", "</details>", "", "[Back to tasks](#choose-a-task)", ""]
     parts += [METHOD, MAINTAIN, CREDITS]
     return re.sub(r"\n{3,}", "\n\n", "\n".join(parts)).rstrip() + "\n"
 
@@ -1460,7 +1495,8 @@ def check(generated=False):
         except (OSError, ValueError, KeyError, TypeError) as err:
             sys.exit(f"data/metrics.json: {err}")
     rows = build_rows(doc["projects"], cache)
-    outputs = ((README_FILE, render_readme(doc, rows, features)), (CSV_FILE, render_csv(rows)))
+    outputs = ((README_FILE, render_readme(doc, rows, features)), (CSV_FILE, render_csv(rows)),
+               (EXPLORER_FILE, render_explorer(doc, rows)))
     if generated:
         for path, expected in outputs:
             if not path.is_file() or path.read_bytes() != expected.encode("utf-8"):
@@ -1542,6 +1578,7 @@ def main():
     if args.maintenance:
         write_atomic(Path(args.maintenance), maintenance_markdown(doc["projects"], cache))
     rows = build_rows(doc["projects"], cache)
+    write_atomic(EXPLORER_FILE, render_explorer(doc, rows))
     write_atomic(CSV_FILE, render_csv(rows))
     write_atomic(README_FILE, render_readme(doc, rows, features))
     print(f"rendered {README_FILE.name} and {CSV_FILE.name} for {len(rows)} projects")

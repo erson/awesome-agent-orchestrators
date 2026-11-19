@@ -133,7 +133,7 @@ jobs:
             python3 scripts/update.py --render-only
           fi
           python3 scripts/update.py --check-generated
-          git add README.md data/metrics.json data/candidates.json data/projects.csv
+          git add README.md catalog.html data/metrics.json data/candidates.json data/projects.csv
           if [ -f data/discovery-state.json ]; then git add data/discovery-state.json; fi
           if [ -f data/discovery-stats.json ]; then git add data/discovery-stats.json; fi
           if git diff --cached --quiet; then

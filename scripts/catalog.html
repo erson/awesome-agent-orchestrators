@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catalog explorer · Orchestration Atlas</title>
+<style>
+:root{color-scheme:light;--paper:#f7f5ed;--ink:#172d29;--accent:#176344;--line:#c3cdc2;font:16px/1.5 "Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}body{margin:0}main{max-width:76rem;margin:auto;padding:2rem clamp(1rem,4vw,4rem) 4rem}
+header{border-top:6px solid var(--accent);padding:1.5rem 0;border-bottom:1px solid var(--line)}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;line-height:1.12}h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:500;letter-spacing:-.055em;margin:.25em 0}h2{font-size:1.7rem;margin:.3em 0}p{margin:.4em 0}a{color:var(--accent);text-underline-offset:.18em}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.75rem;margin:1.5rem 0}label{font-weight:650;font-size:.86rem}input,select,button{font:inherit;color:inherit;border:1px solid #8c9d92;border-radius:.3rem;background:white;padding:.55rem}
+input,select{display:block;width:100%;margin-top:.25rem}button{cursor:pointer}button:disabled{opacity:.55;cursor:default}button[aria-pressed=true]{background:var(--accent);color:white}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #cb720e;outline-offset:2px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%}td,th{padding:.75rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:.83rem}td:first-child{min-width:14rem}td small{display:block;max-width:40rem;margin-top:.2rem;color:#40574c}#shortlist{background:#e6eee3;padding:1rem;margin:1rem 0}#shortlist table{width:auto}#shortlist td,#shortlist th{min-width:8rem}#shortlist td:first-child{min-width:0}footer{margin-top:1rem}button,input,select{min-height:2.6rem}
+@media(max-width:640px){.results thead{display:none}.results tr{display:grid;grid-template-columns:1fr 1fr;padding:.7rem 0;border-bottom:1px solid var(--line)}.results td{border:0;padding:.2rem}.results td:first-child{grid-column:1/-1}.results td[data-label]::before{content:attr(data-label) " ";font-size:.8rem;color:#40574c}.results td:last-child{grid-column:1/-1}}
+</style>
+<main><header><a href="https://github.com/erson/orchestration-atlas">Orchestration Atlas</a><h1>Find an orchestrator</h1><p id="snapshot"></p></header>
+<section aria-label="Filter projects" class="filters">
+<label>Search<input type="search" id="search" placeholder="Name, tool, or use case"></label>
+<label>Task<select id="category"></select></label><label>Activity<select id="status"></select></label>
+<label>Detected feature<select id="feature"></select></label><label>Language<select id="language"></select></label>
+<label>Order by<select id="sort"><option value="name">Project name</option><option value="last_commit_at">Latest commit</option><option value="contributors">Most contributors</option><option value="stars">Most stars</option></select></label></section>
+<section id="shortlist" hidden><div class="toolbar"><h2>Compare projects</h2><button id="clearSelection">Clear comparison</button></div><div class="scroll" id="comparison"></div></section>
+<div class="toolbar"><h2 id="count" aria-live="polite"></h2><button id="reset">Reset filters</button></div>
+<p>Compare up to four projects. Activity uses the latest default-branch commit at collection time. A dash means the measurement is unavailable.</p>
+<div class="scroll"><table class="results"><thead><tr><th>Project</th><th>Activity</th><th>Language</th><th>Stars</th><th>Shortlist</th></tr></thead><tbody id="rows"></tbody></table></div>
+<footer class="toolbar"><button id="back">Previous</button><span id="page"></span><button id="next">Next</button></footer></main>
+<script type="application/json" id="catalog">__CATALOG_JSON__</script>
+<script>
+'use strict';
+const catalog=JSON.parse(document.getElementById('catalog').textContent);
+const projects=catalog.projects, selected=new Set(), pageSize=20;
+let page=0;
+const el=id=>document.getElementById(id);
+function node(tag,text){const n=document.createElement(tag);if(text!=null)n.textContent=text;return n}
+function link(p){const a=node('a',p.name);a.href='https://github.com/'+p.repo;return a}
+function fill(id,options){el(id).add(new Option('All',''));for(const [v,label] of options)el(id).add(new Option(label,v))}
+fill('category',Object.entries(catalog.categories));
+for(const key of ['status','language','feature']){
+ const values=key==='feature'?projects.flatMap(p=>p.features||[]):projects.map(p=>p[key]);
+ fill(key,[...new Set(values.filter(Boolean))].sort().map(v=>[v,v]));
+}
+el('snapshot').textContent=projects.length+' indexed projects · Metrics collected '+catalog.snapshot+' (UTC)';
+function showComparison(){
+ const picks=projects.filter(p=>selected.has(p.repo)),table=node('table'),head=node('tr');
+ el('shortlist').hidden=!picks.length;
+ head.append(node('th','Measure'));
+ for(const p of picks){const th=node('th');th.append(link(p));head.append(th)}table.append(head);
+ for(const [key,label] of Object.entries({category:'Task',status:'Activity',last_commit_at:'Last commit',contributors:'Contributors',top_author_share:'Top author share',commits_90d:'Commits in 90 days',latest_release_at:'Latest release',releases_12m:'Releases in 12 months',fetched_at:'Snapshot date',license:'License',features:'Detected features'})){
+  const row=node('tr');row.append(node('th',label));
+  for(const p of picks){let v=p[key];if(key==='category')v=catalog.categories[v];if(key==='top_author_share'&&v!=null)v=Math.round(v*100)+'%';if(Array.isArray(v))v=v.join(', ');row.append(node('td',v==null||v===''?'—':v))}table.append(row);
+ }
+ el('comparison').replaceChildren(table);
+}
+function draw(){
+ const term=el('search').value.trim().toLowerCase(),order=el('sort').value;
+ const hits=projects.filter(p=>(!el('category').value||p.category===el('category').value)&&(!el('status').value||p.status===el('status').value)&&(!el('language').value||p.language===el('language').value)&&(!el('feature').value||(p.features||[]).includes(el('feature').value))&&(!term||[p.repo,p.name,p.description,...(p.features||[])].join(' ').toLowerCase().includes(term)));
+ hits.sort((a,b)=>{if(order==='last_commit_at'){const diff=(b[order]||'').localeCompare(a[order]||'');if(diff)return diff}
+ else if(order!=='name'){const diff=(b[order]??-1)-(a[order]??-1);if(diff)return diff}return a.name.localeCompare(b.name)||a.repo.localeCompare(b.repo)});
+ const pages=Math.ceil(hits.length/pageSize);page=Math.min(page,Math.max(0,pages-1));
+ el('count').textContent=hits.length+' matching project'+(hits.length===1?'':'s');el('rows').replaceChildren();
+ for(const p of hits.slice(page*pageSize,(page+1)*pageSize)){
+  const tr=node('tr'),name=node('td');name.append(link(p),node('small',p.description));tr.append(name);
+  for(const [label,val] of [['Activity',p.status],['Language',p.language],['Stars',p.stars?.toLocaleString('en-US')]]){const td=node('td',val||'—');td.dataset.label=label;tr.append(td)}
+  const td=node('td'),on=selected.has(p.repo),btn=node('button',on?'Remove':'Compare');btn.setAttribute('aria-label',(on?'Remove ':'Compare ')+p.name);btn.setAttribute('aria-pressed',on);btn.disabled=!on&&selected.size>=4;
+  btn.onclick=()=>{if(on)selected.delete(p.repo);else selected.add(p.repo);draw();[...el('rows').querySelectorAll('button')].find(b=>b.dataset.repo===p.repo)?.focus()};btn.dataset.repo=p.repo;td.append(btn);tr.append(td);el('rows').append(tr);
+ }
+ el('page').textContent=pages?'Page '+(page+1)+' of '+pages:'No matches. Try removing a filter.';
+ el('back').disabled=page===0;el('next').disabled=page+1>=pages;showComparison();
+}
+for(const id of ['search','category','status','language','feature','sort'])el(id).addEventListener(id==='search'?'input':'change',()=>{page=0;draw()});
+el('reset').onclick=()=>{for(const id of ['search','category','status','feature','language'])el(id).value='';el('sort').value='name';page=0;draw()};
+el('clearSelection').onclick=()=>{selected.clear();draw()};el('back').onclick=()=>{page--;draw()};el('next').onclick=()=>{page++;draw()};draw();
+</script></html>
