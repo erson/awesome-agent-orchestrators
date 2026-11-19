@@ -16,14 +16,14 @@ Open the downloaded HTML file in your browser to filter by task, feature, langua
 +-----------------------------+
 ```
 
-*Metrics collected 2026-11-15 to 2026-11-18 (UTC). The index tracks 636 projects across 9 categories.*
+*Metrics collected 2026-11-15 to 2026-11-19 (UTC). The index tracks 636 projects across 9 categories.*
 
 ## Choose a task
 
 | I want to… | Indexed | Commit within 90 days |
 |---|---:|---:|
 | [Run parallel coding sessions in a terminal](#parallel-coding-agents--terminal-tuicli) | 61 | 52 |
-| [Manage coding agents in a desktop or web UI](#parallel-coding-agents--desktop--web) | 188 | 168 |
+| [Manage coding agents in a desktop or web UI](#parallel-coding-agents--desktop--web) | 188 | 167 |
 | [Coordinate a team of agents](#multi-agent-swarms) | 114 | 87 |
 | [Repeat an agent loop until a condition is met](#autonomous-loop-runners) | 31 | 21 |
 | [Delegate a task to an autonomous runner](#autonomous-task-runners) | 58 | 46 |
@@ -40,11 +40,11 @@ Use **last commit** for recency, **latest release** for shipping cadence, and **
 
 | Projects tracked | Total stars | Median contributors | Median days since last commit |
 |:-:|:-:|:-:|:-:|
-| **636** | **3,689,304** | **7** | **3** |
+| **636** | **3,692,634** | **7** | **3** |
 
 | 🟢 Active | 🟡 Recent | 🟠 Slow | 🔴 Stale | 📦 Archived | ⚫ Unavailable |
 |:-:|:-:|:-:|:-:|:-:|:-:|
-| **450** | **68** | **108** | **3** | **4** | **3** |
+| **450** | **67** | **109** | **3** | **4** | **3** |
 
 Status is the age of the last commit on the default branch: Active up to 30 days, Recent up to 90, Slow up to a year, Stale beyond that. See [Methodology](#methodology).
 
@@ -98,7 +98,7 @@ Share of the 633 projects whose README, description, or topics mention each feat
 | 11 | [t3code](https://github.com/pingdotgg/t3code) | Desktop & web | 61,078 | 474 | 🟢 Active |
 | 12 | [crewAI](https://github.com/crewAIInc/crewAI) | Swarms | 61,067 | 367 | 🟢 Active |
 | 13 | [multica](https://github.com/multica-ai/multica) | Task runners | 56,175 | 406 | 🟢 Active |
-| 14 | [herdr](https://github.com/herdrdev/herdr) | Terminal | 51,090 | 87 | 🟢 Active |
+| 14 | [herdr](https://github.com/herdrdev/herdr) | Terminal | 51,842 | 87 | 🟢 Active |
 | 15 | [nanobot](https://github.com/HKUDS/nanobot) | Assistants | 50,123 | 394 | 🟢 Active |
 
 </details>
@@ -107,21 +107,21 @@ Share of the 633 projects whose README, description, or topics mention each feat
 
 | # | Project | Category | Last commit | Commits (90d) | Status |
 |--:|---|---|---|--:|---|
-| 1 | [DeerFlow](https://github.com/bytedance/deer-flow) _(new)_ | Adjacent frameworks | 2026-11-18 | 1,886 | 🟢 Active |
-| 2 | [Harness by Autonomous](https://github.com/autonomous-ai/openharness) | Desktop & web | 2026-11-18 | 5,347 | 🟢 Active |
-| 3 | [cyrus](https://github.com/cyrusagents/cyrus) | Task runners | 2026-11-18 | 84 | 🟢 Active |
-| 4 | [OmO](https://github.com/code-yeongyu/oh-my-openagent) _(new)_ | Swarms | 2026-11-18 | 20,179 | 🟢 Active |
-| 5 | [Agno](https://github.com/agno-agi/agno) | Adjacent frameworks | 2026-11-18 | 452 | 🟢 Active |
-| 6 | [OpenMeld](https://github.com/amplifthq/openmeld) _(new)_ | Swarms | 2026-11-18 | 8,252 | 🟢 Active |
-| 7 | [Alook](https://github.com/alookai/alook) | Swarms | 2026-11-18 | 949 | 🟢 Active |
-| 8 | [Claude Command Center (CCC)](https://github.com/amirfish1/claude-command-center) | Desktop & web | 2026-11-18 | 4,219 | 🟢 Active |
-| 9 | [ADE](https://github.com/arul28/ADE) _(new)_ | Desktop & web | 2026-11-18 | 1,391 | 🟢 Active |
-| 10 | [CompozyOS](https://github.com/compozy/compozy) _(new)_ | Infrastructure | 2026-11-18 | 1,136 | 🟢 Active |
-| 11 | [Archon](https://github.com/coleam00/Archon) | Infrastructure | 2026-11-18 | 2,637 | 🟢 Active |
-| 12 | [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) _(new)_ | Swarms | 2026-11-18 | 2,364 | 🟢 Active |
-| 13 | [codecast](https://github.com/codecast-sh/codecast) | Infrastructure | 2026-11-18 | 4,315 | 🟢 Active |
-| 14 | [ateam](https://github.com/clawnify/ateam) | Desktop & web | 2026-11-18 | 396 | 🟢 Active |
-| 15 | [Atomic](https://github.com/bastani-inc/atomic) _(new)_ | Loop runners | 2026-11-18 | 8,212 | 🟢 Active |
+| 1 | [Fletch](https://github.com/fwdai/fletch) | Desktop & web | 2026-11-19 | 2,104 | 🟢 Active |
+| 2 | [Heym](https://github.com/heymrun/heym) | Infrastructure | 2026-11-19 | 652 | 🟢 Active |
+| 3 | [Rakazo](https://github.com/elie222/rakazo) | Assistants | 2026-11-19 | 4,145 | 🟢 Active |
+| 4 | [gh-aw](https://github.com/github/gh-aw) | Task runners | 2026-11-19 | 3,624 | 🟢 Active |
+| 5 | [dev-3.0](https://github.com/h0x91b/dev-3.0) | Desktop & web | 2026-11-19 | 784 | 🟢 Active |
+| 6 | [Paseo](https://github.com/getpaseo/paseo) | Desktop & web | 2026-11-19 | 1,614 | 🟢 Active |
+| 7 | [Caprock](https://github.com/dspv/caprock) | Desktop & web | 2026-11-19 | 1,585 | 🟢 Active |
+| 8 | [Docker Agent](https://github.com/docker/docker-agent) _(new)_ | Adjacent frameworks | 2026-11-19 | 2,457 | 🟢 Active |
+| 9 | [Cloudroom](https://github.com/davidondrej/cloudroom) | Desktop & web | 2026-11-19 | 210 | 🟢 Active |
+| 10 | [Hive](https://github.com/hivecommons/hive) _(new)_ | Task runners | 2026-11-19 | 8,604 | 🟢 Active |
+| 11 | [Gas City](https://github.com/gastownhall/gascity) _(new)_ | Infrastructure | 2026-11-19 | 2,229 | 🟢 Active |
+| 12 | [GridBash](https://github.com/jasonsuhari/gridbash) _(new)_ | Terminal | 2026-11-19 | 94 | 🟢 Active |
+| 13 | [vibepanel](https://github.com/jiangmuran/vibepanel) _(new)_ | Desktop & web | 2026-11-19 | 762 | 🟢 Active |
+| 14 | [Eigent](https://github.com/eigent-ai/eigent) | Adjacent frameworks | 2026-11-19 | 255 | 🟢 Active |
+| 15 | [Sculptor](https://github.com/imbue-ai/sculptor) _(new)_ | Desktop & web | 2026-11-19 | 667 | 🟢 Active |
 
 </details>
 
@@ -231,7 +231,7 @@ The same parallel-sessions workflow as a desktop app or browser/mobile dashboard
 | [agent-squid](https://github.com/agent-squid/squid) | 🟢 Active | Python |
 | [Agentbox](https://github.com/savannahfeder/agentbox) | 🟢 Active | TypeScript |
 | [agentglass](https://github.com/SirAllap/agentglass) | 🟢 Active | TypeScript |
-| [AgentHub](https://github.com/jamesrochabrun/AgentHub) _(new)_ | 🟡 Recent | Swift |
+| [AgentHub](https://github.com/jamesrochabrun/AgentHub) _(new)_ | 🟠 Slow | Swift |
 | [AgentOS](https://github.com/SapienXai/AgentOS) _(new)_ | 🟢 Active | TypeScript |
 | [Agentrove](https://github.com/Mng-dev-ai/agentrove) _(new)_ | 🟢 Active | TypeScript |
 | [AgentWire](https://github.com/dotdevdotdev/agentwire-dev) _(new)_ | 🟢 Active | Python |
