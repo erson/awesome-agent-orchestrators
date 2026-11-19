@@ -16,7 +16,7 @@ Before you write another orchestrator, check whether someone already has. This r
 
 Most of these projects are doing the same few things: running several agent sessions side by side, isolating them in worktrees or containers, and routing tasks between them. The gap is rarely another orchestrator. It is maturity: more contributors, releases, docs, and tests. Pick one that is close to what you need and contribute to it, or fork it. If you still build your own, use this list to see what already exists and say what yours does differently.
 
-Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, languages, and how recently it was updated, plus the agents, isolation, and interfaces its README mentions. The [Single-maintainer risk](#single-maintainer-risk) table shows projects that depend on one person. The list starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0) and adds projects that list does not cover. Figures are a snapshot; see [Methodology](#methodology).
+Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, languages, and how recently it was updated, plus the agents, isolation, and interfaces its README mentions. The [Single-maintainer risk](#single-maintainer-risk) table shows projects that depend on one person. Figures are a snapshot; see [Methodology](#methodology).
 
 **Browse by category:** [Terminal](#parallel-coding-agents--terminal-tuicli) (61) · [Desktop & web](#parallel-coding-agents--desktop--web) (188) · [Swarms](#multi-agent-swarms) (114) · [Loop runners](#autonomous-loop-runners) (31) · [Task runners](#autonomous-task-runners) (58) · [Infrastructure](#agent-infrastructure--primitives) (82) · [Assistants](#personal-assistants) (57) · [Resting](#resting) (17) · [Adjacent frameworks](#adjacent-frameworks-general-purpose-agent-sdks) (28)
 
@@ -895,3 +895,5 @@ After successful Monday discovery, the README editor uses ZenMux to select and a
 ## Credits
 
 The starting list, its categories, and its one-line descriptions come from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators), released under CC0-1.0. The descriptions here are shortened rewrites; the originals are kept in `data/projects.json` as `list_description`.
+
+The list starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0) and adds projects that list does not cover.

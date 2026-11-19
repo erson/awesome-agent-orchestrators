@@ -103,9 +103,7 @@ INTRO = (
     "Every project has live GitHub metrics: stars, contributors, commit activity, releases, open work, license, "
     "languages, and how recently it was updated, plus the agents, isolation, and interfaces its README mentions. "
     "The [Single-maintainer risk](#single-maintainer-risk) table shows projects that depend on one person. "
-    "The list starts from "
-    "[andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) "
-    "(CC0-1.0) and adds projects that list does not cover. Figures are a snapshot; see [Methodology](#methodology)."
+    "Figures are a snapshot; see [Methodology](#methodology)."
 )
 METHOD = """## Methodology
 
@@ -151,6 +149,8 @@ After successful Monday discovery, the README editor uses ZenMux to select and a
 CREDITS = """## Credits
 
 The starting list, its categories, and its one-line descriptions come from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators), released under CC0-1.0. The descriptions here are shortened rewrites; the originals are kept in `data/projects.json` as `list_description`.
+
+The list starts from [andyrewlee/awesome-agent-orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (CC0-1.0) and adds projects that list does not cover.
 """
 
 REPO_FIELDS = """
