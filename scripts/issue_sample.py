@@ -12,9 +12,9 @@ STORE = ROOT / "data/issue-samples.json"
 TEAM = {"OWNER", "MEMBER", "COLLABORATOR"}
 OUTCOMES = {"COMPLETED", "NOT_PLANNED", "DUPLICATE"}
 WEEK = timedelta(days=7)
-BATCH = 8
-DAILY_CAP = 160
-REFRESH_DAYS = 4
+BATCH = 16
+DAILY_CAP = 320
+REFRESH_DAYS = 2
 FIELDS = """
     hasIssuesEnabled
     opened:issues(first:30,orderBy:{field:CREATED_AT,direction:DESC}) {

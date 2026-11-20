@@ -4046,6 +4046,457 @@
     "unanswered": 3,
     "unknown": 0
   },
+  "crewaiinc/crewai": {
+    "answered": 0,
+    "cache": {},
+    "closed": 2501,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 464,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 6,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "crewbeelab/crewbee": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "crewplaneai/crewplane": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "cristicretu/diri": {
+    "answered": 1,
+    "cache": {
+      "I_kwDOTthMpc8AAAABSkvtCQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOTthMpc8AAAABU9eWJw": {
+        "hours": 1.7008333333333334,
+        "result": "answered"
+      },
+      "I_kwDOTthMpc8AAAABW5Rzrg": {
+        "result": "unanswered"
+      },
+      "I_kwDOTthMpc8AAAABa25-4A": {
+        "result": "unanswered"
+      },
+      "I_kwDOTthMpc8AAAABaGBBFg": {
+        "result": "unanswered"
+      },
+      "I_kwDOTthMpc8AAAABdbAzlA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 74,
+    "completion_days": 1.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 13,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "crshdn/mission-control": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORFi1ic8AAAABagCdPw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 50,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 10,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "crunaldo/codex-autopilot-kit": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "currentbits/solenta": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1349,
+    "completion_days": 0.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 52,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "cyclops-team/cyclops": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": 8.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "cyl-castillo/agent-console": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 8,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "cyrusagents/cyrus": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOOcXJZc8AAAABN0L5HA": {
+        "result": "unanswered"
+      },
+      "I_kwDOOcXJZc8AAAABOcQzNQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOOcXJZc8AAAABUGGRKQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOOcXJZc8AAAABVLicwQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOOcXJZc8AAAABbrq1UQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOOcXJZc8AAAABdMWhwA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 67,
+    "completion_days": 53.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 50,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "dagoste/squadra": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dataelement/clawith": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORdDPbs8AAAABPcxYow": {
+        "result": "unanswered"
+      },
+      "I_kwDORdDPbs8AAAABSTCvVw": {
+        "result": "unanswered"
+      },
+      "I_kwDORdDPbs8AAAABTBPsXw": {
+        "result": "unanswered"
+      },
+      "I_kwDORdDPbs8AAAABXaPK3w": {
+        "result": "unanswered"
+      },
+      "I_kwDORdDPbs8AAAABYb_g9A": {
+        "result": "unanswered"
+      },
+      "I_kwDORdDPbs8AAAABbRakWg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 411,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 188,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 5,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "davidondrej/cloudroom": {
+    "answered": 1,
+    "cache": {
+      "I_kwDOUfPR4s8AAAABdcUHrw": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfPR4s8AAAABdcUIrQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfPR4s8AAAABdczP8A": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfPR4s8AAAABe4DeTQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfPR4s8AAAABeO4KzA": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfPR4s8AAAABeezZMQ": {
+        "hours": 1.0972222222222223,
+        "result": "answered"
+      }
+    },
+    "closed": 61,
+    "completion_days": 8.5,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 49,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "dazuiba/handoff": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dctanner/jelly": {
+    "answered": 1,
+    "cache": {
+      "I_kwDOUwirqc8AAAABV_Pecg": {
+        "hours": 81.07472222222222,
+        "result": "answered"
+      },
+      "I_kwDOUwirqc8AAAABXMTS7A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "deadwavewave/opencove": {
+    "answered": 0,
+    "cache": {},
+    "closed": 58,
+    "completion_days": 0.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 26,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "deepmyst/mysti": {
+    "answered": 0,
+    "cache": {},
+    "closed": 35,
+    "completion_days": 193.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dekelelz/let-them-talk": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "denchhq/denchclaw": {
+    "answered": 0,
+    "cache": {},
+    "closed": 14,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 74,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
   "desplega-ai/agent-swarm": {
     "answered": 0,
     "cache": {},
@@ -4062,6 +4513,65 @@
     },
     "reply_hours": null,
     "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "devin-axis/ipollowork": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPjpXm88AAAABO0ZEUw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPjpXm88AAAABRKuH2g": {
+        "result": "unanswered"
+      },
+      "I_kwDOPjpXm88AAAABUO7A4g": {
+        "result": "unanswered"
+      },
+      "I_kwDOPjpXm88AAAABUmcCJQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOPjpXm88AAAABZzRO1g": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 19,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 60,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 5,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "dicklesworthstone/claude_code_agent_farm": {
+    "answered": 1,
+    "cache": {
+      "I_kwDOPDJT9s8AAAABO9MNtg": {
+        "hours": 25.99277777777778,
+        "result": "answered"
+      }
+    },
+    "closed": 4,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
     "unanswered": 0,
     "unknown": 0
   },
@@ -4109,6 +4619,395 @@
     "unanswered": 0,
     "unknown": 0
   },
+  "dicklesworthstone/mcp_agent_mail_rust": {
+    "answered": 2,
+    "cache": {
+      "I_kwDORJAi4s8AAAABblllLw": {
+        "hours": 71.71527777777777,
+        "result": "answered"
+      },
+      "I_kwDORJAi4s8AAAABbtw1HA": {
+        "hours": 59.394444444444446,
+        "result": "answered"
+      },
+      "I_kwDORJAi4s8AAAABdUDhBw": {
+        "result": "unanswered"
+      },
+      "I_kwDORJAi4s8AAAABdYNksQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORJAi4s8AAAABdoCCwQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORJAi4s8AAAABeXhS5w": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 328,
+    "completion_days": 10.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 40,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "dicklesworthstone/ntm": {
+    "answered": 5,
+    "cache": {
+      "I_kwDOQl_XGM8AAAABX6Yz_w": {
+        "hours": 51.5825,
+        "result": "answered"
+      },
+      "I_kwDOQl_XGM8AAAABXiAxGA": {
+        "hours": 22.67222222222222,
+        "result": "answered"
+      },
+      "I_kwDOQl_XGM8AAAABY_3Y9A": {
+        "hours": 47.882777777777775,
+        "result": "answered"
+      },
+      "I_kwDOQl_XGM8AAAABZ21WDg": {
+        "hours": 25.35,
+        "result": "answered"
+      },
+      "I_kwDOQl_XGM8AAAABZg5kyQ": {
+        "hours": 73.65194444444444,
+        "result": "answered"
+      },
+      "I_kwDOQl_XGM8AAAABeXngNg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 305,
+    "completion_days": 1.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 15,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 47.9,
+    "sampled": 6,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "dimillian/codexmonitor": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQ3mo5M8AAAABSYLrqQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOQ3mo5M8AAAABWG6O4Q": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 125,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 76,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "diodeme/gold-band": {
+    "answered": 2,
+    "cache": {
+      "I_kwDOR0YESs8AAAABS6t3Ng": {
+        "result": "unanswered"
+      },
+      "I_kwDOR0YESs8AAAABSJnTOA": {
+        "hours": 9.97638888888889,
+        "result": "answered"
+      },
+      "I_kwDOR0YESs8AAAABSgu6dw": {
+        "hours": 22.61,
+        "result": "answered"
+      },
+      "I_kwDOR0YESs8AAAABbE8yrQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 9,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 4,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "dmatut7/agenthub": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "docker/docker-agent": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPn2YWs8AAAABbHrZLQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOPn2YWs8AAAABcvoO0A": {
+        "result": "unanswered"
+      },
+      "I_kwDOPn2YWs8AAAABe4ZGtQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOPn2YWs8AAAABei2Ydg": {
+        "result": "unanswered"
+      },
+      "I_kwDOPn2YWs8AAAABejEIbQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 941,
+    "completion_days": 1.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 50,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 5,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "dodaios/dodaios": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOSs8xWM8AAAABe0YJhA": {
+        "result": "unanswered"
+      },
+      "I_kwDOSs8xWM8AAAABe0YPYg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 250,
+    "completion_days": 0.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 20,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "dohooo/helmor": {
+    "answered": 0,
+    "cache": {},
+    "closed": 107,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 30,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dooly6276/claude-bulkhead": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dotcomjack/grux": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dotdevdotdev/agentwire-dev": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQxblQ88AAAABdHwuUQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 577,
+    "completion_days": 0.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 3,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "dsifry/metaswarm": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORGl7P88AAAABeLjAxQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 46,
+    "completion_days": 0.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 18,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "dspv/caprock": {
+    "answered": 5,
+    "cache": {
+      "I_kwDOT8lfSM8AAAABXdYL9w": {
+        "hours": 52.88388888888889,
+        "result": "answered"
+      },
+      "I_kwDOT8lfSM8AAAABXdqwIA": {
+        "hours": 52.560833333333335,
+        "result": "answered"
+      },
+      "I_kwDOT8lfSM8AAAABY7hJHg": {
+        "hours": 19.9975,
+        "result": "answered"
+      },
+      "I_kwDOT8lfSM8AAAABZe0M8w": {
+        "hours": 1.5758333333333334,
+        "result": "answered"
+      },
+      "I_kwDOT8lfSM8AAAABdNhW-Q": {
+        "hours": 2.327777777777778,
+        "result": "answered"
+      }
+    },
+    "closed": 8,
+    "completion_days": 1.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 20.0,
+    "sampled": 5,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "dtormoen/tsk-tsk": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOOz2DGc8AAAABajypnw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
   "dualface/kander": {
     "answered": 6,
     "cache": {
@@ -4153,6 +5052,376 @@
     "unanswered": 0,
     "unknown": 0
   },
+  "edgehero/pi-dispatch": {
+    "answered": 0,
+    "cache": {},
+    "closed": 334,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 11,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "edgestorage/task-handoff": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "egoist/lorca": {
+    "answered": 1,
+    "cache": {
+      "I_kwDOUguzP88AAAABXtQutQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOUguzP88AAAABYyS6ng": {
+        "result": "unanswered"
+      },
+      "I_kwDOUguzP88AAAABZ92EGg": {
+        "result": "unanswered"
+      },
+      "I_kwDOUguzP88AAAABZGNYcA": {
+        "result": "unanswered"
+      },
+      "I_kwDOUguzP88AAAABbjv2IA": {
+        "result": "unanswered"
+      },
+      "I_kwDOUguzP88AAAABdo4RHw": {
+        "hours": 4.556111111111111,
+        "result": "answered"
+      }
+    },
+    "closed": 62,
+    "completion_days": 2.5,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 62,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "egoist/waku": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOTpHnPM8AAAABOv2sFA": {
+        "result": "unanswered"
+      },
+      "I_kwDOTpHnPM8AAAABPS67VA": {
+        "result": "unanswered"
+      },
+      "I_kwDOTpHnPM8AAAABQEA-eg": {
+        "result": "unanswered"
+      },
+      "I_kwDOTpHnPM8AAAABRFFxJA": {
+        "result": "unanswered"
+      },
+      "I_kwDOTpHnPM8AAAABRncLng": {
+        "result": "unanswered"
+      },
+      "I_kwDOTpHnPM8AAAABWX-Q_A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 31,
+    "completion_days": 11.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 105,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "eigent-ai/eigent": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPU2Lms8AAAABWFH5Og": {
+        "result": "unanswered"
+      },
+      "I_kwDOPU2Lms8AAAABYB1kNA": {
+        "result": "unanswered"
+      },
+      "I_kwDOPU2Lms8AAAABYTQHwQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOPU2Lms8AAAABaQOpeQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOPU2Lms8AAAABdNHAdw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPU2Lms8AAAABeszHnw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 608,
+    "completion_days": 18.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 173,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 1,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "ekkolearnai/ekko-studio": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOR_sfj88AAAABekrcuw": {
+        "result": "unanswered"
+      },
+      "I_kwDOR_sfj88AAAABes1x6w": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1061,
+    "completion_days": 0.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 425,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "elie222/rakazo": {
+    "answered": 0,
+    "cache": {},
+    "closed": 923,
+    "completion_days": 0.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 203,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "elirantutia/vibeyard": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORrR7wM8AAAABU8F9cA": {
+        "result": "unanswered"
+      },
+      "I_kwDORrR7wM8AAAABbNeD5Q": {
+        "result": "unanswered"
+      },
+      "I_kwDORrR7wM8AAAABbQuJtA": {
+        "result": "unanswered"
+      },
+      "I_kwDORrR7wM8AAAABbRJn6w": {
+        "result": "unanswered"
+      },
+      "I_kwDORrR7wM8AAAABbTJddQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORrR7wM8AAAABbTP3mw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 47,
+    "completion_days": 28.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 24,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "emanuele-em/kanzo": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOVWuMC88AAAABaTHQ9Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOVWuMC88AAAABcGXNzw": {
+        "hours": 51.37916666666667,
+        "result": "answered"
+      },
+      "I_kwDOVWuMC88AAAABcGXWYg": {
+        "result": "unanswered"
+      },
+      "I_kwDOVWuMC88AAAABcveoqA": {
+        "hours": 1.8505555555555555,
+        "result": "answered"
+      },
+      "I_kwDOVWuMC88AAAABeKM9mw": {
+        "result": "unanswered"
+      },
+      "I_kwDOVWuMC88AAAABeknDGg": {
+        "hours": 148.93138888888888,
+        "result": "answered"
+      }
+    },
+    "closed": 17,
+    "completion_days": 1.5,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 11,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 51.4,
+    "sampled": 6,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "emanuele-web04/synara": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORyuZ6c8AAAABW--Ryw": {
+        "result": "unanswered"
+      },
+      "I_kwDORyuZ6c8AAAABXfsZYQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORyuZ6c8AAAABYCQXAQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORyuZ6c8AAAABYiRogQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORyuZ6c8AAAABcsfHHQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORyuZ6c8AAAABeSnFFQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 280,
+    "completion_days": 1.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 140,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 1,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "enderfga/claw-orchestrator": {
+    "answered": 4,
+    "cache": {
+      "I_kwDORE_36M8AAAABPSMApA": {
+        "hours": 0.7308333333333333,
+        "result": "answered"
+      },
+      "I_kwDORE_36M8AAAABS_LS8g": {
+        "hours": 1.6919444444444445,
+        "result": "answered"
+      },
+      "I_kwDORE_36M8AAAABTOq3Dw": {
+        "hours": 20.828333333333333,
+        "result": "answered"
+      },
+      "I_kwDORE_36M8AAAABcEvn-Q": {
+        "hours": 0.3125,
+        "result": "answered"
+      }
+    },
+    "closed": 38,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 1.2,
+    "sampled": 4,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "endgame-labs/goated": {
+    "answered": 0,
+    "cache": {},
+    "closed": 4,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
   "eneskirca/nodeterm": {
     "answered": 0,
     "cache": {
@@ -4191,6 +5460,770 @@
     "unanswered": 6,
     "unknown": 0
   },
+  "evanzhang008/open-walnut": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": 141.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "evermind-ai/raven": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOSjxMgc8AAAABcbh55w": {
+        "result": "unanswered"
+      },
+      "I_kwDOSjxMgc8AAAABdvh2QQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOSjxMgc8AAAABdviVmg": {
+        "result": "unanswered"
+      },
+      "I_kwDOSjxMgc8AAAABdviXug": {
+        "result": "unanswered"
+      },
+      "I_kwDOSjxMgc8AAAABenj9wQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOSjxMgc8AAAABezcCFw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 196,
+    "completion_days": 8.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 34,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "evoelsewhere/evo-harness": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "farol-team/gnap": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "fayazara/coworkers": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOU1g4Hs8AAAABXe5LIQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOU1g4Hs8AAAABbHoepQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOU1g4Hs8AAAABbR9VIA": {
+        "result": "unanswered"
+      },
+      "I_kwDOU1g4Hs8AAAABbSJZXQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOU1g4Hs8AAAABbTrRyQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 5,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 5,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "first-fluke/oh-my-agent": {
+    "answered": 5,
+    "cache": {
+      "I_kwDORE1FM88AAAABP2kmDA": {
+        "hours": 0.06305555555555556,
+        "result": "answered"
+      },
+      "I_kwDORE1FM88AAAABR73z7w": {
+        "hours": 2.9588888888888887,
+        "result": "answered"
+      },
+      "I_kwDORE1FM88AAAABTakPdg": {
+        "hours": 13.2625,
+        "result": "answered"
+      },
+      "I_kwDORE1FM88AAAABWFxJ7A": {
+        "hours": 16.441388888888888,
+        "result": "answered"
+      },
+      "I_kwDORE1FM88AAAABcJcgCw": {
+        "hours": 11.134444444444444,
+        "result": "answered"
+      }
+    },
+    "closed": 45,
+    "completion_days": 0.5,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 11.1,
+    "sampled": 5,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "flyhero/antumi": {
+    "answered": 2,
+    "cache": {
+      "I_kwDOUq1JC88AAAABcDEdoQ": {
+        "hours": 1.6444444444444444,
+        "result": "answered"
+      },
+      "I_kwDOUq1JC88AAAABczpzkg": {
+        "hours": 14.89638888888889,
+        "result": "answered"
+      }
+    },
+    "closed": 6,
+    "completion_days": 0.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "foundationagents/metagpt": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOJ182U88AAAABN1pXgg": {
+        "result": "unanswered"
+      },
+      "I_kwDOJ182U88AAAABQxpm0w": {
+        "result": "unanswered"
+      },
+      "I_kwDOJ182U88AAAABTmI_ZA": {
+        "result": "unanswered"
+      },
+      "I_kwDOJ182U88AAAABbZTywg": {
+        "result": "unanswered"
+      },
+      "I_kwDOJ182U88AAAABbmlz5g": {
+        "result": "unanswered"
+      },
+      "I_kwDOJ182U88AAAABej4o_A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 978,
+    "completion_days": 45.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 10,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "frankbria/ralph-claude-code": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPlRzQc8AAAABOp6R9A": {
+        "result": "unanswered"
+      },
+      "I_kwDOPlRzQc8AAAABTFIN_A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 189,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 7,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 4,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "fstandhartinger/ralph-wiggum": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 3,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 3,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "futuregene/future-os": {
+    "answered": 0,
+    "cache": {},
+    "closed": 37,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "fwdai/fletch": {
+    "answered": 2,
+    "cache": {
+      "I_kwDOSm4THM8AAAABO91CzA": {
+        "result": "unanswered"
+      },
+      "I_kwDOSm4THM8AAAABQnh3lA": {
+        "hours": 1.6669444444444443,
+        "result": "answered"
+      },
+      "I_kwDOSm4THM8AAAABQpj7Og": {
+        "hours": 113.64722222222223,
+        "result": "answered"
+      },
+      "I_kwDOSm4THM8AAAABW3mN0A": {
+        "result": "unanswered"
+      },
+      "I_kwDOSm4THM8AAAABW3mZEA": {
+        "result": "unanswered"
+      },
+      "I_kwDOSm4THM8AAAABZBqb4A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 8,
+    "completion_days": 0.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "fynnfluegge/agtx": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORLUe_c8AAAABSyvHTA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 23,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 13,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "gal064/muxflow": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "gastownhall/gascity": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1038,
+    "completion_days": 18.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1070,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "gastownhall/gastown": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQpbhqM8AAAABTMty6Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpbhqM8AAAABUqi91w": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpbhqM8AAAABZ3Z7kw": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpbhqM8AAAABdOaf8w": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpbhqM8AAAABdOjAMw": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpbhqM8AAAABdTFCLQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 882,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 395,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "gaurav-gosain/tuios": {
+    "answered": 4,
+    "cache": {
+      "I_kwDOPrEI7s8AAAABegK7kQ": {
+        "hours": 17.8275,
+        "result": "answered"
+      },
+      "I_kwDOPrEI7s8AAAABek2L9g": {
+        "hours": 11.61888888888889,
+        "result": "answered"
+      },
+      "I_kwDOPrEI7s8AAAABemP9Iw": {
+        "hours": 10.090833333333334,
+        "result": "answered"
+      },
+      "I_kwDOPrEI7s8AAAABewxL_g": {
+        "hours": 25.634444444444444,
+        "result": "answered"
+      }
+    },
+    "closed": 352,
+    "completion_days": 1.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 27,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 14.7,
+    "sampled": 4,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "gemron/termexo": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOTihxCs8AAAABQl5vXg": {
+        "hours": 9.328333333333333,
+        "result": "answered"
+      },
+      "I_kwDOTihxCs8AAAABQxLxMA": {
+        "hours": 25.538055555555555,
+        "result": "answered"
+      },
+      "I_kwDOTihxCs8AAAABRjI0YA": {
+        "result": "unanswered"
+      },
+      "I_kwDOTihxCs8AAAABZbwp0w": {
+        "hours": 13.176111111111112,
+        "result": "answered"
+      },
+      "I_kwDOTihxCs8AAAABa1Xc_g": {
+        "result": "unanswered"
+      },
+      "I_kwDOTihxCs8AAAABaQ57zw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 22,
+    "completion_days": 20.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 6,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 13.2,
+    "sampled": 6,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "generalaction/emdash": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPloqds8AAAABXfQ4kg": {
+        "result": "unanswered"
+      },
+      "I_kwDOPloqds8AAAABZeEfsA": {
+        "result": "unanswered"
+      },
+      "I_kwDOPloqds8AAAABatFROw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPloqds8AAAABbh6tKA": {
+        "result": "unanswered"
+      },
+      "I_kwDOPloqds8AAAABc4wjiw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPloqds8AAAABe0JAIA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 724,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 48,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 3,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "gentleman-programming/gentle-shell": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1347,
+    "completion_days": 0.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 513,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "get-bb/bb": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1153,
+    "completion_days": 2.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 801,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "get-concord-ai/concord-mcp": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOTYdpZs8AAAABcBh_oA": {
+        "result": "unanswered"
+      },
+      "I_kwDOTYdpZs8AAAABdUis7A": {
+        "hours": 21.28527777777778,
+        "result": "answered"
+      },
+      "I_kwDOTYdpZs8AAAABdeMOUg": {
+        "hours": 30.459722222222222,
+        "result": "answered"
+      },
+      "I_kwDOTYdpZs8AAAABe1TkZw": {
+        "result": "unanswered"
+      },
+      "I_kwDOTYdpZs8AAAABegq46w": {
+        "result": "unanswered"
+      },
+      "I_kwDOTYdpZs8AAAABehpdnQ": {
+        "hours": 36.66416666666667,
+        "result": "answered"
+      }
+    },
+    "closed": 67,
+    "completion_days": 11.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 39,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 30.5,
+    "sampled": 6,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "getclawe/clawe": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 4,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "getpaseo/paseo": {
+    "answered": 0,
+    "cache": {},
+    "closed": 2929,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1004,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 5,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "gintasz/neuralyzer": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "git-on-my-level/codex-autorunner": {
+    "answered": 0,
+    "cache": {},
+    "closed": 595,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "github/gh-aw": {
+    "answered": 0,
+    "cache": {},
+    "closed": 40681,
+    "completion_days": 0.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 631,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "giuliastro/harness-remote": {
+    "answered": 1,
+    "cache": {
+      "I_kwDORKvVY88AAAABPsegxA": {
+        "result": "unanswered"
+      },
+      "I_kwDORKvVY88AAAABQ39jtw": {
+        "result": "unanswered"
+      },
+      "I_kwDORKvVY88AAAABW96boQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORKvVY88AAAABXVUUow": {
+        "result": "unanswered"
+      },
+      "I_kwDORKvVY88AAAABXVh69w": {
+        "hours": 11.871944444444445,
+        "result": "answered"
+      }
+    },
+    "closed": 87,
+    "completion_days": 0.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 6,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 5,
+    "unanswered": 4,
+    "unknown": 0
+  },
   "google-github-actions/run-gemini-cli": {
     "answered": 0,
     "cache": {},
@@ -4210,10 +6243,1906 @@
     "unanswered": 0,
     "unknown": 0
   },
+  "google/adk-python": {
+    "answered": 0,
+    "cache": {},
+    "closed": 3262,
+    "completion_days": 19.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 254,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "google/ax": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOR1BXBc8AAAABb0gEyg": {
+        "result": "unanswered"
+      },
+      "I_kwDOR1BXBc8AAAABch51dw": {
+        "result": "unanswered"
+      },
+      "I_kwDOR1BXBc8AAAABch59PA": {
+        "result": "unanswered"
+      },
+      "I_kwDOR1BXBc8AAAABeqQ9Yw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 214,
+    "completion_days": 18.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 92,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 4,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "googlecloudplatform/scion": {
+    "answered": 1,
+    "cache": {
+      "I_kwDORiz9q88AAAABTPksaQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORiz9q88AAAABU_yu_Q": {
+        "result": "unanswered"
+      },
+      "I_kwDORiz9q88AAAABZVC-Lw": {
+        "result": "unanswered"
+      },
+      "I_kwDORiz9q88AAAABe0SHIw": {
+        "result": "unanswered"
+      },
+      "I_kwDORiz9q88AAAABecrOrQ": {
+        "hours": 5.620833333333334,
+        "result": "answered"
+      },
+      "I_kwDORiz9q88AAAABepTagw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 89,
+    "completion_days": 2.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 54,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "graykode/abtop": {
+    "answered": 1,
+    "cache": {
+      "I_kwDORzzHCM8AAAABQfloxw": {
+        "hours": 9.046111111111111,
+        "result": "answered"
+      },
+      "I_kwDORzzHCM8AAAABSs1RqA": {
+        "result": "unanswered"
+      },
+      "I_kwDORzzHCM8AAAABSssfPg": {
+        "result": "unanswered"
+      },
+      "I_kwDORzzHCM8AAAABTdQfiQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORzzHCM8AAAABdlaGcQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORzzHCM8AAAABeV_OZA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 38,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 24,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "greenfield-inc/pane": {
+    "answered": 0,
+    "cache": {},
+    "closed": 163,
+    "completion_days": 1.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 199,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "greensheep01201/claw-empire": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORTG3B88AAAABYtAsRA": {
+        "result": "unanswered"
+      },
+      "I_kwDORTG3B88AAAABYtCJ9A": {
+        "result": "unanswered"
+      },
+      "I_kwDORTG3B88AAAABYtExQA": {
+        "result": "unanswered"
+      },
+      "I_kwDORTG3B88AAAABYzSvQw": {
+        "result": "unanswered"
+      },
+      "I_kwDORTG3B88AAAABYzUXow": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 28,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 8,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 5,
+    "unanswered": 5,
+    "unknown": 0
+  },
   "greensheep01201/claw-kanban": {
     "answered": 0,
     "cache": {},
     "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "gregce/tortie": {
+    "answered": 4,
+    "cache": {
+      "I_kwDOT2omHM8AAAABQ1mZ1g": {
+        "hours": 33.743611111111115,
+        "result": "answered"
+      },
+      "I_kwDOT2omHM8AAAABQJVPTw": {
+        "result": "unanswered"
+      },
+      "I_kwDOT2omHM8AAAABRbRKDg": {
+        "hours": 0.5319444444444444,
+        "result": "answered"
+      },
+      "I_kwDOT2omHM8AAAABSeW7Bw": {
+        "result": "unanswered"
+      },
+      "I_kwDOT2omHM8AAAABVfQ2pw": {
+        "hours": 19.27861111111111,
+        "result": "answered"
+      },
+      "I_kwDOT2omHM8AAAABdhajkA": {
+        "hours": 53.81194444444444,
+        "result": "answered"
+      }
+    },
+    "closed": 31,
+    "completion_days": 1.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 6,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 26.5,
+    "sampled": 6,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "gregorydickson/pickle-rick-claude": {
+    "answered": 0,
+    "cache": {},
+    "closed": 85,
+    "completion_days": 0.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 11,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "h0x91b/dev-3.0": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORTDRFs8AAAABa4RhKg": {
+        "result": "unanswered"
+      },
+      "I_kwDORTDRFs8AAAABcKVKAg": {
+        "result": "unanswered"
+      },
+      "I_kwDORTDRFs8AAAABckqbXg": {
+        "result": "unanswered"
+      },
+      "I_kwDORTDRFs8AAAABeBpxyQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORTDRFs8AAAABek0L3g": {
+        "result": "unanswered"
+      },
+      "I_kwDORTDRFs8AAAABepkRWg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 292,
+    "completion_days": 1.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 22,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "hallsamuel90/craig": {
+    "answered": 0,
+    "cache": {},
+    "closed": 6,
+    "completion_days": 6.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 4,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "happier-dev/happier": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQpn9NM8AAAABeg87vg": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpn9NM8AAAABeimljQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpn9NM8AAAABew5GPw": {
+        "result": "unanswered"
+      },
+      "I_kwDOQpn9NM8AAAABezqXEg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 327,
+    "completion_days": 2.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 252,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 4,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "happy520ai/unified-ai-system": {
+    "answered": 0,
+    "cache": {},
+    "closed": 51,
+    "completion_days": 28.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 19,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "hardbeat920/monocode": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOT-aKms8AAAABcupbCA": {
+        "result": "unanswered"
+      },
+      "I_kwDOT-aKms8AAAABdIrsRg": {
+        "result": "unanswered"
+      },
+      "I_kwDOT-aKms8AAAABdXoZrQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOT-aKms8AAAABdiGNjw": {
+        "result": "unanswered"
+      },
+      "I_kwDOT-aKms8AAAABe62x7w": {
+        "result": "unanswered"
+      },
+      "I_kwDOT-aKms8AAAABeCM6sQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 249,
+    "completion_days": 6.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 333,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "harjjotsinghh/helicon": {
+    "answered": 4,
+    "cache": {
+      "I_kwDOUWtuwc8AAAABV4Jyqw": {
+        "hours": 3.7505555555555556,
+        "result": "answered"
+      },
+      "I_kwDOUWtuwc8AAAABWsak_A": {
+        "result": "unanswered"
+      },
+      "I_kwDOUWtuwc8AAAABWw8LwQ": {
+        "hours": 26.66583333333333,
+        "result": "answered"
+      },
+      "I_kwDOUWtuwc8AAAABXOpgFw": {
+        "result": "unanswered"
+      },
+      "I_kwDOUWtuwc8AAAABZUQlGw": {
+        "hours": 124.29166666666667,
+        "result": "answered"
+      },
+      "I_kwDOUWtuwc8AAAABeJkUaA": {
+        "hours": 28.578611111111112,
+        "result": "answered"
+      }
+    },
+    "closed": 59,
+    "completion_days": 2.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 35,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 27.6,
+    "sampled": 6,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "harnessmd/munder-difflin": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOStFmTs8AAAABXM8s7A": {
+        "result": "unanswered"
+      },
+      "I_kwDOStFmTs8AAAABYNFaig": {
+        "result": "unanswered"
+      },
+      "I_kwDOStFmTs8AAAABZmcJkg": {
+        "result": "unanswered"
+      },
+      "I_kwDOStFmTs8AAAABax5o6A": {
+        "result": "unanswered"
+      },
+      "I_kwDOStFmTs8AAAABb8pNpQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOStFmTs8AAAABe3y-JQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 103,
+    "completion_days": 28.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 143,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "hash-7777/hashcortx": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "hcf-studios/openhermit": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "herdrdev/herdr": {
+    "answered": 0,
+    "cache": {},
+    "closed": 2480,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 502,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 6,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "herdrdev/herdr-app": {
+    "answered": 0,
+    "cache": {},
+    "closed": 207,
+    "completion_days": 3.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 522,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "herdrdev/herdr-core": {
+    "answered": 0,
+    "cache": {},
+    "closed": 47,
+    "completion_days": 2.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 154,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "heymrun/heym": {
+    "answered": 0,
+    "cache": {},
+    "closed": 86,
+    "completion_days": 0.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "hiroppy/tmux-agent-sidebar": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOR5-_Uc8AAAABQUDPmA": {
+        "result": "unanswered"
+      },
+      "I_kwDOR5-_Uc8AAAABX7PA9Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOR5-_Uc8AAAABZ8ECTg": {
+        "result": "unanswered"
+      },
+      "I_kwDOR5-_Uc8AAAABbsKQaA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 9,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 12,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 4,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "hivecommons/hive": {
+    "answered": 0,
+    "cache": {},
+    "closed": 6669,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 32,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "hkuds/clawteam": {
+    "answered": 0,
+    "cache": {},
+    "closed": 46,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 15,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "hkuds/nanobot": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORF9GhM8AAAABdS_iOQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORF9GhM8AAAABda5TOw": {
+        "result": "unanswered"
+      },
+      "I_kwDORF9GhM8AAAABdgVFBw": {
+        "result": "unanswered"
+      },
+      "I_kwDORF9GhM8AAAABdycm0w": {
+        "result": "unanswered"
+      },
+      "I_kwDORF9GhM8AAAABe66Msw": {
+        "result": "unanswered"
+      },
+      "I_kwDORF9GhM8AAAABeht_oQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1390,
+    "completion_days": 0.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 230,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "hueyexe/opencode-ensemble": {
+    "answered": 2,
+    "cache": {
+      "I_kwDORoVz688AAAABOXPYKQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORoVz688AAAABR1ux9w": {
+        "result": "unanswered"
+      },
+      "I_kwDORoVz688AAAABWtcszw": {
+        "result": "unanswered"
+      },
+      "I_kwDORoVz688AAAABXzhwkg": {
+        "hours": 58.382777777777775,
+        "result": "answered"
+      },
+      "I_kwDORoVz688AAAABcrf68Q": {
+        "result": "unanswered"
+      },
+      "I_kwDORoVz688AAAABdrq43w": {
+        "hours": 135.32333333333332,
+        "result": "answered"
+      }
+    },
+    "closed": 28,
+    "completion_days": 16.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "humanlayer/humanlayer": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOMfskyM8AAAABRYD9nQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOMfskyM8AAAABSmievg": {
+        "result": "unanswered"
+      },
+      "I_kwDOMfskyM8AAAABVzM3jw": {
+        "result": "unanswered"
+      },
+      "I_kwDOMfskyM8AAAABbedH2w": {
+        "result": "unanswered"
+      },
+      "I_kwDOMfskyM8AAAABetuCHw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 390,
+    "completion_days": 39.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 40,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 1
+  },
+  "humanunsupervised/orchestra": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "ibrahim-3d/orchestrator-supaconductor": {
+    "answered": 0,
+    "cache": {},
+    "closed": 4,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 1,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "iishyfishyy/operator-oss": {
+    "answered": 0,
+    "cache": {},
+    "closed": 2,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "ikamensh/kodo": {
+    "answered": 0,
+    "cache": {},
+    "closed": 24,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 3,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "im4codes/imcodes": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORqU7ks8AAAABPcLK3g": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "imbue-ai/sculptor": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPaBrss8AAAABZ3Uu8g": {
+        "result": "unanswered"
+      },
+      "I_kwDOPaBrss8AAAABdL2MnQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "intent-hq/intent": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOS9Wx7M8AAAABe3qmvA": {
+        "result": "unanswered"
+      },
+      "I_kwDOS9Wx7M8AAAABe6RHhw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 2170,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 72,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "intentic/intentic": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOTtq1Wc8AAAABW8Vg_w": {
+        "result": "unanswered"
+      },
+      "I_kwDOTtq1Wc8AAAABciRWog": {
+        "result": "unanswered"
+      },
+      "I_kwDOTtq1Wc8AAAABeGQ_hA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 4,
+    "completion_days": 0.5,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 3,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "intrect-io/openswarm": {
+    "answered": 0,
+    "cache": {},
+    "closed": 17,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "iofficeai/aionui": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOPZ417s8AAAABYe1hBA": {
+        "result": "unanswered"
+      },
+      "I_kwDOPZ417s8AAAABYzPNTw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPZ417s8AAAABa4gr8Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOPZ417s8AAAABamGEhw": {
+        "result": "unanswered"
+      },
+      "I_kwDOPZ417s8AAAABcq23xg": {
+        "result": "unanswered"
+      },
+      "I_kwDOPZ417s8AAAABe3tUWw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 893,
+    "completion_days": 14.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 736,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 2,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "itsomidkarami/kraft": {
+    "answered": 0,
+    "cache": {},
+    "closed": 33,
+    "completion_days": 4.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 26,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "ivy-interactive/ivy-tendril": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOSDqK0M8AAAABQ92ghw": {
+        "result": "unanswered"
+      },
+      "I_kwDOSDqK0M8AAAABQ9TwjA": {
+        "result": "unanswered"
+      },
+      "I_kwDOSDqK0M8AAAABQ9uZ-w": {
+        "result": "unanswered"
+      },
+      "I_kwDOSDqK0M8AAAABREo_Sw": {
+        "result": "unanswered"
+      },
+      "I_kwDOSDqK0M8AAAABSaqrmQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOSDqK0M8AAAABSsxhmQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 883,
+    "completion_days": 0.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 162,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "izll/agent-session-manager": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQwU5488AAAABOHWWtw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "izll/agent-session-manager-desktop": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jamesrochabrun/agenthub": {
+    "answered": 0,
+    "cache": {},
+    "closed": 22,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 16,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jarredkenny/jmux": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jasonsuhari/gridbash": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOTOnRN88AAAABQhH_4Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOTOnRN88AAAABQhTMyw": {
+        "result": "unanswered"
+      },
+      "I_kwDOTOnRN88AAAABQsU8Mg": {
+        "result": "unanswered"
+      },
+      "I_kwDOTOnRN88AAAABRKTnUw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 131,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 39,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 4,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "jaylfc/taos": {
+    "answered": 4,
+    "cache": {
+      "I_kwDOR6Z8P88AAAABQ48E9Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOR6Z8P88AAAABTgzIig": {
+        "hours": 88.21333333333334,
+        "result": "answered"
+      },
+      "I_kwDOR6Z8P88AAAABTgzKXA": {
+        "hours": 88.21305555555556,
+        "result": "answered"
+      },
+      "I_kwDOR6Z8P88AAAABTgzLeQ": {
+        "hours": 88.21444444444444,
+        "result": "answered"
+      },
+      "I_kwDOR6Z8P88AAAABUpBzEg": {
+        "result": "unanswered"
+      },
+      "I_kwDOR6Z8P88AAAABdAN-ww": {
+        "hours": 0.7630555555555556,
+        "result": "answered"
+      }
+    },
+    "closed": 259,
+    "completion_days": 49.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 290,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 88.2,
+    "sampled": 6,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "jayminwest/warren": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": false,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jcarlosrodicio/opencode-agent-orchestration-kit": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOSQpwn88AAAABR1YP3g": {
+        "hours": 11.337777777777777,
+        "result": "answered"
+      },
+      "I_kwDOSQpwn88AAAABR1YvOQ": {
+        "hours": 12.521666666666667,
+        "result": "answered"
+      },
+      "I_kwDOSQpwn88AAAABRjaLJA": {
+        "hours": 4.418055555555555,
+        "result": "answered"
+      }
+    },
+    "closed": 6,
+    "completion_days": 1.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 4,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 11.3,
+    "sampled": 3,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jedarden/needle": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORsolOM8AAAABO6uFkA": {
+        "result": "unanswered"
+      },
+      "I_kwDORsolOM8AAAABO6uWnQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORsolOM8AAAABO6ug_w": {
+        "result": "unanswered"
+      },
+      "I_kwDORsolOM8AAAABOvUkCA": {
+        "result": "unanswered"
+      },
+      "I_kwDORsolOM8AAAABPKTpLA": {
+        "result": "unanswered"
+      },
+      "I_kwDORsolOM8AAAABPKXzrA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 11,
+    "completion_days": 11.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 5,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "jesserweigel/toryo": {
+    "answered": 0,
+    "cache": {},
+    "closed": 30,
+    "completion_days": 172.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jiangmuran/vibepanel": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOUFn8bs8AAAABR_amIw": {
+        "result": "unanswered"
+      },
+      "I_kwDOUFn8bs8AAAABT9EciQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 8,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "jmagly/aiwg": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOPeD4U88AAAABYf4bOg": {
+        "hours": 56.73638888888889,
+        "result": "answered"
+      },
+      "I_kwDOPeD4U88AAAABZviijw": {
+        "hours": 64.12972222222223,
+        "result": "answered"
+      },
+      "I_kwDOPeD4U88AAAABelE6WA": {
+        "hours": 113.495,
+        "result": "answered"
+      }
+    },
+    "closed": 245,
+    "completion_days": 0.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 64.1,
+    "sampled": 3,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jnmetacode/agency-orchestrator": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORtJbVc8AAAABPegNfw": {
+        "result": "unanswered"
+      },
+      "I_kwDORtJbVc8AAAABTNxI7w": {
+        "result": "unanswered"
+      },
+      "I_kwDORtJbVc8AAAABW3tbeg": {
+        "result": "unanswered"
+      },
+      "I_kwDORtJbVc8AAAABWU4dmg": {
+        "result": "unanswered"
+      },
+      "I_kwDORtJbVc8AAAABYfABFQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORtJbVc8AAAABccgTJA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 48,
+    "completion_days": 9.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 8,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "joaoh82/yardsort": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOUfZeJc8AAAABUp9NJA": {
+        "result": "unanswered"
+      },
+      "I_kwDOUfZeJc8AAAABUpyuGQ": {
+        "hours": 4.171944444444445,
+        "result": "answered"
+      },
+      "I_kwDOUfZeJc8AAAABUqFwIA": {
+        "hours": 52.17777777777778,
+        "result": "answered"
+      },
+      "I_kwDOUfZeJc8AAAABUqJ5Fg": {
+        "hours": 3.6013888888888888,
+        "result": "answered"
+      }
+    },
+    "closed": 4,
+    "completion_days": 0.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 3,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 4.2,
+    "sampled": 4,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "joelhooks/swarm-tools": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQkgA1c8AAAABQi48dA": {
+        "result": "unanswered"
+      },
+      "I_kwDOQkgA1c8AAAABdHZpAw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 20,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 32,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 2,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "johannesjo/parallel-code": {
+    "answered": 2,
+    "cache": {
+      "I_kwDORS9NRs8AAAABPylTBQ": {
+        "hours": 89.56833333333333,
+        "result": "answered"
+      },
+      "I_kwDORS9NRs8AAAABZ3RPPg": {
+        "result": "unanswered"
+      },
+      "I_kwDORS9NRs8AAAABcHGaWA": {
+        "hours": 72.4125,
+        "result": "answered"
+      },
+      "I_kwDORS9NRs8AAAABdAtMDA": {
+        "result": "unanswered"
+      },
+      "I_kwDORS9NRs8AAAABeXTeaQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORS9NRs8AAAABenEd_Q": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 54,
+    "completion_days": 16.9,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 39,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "jonathanriche/verde": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORve--M8AAAABdRwMZQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 62,
+    "completion_days": 47.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 26,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "jonwiggins/optio": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORroPZM8AAAABTPERTg": {
+        "result": "unanswered"
+      },
+      "I_kwDORroPZM8AAAABU_qpGA": {
+        "result": "unanswered"
+      },
+      "I_kwDORroPZM8AAAABXwiyZQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORroPZM8AAAABaDK-1g": {
+        "result": "unanswered"
+      },
+      "I_kwDORroPZM8AAAABd1M1ew": {
+        "result": "unanswered"
+      },
+      "I_kwDORroPZM8AAAABeuaDOA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 267,
+    "completion_days": 2.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 17,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "josstei/maestro-orchestrate": {
+    "answered": 0,
+    "cache": {},
+    "closed": 6,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 5,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jovancoding/network-ai": {
+    "answered": 0,
+    "cache": {},
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "jpeetz/hermes-studio": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOR-2Frc8AAAABO2KKlg": {
+        "result": "unanswered"
+      },
+      "I_kwDOR-2Frc8AAAABO2QHkg": {
+        "result": "unanswered"
+      },
+      "I_kwDOR-2Frc8AAAABZ4MTIQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 9,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 3,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "jtaroreh/agystack": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "junhoyeo/contrabass": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORezk3M8AAAABPkM-lg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 3,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 3,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "kangentic/kangentic": {
+    "answered": 0,
+    "cache": {
+      "I_kwDORWRgZ88AAAABPA8U0A": {
+        "result": "unanswered"
+      },
+      "I_kwDORWRgZ88AAAABSWlAaQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORWRgZ88AAAABa8djdw": {
+        "result": "unanswered"
+      },
+      "I_kwDORWRgZ88AAAABeWhi3g": {
+        "result": "unanswered"
+      },
+      "I_kwDORWRgZ88AAAABeazdlw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 48,
+    "completion_days": 9.4,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 1
+  },
+  "kc1t/alethe-agents": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOS7o9Js8AAAABV-I-YQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOS7o9Js8AAAABV-I1ug": {
+        "result": "unanswered"
+      },
+      "I_kwDOS7o9Js8AAAABV-I5rQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOS7o9Js8AAAABVxAOqw": {
+        "result": "unanswered"
+      },
+      "I_kwDOS7o9Js8AAAABc4Nxtw": {
+        "result": "unanswered"
+      },
+      "I_kwDOS7o9Js8AAAABeXkB1A": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 113,
+    "completion_days": 20.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 42,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "kcosr/assistant": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQ31e788AAAABbfIHgw": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "kdlbs/kandev": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOQ2-eWs8AAAABe06J5g": {
+        "result": "unanswered"
+      },
+      "I_kwDOQ2-eWs8AAAABe4B8gA": {
+        "result": "unanswered"
+      },
+      "I_kwDOQ2-eWs8AAAABe4DMBA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 499,
+    "completion_days": 1.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 155,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 3,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "keesan12/martin-loop": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOR5Y0Rc8AAAABWYhs7Q": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 11,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "kimyx0207/meta_kim": {
+    "answered": 1,
+    "cache": {
+      "I_kwDORuYb288AAAABOTG8ww": {
+        "result": "unanswered"
+      },
+      "I_kwDORuYb288AAAABOcDcOQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORuYb288AAAABOcDpZA": {
+        "result": "unanswered"
+      },
+      "I_kwDORuYb288AAAABQGYTdA": {
+        "hours": 15.644444444444444,
+        "result": "answered"
+      },
+      "I_kwDORuYb288AAAABQoXniQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORuYb288AAAABVP5f-g": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 47,
+    "completion_days": 12.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 5,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 5,
+    "unknown": 0
+  },
+  "knoxops/agent-runbook": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
     "completion_days": null,
     "date": "2026-11-20",
     "enabled": true,
@@ -4250,6 +8179,420 @@
     "reply_hours": null,
     "sampled": 1,
     "unanswered": 1,
+    "unknown": 0
+  },
+  "kstevica/captain-claw": {
+    "answered": 0,
+    "cache": {},
+    "closed": 2,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "kyegomez/swarms": {
+    "answered": 0,
+    "cache": {},
+    "closed": 899,
+    "completion_days": 0.7,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 224,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 1,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "langchain-ai/langgraph": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOKFU0lc8AAAABddoIng": {
+        "result": "unanswered"
+      },
+      "I_kwDOKFU0lc8AAAABe0MrgQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOKFU0lc8AAAABeenaYA": {
+        "result": "unanswered"
+      },
+      "I_kwDOKFU0lc8AAAABefFLug": {
+        "result": "unanswered"
+      },
+      "I_kwDOKFU0lc8AAAABeooGtA": {
+        "result": "unanswered"
+      },
+      "I_kwDOKFU0lc8AAAABetkKEQ": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 1437,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 355,
+    "outcomes": {
+      "COMPLETED": 1,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 5,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 6,
+    "unknown": 0
+  },
+  "langchain-ai/open-swe": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": false,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "latand/delegatus": {
+    "answered": 0,
+    "cache": {},
+    "closed": 983,
+    "completion_days": 3.2,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 476,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "layernorm/overlay-web": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 28,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 3,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "lazyagi/lazymind": {
+    "answered": 2,
+    "cache": {
+      "I_kwDOMRc-bc8AAAABOvTcGQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOMRc-bc8AAAABW7t8Ow": {
+        "result": "unanswered"
+      },
+      "I_kwDOMRc-bc8AAAABW7xa0w": {
+        "result": "unanswered"
+      },
+      "I_kwDOMRc-bc8AAAABYDrp-g": {
+        "result": "unanswered"
+      },
+      "I_kwDOMRc-bc8AAAABZotPpw": {
+        "hours": 39.63,
+        "result": "answered"
+      },
+      "I_kwDOMRc-bc8AAAABaeHysQ": {
+        "hours": 6.871388888888889,
+        "result": "answered"
+      }
+    },
+    "closed": 8,
+    "completion_days": 1.8,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 8,
+    "outcomes": {
+      "COMPLETED": 4,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "ldbumble/taskuary": {
+    "answered": 3,
+    "cache": {
+      "I_kwDOT7ORjs8AAAABY2XhKQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOT7ORjs8AAAABZI5Gyg": {
+        "result": "unanswered"
+      },
+      "I_kwDOT7ORjs8AAAABbM7BxA": {
+        "hours": 6.7,
+        "result": "answered"
+      },
+      "I_kwDOT7ORjs8AAAABbokOEQ": {
+        "hours": 81.45361111111112,
+        "result": "answered"
+      },
+      "I_kwDOT7ORjs8AAAABdw5IvQ": {
+        "hours": 0.5813888888888888,
+        "result": "answered"
+      },
+      "I_kwDOT7ORjs8AAAABdwBmGA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 151,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 9,
+    "outcomes": {
+      "COMPLETED": 2,
+      "DUPLICATE": 4,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 6.7,
+    "sampled": 6,
+    "unanswered": 3,
+    "unknown": 0
+  },
+  "leon-ai/leon": {
+    "answered": 4,
+    "cache": {
+      "I_kwDOCiGecs8AAAABOaOg6Q": {
+        "result": "unanswered"
+      },
+      "I_kwDOCiGecs8AAAABRRnMJQ": {
+        "result": "unanswered"
+      },
+      "I_kwDOCiGecs8AAAABX0l8RQ": {
+        "hours": 155.94611111111112,
+        "result": "answered"
+      },
+      "I_kwDOCiGecs8AAAABcs6cfA": {
+        "hours": 51.852777777777774,
+        "result": "answered"
+      },
+      "I_kwDOCiGecs8AAAABdpQSAA": {
+        "hours": 121.35472222222222,
+        "result": "answered"
+      },
+      "I_kwDOCiGecs8AAAABdpSJfQ": {
+        "hours": 121.33,
+        "result": "answered"
+      }
+    },
+    "closed": 237,
+    "completion_days": 7.1,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 97,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": 121.3,
+    "sampled": 6,
+    "unanswered": 2,
+    "unknown": 0
+  },
+  "letta-ai/lettabot": {
+    "answered": 0,
+    "cache": {},
+    "closed": 151,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 76,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "leularia/volt": {
+    "answered": 0,
+    "cache": {
+      "I_kwDOVEic7M8AAAABczg6Lg": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 2,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 1,
+    "unanswered": 1,
+    "unknown": 0
+  },
+  "ling-stack-org/ling-stack": {
+    "answered": 0,
+    "cache": {},
+    "closed": 5,
+    "completion_days": 6.6,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 3,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "lixiaoyiao/dsh-action": {
+    "answered": 0,
+    "cache": {},
+    "closed": 197,
+    "completion_days": 0.0,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 6,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "looptroop-ai/looptroop": {
+    "answered": 2,
+    "cache": {
+      "I_kwDORdY5q88AAAABO4_gwQ": {
+        "result": "unanswered"
+      },
+      "I_kwDORdY5q88AAAABS3yIvQ": {
+        "hours": 54.43861111111111,
+        "result": "answered"
+      },
+      "I_kwDORdY5q88AAAABUvt_oA": {
+        "hours": 12.8775,
+        "result": "answered"
+      },
+      "I_kwDORdY5q88AAAABY8v1ag": {
+        "result": "unanswered"
+      },
+      "I_kwDORdY5q88AAAABY8v7Fw": {
+        "result": "unanswered"
+      },
+      "I_kwDORdY5q88AAAABYoj1lA": {
+        "result": "unanswered"
+      }
+    },
+    "closed": 19,
+    "completion_days": 2.3,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 1,
+    "outcomes": {
+      "COMPLETED": 5,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 1,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 6,
+    "unanswered": 4,
+    "unknown": 0
+  },
+  "lsjwzh/multicc": {
+    "answered": 0,
+    "cache": {},
+    "closed": 0,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 0,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
+    "unknown": 0
+  },
+  "lucinate-ai/lucinate": {
+    "answered": 0,
+    "cache": {},
+    "closed": 49,
+    "completion_days": null,
+    "date": "2026-11-20",
+    "enabled": true,
+    "open": 17,
+    "outcomes": {
+      "COMPLETED": 0,
+      "DUPLICATE": 0,
+      "NOT_PLANNED": 0,
+      "UNSPECIFIED": 0
+    },
+    "reply_hours": null,
+    "sampled": 0,
+    "unanswered": 0,
     "unknown": 0
   },
   "nousresearch/hermes-agent": {
