@@ -78,6 +78,14 @@ function inspectProject(p) {
   repository.textContent = p.repo;
   content.replaceChildren(header, repository, node('h3', 'Category benchmarks'),
     node('p', category + ' · ' + peers.length + (peers.length === 1 ? ' other project' : ' other projects')), wrap, note);
+  const issues = inspectTable(['Measure', 'Observation']);
+  const issueBody = issues.createTBody();
+  for (const [measure, value] of Object.entries(issueMeasures(p))) {
+    const row = issueBody.insertRow();
+    row.append(node('th', measure), node('td', value));
+  }
+  content.append(node('h3', 'Issue responsiveness'), issues, node('p',
+    'Each sample uses up to six user-opened issues aged 7–90 days and six recent closures. Only human team replies count. Medians require three observations.'));
   if (!dialog.open) dialog.showModal();
 }
 
@@ -118,4 +126,32 @@ function drawMaintenance(hits) {
     };
     container.append(more);
   }
+}
+
+function issueMeasures(project) {
+  const s = project.issues;
+  const updated = project.fetched_at || '';
+  function count(key, fallback) {
+    if (s && s.date >= updated) return s[fallback];
+    return project[key] ?? s?.[fallback] ?? '—';
+  }
+  const values = {
+    'Open issues': count('open_issues', 'open'),
+    'Closed issues': count('closed_issues', 'closed'),
+    'Issue sample': s ? s.date : 'Awaiting sample',
+    'Maintainer reply within 7 days': '—',
+    'Median first reply': '—',
+    'Recent closures sampled': '—',
+    'Median time to completed closure': '—'
+  };
+  if (!s) return values;
+  if (!s.enabled) { values['Issue sample'] += ' · issues disabled'; return values; }
+  values['Maintainer reply within 7 days'] = s.sampled
+    ? s.answered+' answered · '+s.unanswered+' unanswered · '+s.unknown+' unknown ('+s.sampled+' sampled)'
+    : 'No eligible user issues';
+  if (s.reply_hours != null) values['Median first reply'] = s.reply_hours+' hours';
+  const o=s.outcomes;
+  values['Recent closures sampled'] = o.COMPLETED+' completed · '+o.NOT_PLANNED+' not planned · '+o.DUPLICATE+' duplicate · '+o.UNSPECIFIED+' unspecified';
+  if (s.completion_days != null) values['Median time to completed closure'] = s.completion_days+' days';
+  return values;
 }

@@ -52,6 +52,14 @@ function showComparison(){
   const row=node('tr');row.append(node('th',label));
   for(const p of picks){let v=p[key];if(key==='category')v=catalog.categories[v];if(key==='top_author_share'&&v!=null)v=Math.round(v*100)+'%';if(Array.isArray(v))v=v.join(', ');row.append(node('td',v==null||v===''?'—':v))}table.append(row);
  }
+ if(picks.length){
+  const columns=picks.map(issueMeasures);
+  for(const key of Object.keys(columns[0])){
+   const row=node('tr');row.append(node('th',key));
+   for(const column of columns)row.append(node('td',column[key]));
+   table.append(row);
+  }
+ }
  el('comparison').replaceChildren(table);
 }
 const colors={Active:'#cef57e',Recent:'#61c7ad',Slow:'#85a7ee',Stale:'#cc9ae1',Archived:'#f3b274',Unavailable:'#a5aaa7','Not fetched':'#e4e8e6'};

@@ -64,6 +64,12 @@ jobs:
           [ "$TASK" != "metrics" ] && echo "discover=true" >> "$GITHUB_OUTPUT"
           echo "running: $TASK"
 
+      - name: Sample issue responsiveness
+        if: steps.plan.outputs.metrics == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/issue_sample.py
+
       # Optional: a fine-grained personal access token with no permissions (public read only) in the
       # INDEX_TOKEN secret raises the API limits from 1,000 to 5,000 per hour. Without it the workflow's
       # own token is used. Only the two fetch steps see it.
@@ -71,7 +77,7 @@ jobs:
         if: steps.plan.outputs.metrics == 'true'
         env:
           GH_TOKEN: ${{ secrets.INDEX_TOKEN || github.token }}
-        run: python3 scripts/update.py --spread --max-minutes 25 --maintenance "$RUNNER_TEMP/maintenance.md"
+        run: python3 scripts/update.py --spread --max-minutes 23 --maintenance "$RUNNER_TEMP/maintenance.md"
 
       # Renamed, removed, or failing projects: shown in the job summary and kept in one open issue, which is
       # closed again once data/projects.json is fixed.
@@ -134,6 +140,7 @@ jobs:
           fi
           python3 scripts/update.py --check-generated
           git add README.md catalog.html data/metrics.json data/candidates.json data/projects.csv data/weekly-history.json
+          if [ -f data/issue-samples.json ]; then git add data/issue-samples.json; fi
           if [ -f data/discovery-state.json ]; then git add data/discovery-state.json; fi
           if [ -f data/discovery-stats.json ]; then git add data/discovery-stats.json; fi
           if git diff --cached --quiet; then

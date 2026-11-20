@@ -123,7 +123,8 @@ METHOD = """## Methodology
 | Last commit | Committer date of the newest default-branch commit. `pushed_at` is not used, because it also changes when other branches are pushed. |
 | Status | 🟢 **Active**: last commit within 30 days. 🟡 **Recent**: 31 to 90 days. 🟠 **Slow**: 91 to 365 days. 🔴 **Stale**: older than a year, or no commits. 📦 **Archived**: archived on GitHub. ⚫ **Unavailable**: the repository no longer exists, or the API call failed and there is no earlier snapshot. Unavailable projects are excluded from the available-project count. When a fetch fails temporarily, the previous snapshot is kept. |
 | Latest release | Newest non-draft GitHub Release, pre-releases included. Projects that only push tags show "—". |
-| Open issues / PRs | Open issues (excluding pull requests) and open pull requests. |
+| Open and closed issues | Aggregate GitHub issue totals. Pull requests are counted separately. |
+| Issue responsiveness | Monthly sample of up to six external human reports aged 7–90 days among the 30 newest issues, and up to six recent closures among the 30 most recently updated closed issues. Reports are spread across each eligible list. Only replies by a human owner, member, or collaborator other than the reporter count. We read metadata for the first five comments. Truncated threads with an unresolved seven-day window are unknown. Timing medians require three observations. Closed as completed is the maintainer’s recorded reason. |
 
 **Also in `data/projects.csv`.** Top-author share (the top human contributor's share of human contributions; values near 100% mean one person does almost all of the work), commits across all time on the default branch, releases in the last 12 months, stars per month since creation, age in months, every detected language with its share, and the detected features. A value that starts with `=`, `+`, `-`, or `@` (some release tags do) carries a leading apostrophe, so a spreadsheet does not run it as a formula.
 
@@ -161,6 +162,7 @@ REPO_FIELDS = """
   languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { totalSize edges { size node { name } } }
   repositoryTopics(first: 20) { nodes { topic { name } } }
   issues(states: OPEN) { totalCount }
+  closedIssues: issues(states: CLOSED) { totalCount }
   pullRequests(states: OPEN) { totalCount }
   releases(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
     pageInfo { hasNextPage endCursor }
@@ -396,6 +398,7 @@ def record_from_graphql(repo, g):
                       for e in langs.get("edges") or []] if total else [],
         "topics": [n["topic"]["name"] for n in (g.get("repositoryTopics") or {}).get("nodes") or []],
         "open_issues": g["issues"]["totalCount"],
+        "closed_issues": g["closedIssues"]["totalCount"],
         "open_prs": g["pullRequests"]["totalCount"],
         "last_commit_at": target.get("committedDate"),
         "commits_90d": (target.get("recent") or {}).get("totalCount", 0),
@@ -1351,9 +1354,14 @@ HISTORY_FILE = ROOT / "data" / "weekly-history.json"
 def render_explorer(doc, rows, weeks=None):
     keys = ("repo", "name", "category", "status", "language", "stars", "features", "description",
             "contributors", "commits_90d", "latest_release_at", "last_commit_at", "license",
-            "top_author_share", "releases_12m", "fetched_at", "commits_all_time")
+            "top_author_share", "releases_12m", "fetched_at", "commits_all_time", "open_issues", "closed_issues")
     entries = [{k: r.get(k) for k in keys} for r in rows]
+    sample_file = ROOT / "data/issue-samples.json"
+    samples = json.loads(sample_file.read_text()) if sample_file.exists() else {}
     for entry in entries:
+        sample = samples.get(entry["repo"].lower())
+        if sample:
+            entry["issues"] = {k: v for k, v in sample.items() if k != "cache"}
         for key in ("latest_release_at", "last_commit_at", "fetched_at"):
             entry[key] = (entry[key] or "")[:10]
     dates = sorted(r["fetched_at"][:10] for r in rows if r.get("fetched_at"))
